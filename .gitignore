@@ -10,3 +10,9 @@ desktop.ini
 # Logs
 *.log
 
+# Temporary Scratch & Development Scripts
+scratch/
+*.ps1
+
+# Documentation & Requirements (Excluded from repository)
+prd.md

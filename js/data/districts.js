@@ -29,14 +29,14 @@ const BIHAR_DISTRICTS = [
     description_hi: "पटना, प्राचीन पाटलिपुत्र, पवित्र गंगा नदी के दक्षिणी तट पर स्थित बिहार की जीवंत राजधानी है। 2,500 से अधिक वर्षों के गौरवशाली सभ्यतागत इतिहास के साथ, यह हर्यंक, नंद, मौर्य, शुंग और गुप्त साम्राज्यों की राजधानी रही है।",
     historical_importance: "Ancient seat of emperor Ashoka and Chandragupta Maurya, birthplace of Guru Gobind Singh Ji, and home to landmark Mauryan ruins at Kumhrar.",
     historical_importance_hi: "सम्राट अशोक और चंद्रगुप्त मौर्य का प्राचीन सिंहासन, गुरु गोबिंद सिंह जी की पावन जन्मस्थली और कुम्रहार में ऐतिहासिक मौर्य खंडहर।",
-    famous_attractions: ["Bihar Museum", "Takht Sri Patna Sahib", "Golghar", "Kumhrar", "Patna Planetarium", "Sanjay Gandhi Biological Park", "Sabhyata Dwar", "Ganga Marine Drive"],
+    famous_attractions: ["Bihar Museum (Asia's #1 Museum)", "Patna Museum (Historic Jadu Ghar)", "Takht Sri Patna Sahib", "Golghar", "Kumhrar", "Patna Planetarium", "Sanjay Gandhi Biological Park", "Sabhyata Dwar", "Ganga Marine Drive"],
     famous_food: ["Litti Chokha", "Chana Ghugni", "Khaja", "Sattu Paratha", "Dal Pitha"],
     famous_food_hi: ["लिट्टी चोखा", "चना घुघनी", "खाजा", "सत्तू पराठा", "दाल पीठा"],
     festivals: ["Chhath Puja", "Prakash Parv", "Patna Film Festival", "Durga Puja"],
     festivals_hi: ["छठ पूजा", "प्रकाश पर्व", "पटना फिल्म महोत्सव", "दुर्गा पूजा"],
     transport_info: "Jay Prakash Narayan International Airport (PAT), Patna Junction (major Indian railway hub), and extensive NH network.",
     transport_info_hi: "जय प्रकाश नारायण अंतर्राष्ट्रीय हवाई अड्डा (PAT), पटना जंक्शन, और राष्ट्रीय राजमार्ग नेटवर्क।",
-    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80"
+    image: "images/golghar.jpg"
   },
   {
     id: "nalanda",
@@ -58,7 +58,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["राजगीर महोत्सव", "बुद्ध जयंती", "छठ पूजा", "महावीर जयंती"],
     transport_info: "Rajgir & Bakhtiyarpur Railway Stations; 75 km from Patna Airport via 4-lane NH-31 / NH-20.",
     transport_info_hi: "राजगीर और बख्तियारपुर रेलवे स्टेशन; पटना एयरपोर्ट से लगभग 75 किमी।",
-    image: "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80"
+    image: "images/nalanda.jpg"
   },
   {
     id: "bhojpur",
@@ -80,7 +80,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["वीर कुंवर सिंह विजयोत्सव", "छठ पूजा", "भोजपुरी महोत्सव"],
     transport_info: "Ara Junction on Delhi-Howrah mainline; 50 km west of Patna.",
     transport_info_hi: "आरा जंक्शन मुख्य रेल मार्ग पर; पटना से 50 किमी पश्चिम।",
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+    image: "images/golghar.jpg"
   },
   {
     id: "buxar",
@@ -102,7 +102,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["कार्तिक पूर्णिमा स्नान", "पंचकोशी परिक्रमा", "छठ पूजा", "राम नवमी"],
     transport_info: "Buxar Railway Station on Main trunk line connecting Patna and Varanasi.",
     transport_info_hi: "बक्सर रेलवे स्टेशन पटना-वाराणसी मुख्य रेल मार्ग पर स्थित है।",
-    image: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=800&q=80"
+    image: "images/patnasahib.jpg"
   },
   {
     id: "rohtas",
@@ -124,7 +124,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["तुतला भवानी मेला", "छठ पूजा", "बुद्ध जयंती"],
     transport_info: "Sasaram Junction on Grand Chord railway; Connected via NH-19 (Old GT Road).",
     transport_info_hi: "सासाराम जंक्शन ग्रैंड कॉर्ड रेलवे पर; राष्ट्रीय राजमार्ग NH-19 पर स्थित।",
-    image: "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=800&q=80"
+    image: "images/shershah.jpg"
   },
   {
     id: "kaimur",
@@ -146,7 +146,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["मुंडेश्वरी धाम नवरात्र मेला", "कैमूर महोत्सव", "शिवरात्रि"],
     transport_info: "Bhabua Road (BBU) railway station; 15 km to district HQ; easily accessible from Varanasi (80 km).",
     transport_info_hi: "भभुआ रोड (BBU) रेलवे स्टेशन; वाराणसी से 80 किमी।",
-    image: "https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
 
   // --- 2. MAGADH DIVISION ---
@@ -170,7 +170,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["पितृपक्ष मेला", "बुद्ध पूर्णिमा", "कालचक्र पूजा", "छठ पूजा"],
     transport_info: "Gaya International Airport (GAY) with seasonal Buddhist flights; Gaya Junction railway station.",
     transport_info_hi: "गया अंतर्राष्ट्रीय हवाई अड्डा (GAY) और गया जंक्शन रेलवे स्टेशन।",
-    image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80"
+    image: "images/mahabodhi.jpg"
   },
   {
     id: "nawada",
@@ -192,7 +192,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["चैती नवरात्र", "ककोलत बैसाखी स्नान मेला", "छठ पूजा"],
     transport_info: "Nawada Railway station on Kiul-Gaya line; 110 km south-east of Patna.",
     transport_info_hi: "किउल-गया रेल लाइन पर नवादा स्टेशन; पटना से 110 किमी।",
-    image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80"
+    image: "images/kakolat.jpg"
   },
   {
     id: "aurangabad",
@@ -214,7 +214,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["देव छठ महापर्व मेला", "सूर्य महोत्सव", "शिवरात्रि"],
     transport_info: "Anugrah Narayan Road (AUBR) railway station; connected along NH-19 (GT Road).",
     transport_info_hi: "अनुग्रह नारायण रोड (AUBR) रेलवे स्टेशन; NH-19 पर स्थित।",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
   {
     id: "jehanabad",
@@ -236,7 +236,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सिद्धेश्वर नाथ शिवरात्रि मेला", "अनंत पूजा", "छठ पूजा"],
     transport_info: "Jehanabad Railway station on Patna-Gaya mainline (45 km south of Patna).",
     transport_info_hi: "पटना-गया मुख्य रेल मार्ग पर जहानाबाद स्टेशन (पटना से 45 किमी)।",
-    image: "https://images.unsplash.com/photo-1598890777032-bde13fba5be3?auto=format&fit=crop&w=800&q=80"
+    image: "images/barabar.jpg"
   },
   {
     id: "arwal",
@@ -258,7 +258,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सोन तट पर छठ पूजा", "मकर संक्रांति", "शिवरात्रि"],
     transport_info: "Nearest major railheads at Jehanabad (35 km) and Patna (65 km).",
     transport_info_hi: "निकटतम प्रमुख रेलवे स्टेशन जहानाबाद (35 किमी) और पटना (65 किमी)।",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+    image: "images/patnasahib.jpg"
   },
 
   // --- 3. TIRHUT DIVISION ---
@@ -282,7 +282,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["गरीबनाथ श्रावणी मेला", "लीची महोत्सव", "छठ पूजा", "दुर्गा पूजा"],
     transport_info: "Muzaffarpur Junction (major northern railway junction); 70 km from Patna via Gandhi Setu.",
     transport_info_hi: "मुजफ्फरपुर जंक्शन प्रमुख रेलवे स्टेशन; पटना से लगभग 70 किमी।",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+    image: "images/sitamarhi.jpg"
   },
   {
     id: "vaishali",
@@ -304,7 +304,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["वैशाली महोत्सव", "महावीर जयंती", "बुद्ध जयंती"],
     transport_info: "Hajipur Junction (East Central Railway HQ); 30 km from Patna via Mahatma Gandhi Setu.",
     transport_info_hi: "हाजीपुर जंक्शन (पूर्व मध्य रेल मुख्यालय); पटना से 30 किमी गांधी सेतु द्वारा।",
-    image: "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=800&q=80"
+    image: "images/kesaria.jpg"
   },
   {
     id: "east-champaran",
@@ -326,7 +326,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सत्याग्रह महोत्सव", "छठ पूजा", "अरेराज शिवरात्रि मेला"],
     transport_info: "Bapudham Motihari Railway Station; connected via NH-27; 140 km north of Patna.",
     transport_info_hi: "बापूधाम मोतिहारी रेलवे स्टेशन; NH-27 पर स्थित; पटना से 140 किमी उत्तर।",
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+    image: "images/kesaria.jpg"
   },
   {
     id: "west-champaran",
@@ -348,7 +348,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["वाल्मीकि महोत्सव", "छठ पूजा", "त्रिवेणी मकर संक्रांति मेला"],
     transport_info: "Bettiah and Narkatiaganj railway stations; 200 km from Patna.",
     transport_info_hi: "बेतिया और नरकटियागंज रेलवे स्टेशन; पटना से लगभग 200 किमी।",
-    image: "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=800&q=80"
+    image: "images/valmiki.jpg"
   },
   {
     id: "sitamarhi",
@@ -370,7 +370,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["जानकी नवमी महोत्सव", "विवाह पंचमी", "छठ पूजा"],
     transport_info: "Sitamarhi Junction railway station; 135 km north of Patna via Muzaffarpur.",
     transport_info_hi: "सीतामढ़ी जंक्शन रेलवे स्टेशन; मुजफ्फरपुर के रास्ते पटना से 135 किमी।",
-    image: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=800&q=80"
+    image: "images/sitamarhi.jpg"
   },
   {
     id: "sheohar",
@@ -392,7 +392,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["देवकुली महाशिवरात्रि मेला", "छठ पूजा", "श्रावणी मेला"],
     transport_info: "Connected by road via NH-104; nearest major railhead at Sitamarhi (28 km).",
     transport_info_hi: "NH-104 द्वारा जुड़ा; निकटतम बड़ा रेलवे स्टेशन सीतामढ़ी (28 किमी)।",
-    image: "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
 
   // --- 4. SARAN DIVISION ---
@@ -416,7 +416,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सोनपुर पशु मेला (कार्तिक पूर्णिमा)", "छठ पूजा", "आमी नवरात्र मेला"],
     transport_info: "Chhapra Junction (major rail terminal); 45 km from Patna via Digha Bridge.",
     transport_info_hi: "छपरा जंक्शन प्रमुख रेलवे जंक्शन; दीघा-सोनपुर पुल से पटना से 45 किमी।",
-    image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=800&q=80"
+    image: "images/patnasahib.jpg"
   },
   {
     id: "siwan",
@@ -438,7 +438,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["डॉ. राजेंद्र प्रसाद जयंती", "महेंद्रनाथ शिवरात्रि मेला", "छठ पूजा"],
     transport_info: "Siwan Junction on Gorakhpur-Chhapra main line; 120 km northwest of Patna.",
     transport_info_hi: "सीवान जंक्शन गोरखपुर-छपरा मुख्य रेल लाइन पर; पटना से 120 किमी।",
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+    image: "images/golghar.jpg"
   },
   {
     id: "gopalganj",
@@ -460,7 +460,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["थावे चैत्र नवरात्र मेला", "छठ पूजा", "शारदीय नवरात्र"],
     transport_info: "Thawe Junction and Gopalganj railway stations; connected via NH-27.",
     transport_info_hi: "थावे जंक्शन और गोपालगंज रेलवे स्टेशन; NH-27 पर स्थित।",
-    image: "https://images.unsplash.com/photo-1598890777032-bde13fba5be3?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
 
   // --- 5. DARBHANGA DIVISION ---
@@ -484,7 +484,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["श्यामा माई पूजा", "छठ पूजा", "मिथिला महोत्सव", "सरस्वती पूजा"],
     transport_info: "Darbhanga Airport (DHY) with daily flights to Delhi, Mumbai, Bengaluru; Darbhanga Junction.",
     transport_info_hi: "दरभंगा हवाई अड्डा (DHY) एवं दरभंगा जंक्शन रेलवे स्टेशन।",
-    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
+    image: "images/madhubani.jpg"
   },
   {
     id: "madhubani",
@@ -506,7 +506,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सौराठ सभा", "सामा चकेवा", "छठ पूजा", "मधुबनी कला महोत्सव"],
     transport_info: "Madhubani Railway Station; 30 km from Darbhanga Airport.",
     transport_info_hi: "मधुबनी रेलवे स्टेशन; दरभंगा एयरपोर्ट से मात्र 30 किमी।",
-    image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+    image: "images/madhubani.jpg"
   },
   {
     id: "samastipur",
@@ -528,7 +528,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["विद्यापति स्मृति पर्व", "छठ पूजा", "पूसा किसान मेला"],
     transport_info: "Samastipur Junction (divisional rail headquarters of East Central Railway).",
     transport_info_hi: "समस्तीपुर जंक्शन (पूर्व मध्य रेल का मंडल मुख्यालय)।",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+    image: "images/madhubani.jpg"
   },
 
   // --- 6. KOSI DIVISION ---
@@ -552,7 +552,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["उग्रतारा महोत्सव", "छठ पूजा", "नवरात्र मेला"],
     transport_info: "Saharsa Junction railway station; 180 km from Patna.",
     transport_info_hi: "सहरसा जंक्शन रेलवे स्टेशन; पटना से 180 किमी।",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
   {
     id: "supaul",
@@ -574,7 +574,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["कोशी महोत्सव", "छठ पूजा", "मकर संक्रांति"],
     transport_info: "Supaul railway station; connected via NH-57 East-West corridor.",
     transport_info_hi: "सुपौल रेलवे स्टेशन; NH-57 पूर्व-पश्चिम कॉरिडोर से जुड़ा।",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+    image: "images/kanwar.jpg"
   },
   {
     id: "madhepura",
@@ -596,7 +596,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सिंहेश्वर महाशिवरात्रि मेला (एक माह लंबा मेला)", "छठ पूजा"],
     transport_info: "Dauram Madhepura railway station; connected via NH-106 and NH-107.",
     transport_info_hi: "दौरम मधेपुरा रेलवे स्टेशन; NH-106 और NH-107 द्वारा जुड़ा।",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
 
   // --- 7. PURNIA DIVISION ---
@@ -620,7 +620,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["पूरण देवी मेला", "रेणु जयंती", "छठ पूजा", "दुर्गा पूजा"],
     transport_info: "Purnia Junction and Purnia Court railway stations; well-connected airport upcoming / Darbhanga (140 km).",
     transport_info_hi: "पूर्णिया जंक्शन एवं पूर्णिया कोर्ट रेलवे स्टेशन; NH-31 व NH-27 का संगम।",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+    image: "images/golghar.jpg"
   },
   {
     id: "araria",
@@ -642,7 +642,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सुंदरनाथ शिवरात्रि मेला", "छठ पूजा", "होली"],
     transport_info: "Araria Court & Jogbani Railway Stations; connected via NH-27.",
     transport_info_hi: "अररिया कोर्ट और जोगबनी रेलवे स्टेशन; NH-27 द्वारा जुड़ा।",
-    image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+    image: "images/valmiki.jpg"
   },
   {
     id: "kishanganj",
@@ -664,7 +664,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["खगड़ा मेला", "ईद-उल-फितर", "छठ पूजा", "दुर्गा पूजा"],
     transport_info: "Kishanganj Railway Station (vital junction connecting Northeast India with the rest of the nation).",
     transport_info_hi: "किशनगंज रेलवे स्टेशन (पूर्वोत्तर भारत को जोड़ने वाला प्रमुख रेलवे जंक्शन)।",
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80"
+    image: "images/valmiki.jpg"
   },
   {
     id: "katihar",
@@ -686,7 +686,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["मनिहारी कार्तिक पूर्णिमा स्नान मेला", "छठ पूजा", "दुर्गा पूजा"],
     transport_info: "Katihar Junction (one of the largest railway junctions in Eastern India).",
     transport_info_hi: "कटिहार जंक्शन (पूर्वी भारत के सबसे बड़े रेलवे जंक्शनों में से एक)।",
-    image: "https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=800&q=80"
+    image: "images/kanwar.jpg"
   },
 
   // --- 8. BHAGALPUR DIVISION ---
@@ -710,7 +710,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["श्रावणी मेला (सुल्तानगंज-देवघर कांवड़ यात्रा)", "बिहुला-विषहरी (मंजूषा) पूजा", "छठ पूजा"],
     transport_info: "Bhagalpur Junction railway station; 220 km east of Patna via NH-33.",
     transport_info_hi: "भागलपुर जंक्शन रेलवे स्टेशन; NH-33 द्वारा पटना से 220 किमी पूर्व।",
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+    image: "images/vikramshila.jpg"
   },
   {
     id: "banka",
@@ -732,7 +732,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["मंदार मेला / बौंसी मेला (मकर संक्रांति)", "छठ पूजा", "शिवरात्रि"],
     transport_info: "Mandar Hill & Banka railway stations; 50 km from Bhagalpur.",
     transport_info_hi: "मंदार हिल और बांका रेलवे स्टेशन; भागलपुर से 50 किमी।",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+    image: "images/mandar.jpg"
   },
 
   // --- 9. MUNGER DIVISION ---
@@ -756,7 +756,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["अंतर्राष्ट्रीय योग दिवस समारोह", "कष्टहरणी घाट पर छठ पूजा", "दुर्गा पूजा"],
     transport_info: "Jamalpur Junction (oldest Indian railway workshop) and Munger Station; connected via Ganga Rail Bridge.",
     transport_info_hi: "जमालपुर जंक्शन और मुंगेर स्टेशन; श्रीकृष्ण सेतु द्वारा गंगा के पार जुड़ा।",
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80"
+    image: "images/biharmuseum.jpg"
   },
   {
     id: "jamui",
@@ -778,7 +778,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["लछुआर महावीर जयंती महोत्सव", "कलरव पक्षी महोत्सव", "छठ पूजा"],
     transport_info: "Jamui and Jhajha railway stations on Howrah-Patna mainline.",
     transport_info_hi: "हावड़ा-पटना मुख्य रेल लाइन पर जमुई और झाझा रेलवे स्टेशन।",
-    image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+    image: "images/nalanda.jpg"
   },
   {
     id: "khagaria",
@@ -800,7 +800,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["कात्यायनी मंदिर मेला", "छठ पूजा", "कार्तिक पूर्णिमा स्नान"],
     transport_info: "Khagaria Junction on Barauni-Katihar mainline; connected via NH-31.",
     transport_info_hi: "बरौनी-कटिहार रेल मार्ग पर खगड़िया जंक्शन; NH-31 द्वारा जुड़ा।",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
   {
     id: "begusarai",
@@ -822,7 +822,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सिमरिया कल्पवास एवं कुंभ मेला", "दिनकर जयंती", "छठ पूजा"],
     transport_info: "Barauni Junction and Begusarai Railway Stations; 115 km east of Patna via NH-31.",
     transport_info_hi: "बरौनी जंक्शन और बेगूसराय रेलवे स्टेशन; NH-31 पर स्थित।",
-    image: "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=800&q=80"
+    image: "images/kanwar.jpg"
   },
   {
     id: "lakhisarai",
@@ -844,7 +844,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["अशोकधाम महाशिवरात्रि मेला", "छठ पूजा", "बुद्ध जयंती"],
     transport_info: "Kiul Junction and Lakhisarai Junction on mainline; 125 km east of Patna.",
     transport_info_hi: "किउल जंक्शन और लखीसराय जंक्शन मुख्य रेल मार्ग पर; पटना से 125 किमी।",
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   },
   {
     id: "sheikhpura",
@@ -866,7 +866,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["गिरिहिंडा शिवरात्रि मेला", "छठ पूजा", "मकर संक्रांति"],
     transport_info: "Sheikhpura Railway Station on Kiul-Gaya rail section; 110 km from Patna.",
     transport_info_hi: "किउल-गया रेल खंड पर शेखपुरा स्टेशन; पटना से 110 किमी।",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+    image: "images/mundeshwari.jpg"
   }
 ];
 

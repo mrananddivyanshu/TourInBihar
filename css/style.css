@@ -200,50 +200,134 @@ button, input, select, textarea {
   box-shadow: 0 4px 10px rgba(184, 58, 36, 0.25);
 }
 
+.brand-titles .brand-title-main,
 .brand-titles h1 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--primary);
   line-height: 1.2;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .brand-titles .brand-tagline {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.35rem;
   list-style: none;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 0.9rem;
-  font-size: 0.95rem;
+  gap: 0.35rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  color: #495057;
+  color: var(--text-primary);
   border-radius: var(--border-radius-sm);
   transition: all 0.2s ease;
   cursor: pointer;
+  white-space: nowrap; /* Prevents text from breaking into two lines */
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-family: inherit;
 }
 
 .nav-link:hover {
-  background-color: var(--bg-subtle);
-  color: var(--primary);
+  background-color: var(--bg-secondary);
+  color: var(--accent);
 }
 
 .nav-link.active {
-  background-color: var(--primary-light);
-  color: var(--primary);
+  background-color: var(--accent-light);
+  color: var(--accent);
+}
+
+/* Nav Dropdown Menus */
+.nav-dropdown {
+  position: relative;
+  list-style: none;
+}
+
+.nav-dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.arrow-indicator {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown:hover .arrow-indicator,
+.nav-dropdown.open .arrow-indicator {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  padding: 0.5rem 0;
+  min-width: 230px;
+  z-index: 1200;
+  backdrop-filter: blur(16px);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
+  animation: navDropIn 0.2s ease forwards;
+}
+
+@keyframes navDropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.15rem;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.nav-dropdown-item:hover {
+  background: var(--bg-secondary);
+  color: var(--accent);
+  padding-left: 1.35rem;
+}
+
+.nav-dropdown-item.active {
+  background: var(--accent-light);
+  color: var(--accent);
 }
 
 .nav-badge {
@@ -262,13 +346,13 @@ button, input, select, textarea {
 }
 
 .lang-switch-btn {
-  background: var(--bg-subtle);
+  background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   padding: 0.45rem 0.85rem;
   border-radius: 20px;
   font-weight: 700;
   font-size: 0.85rem;
-  color: var(--secondary);
+  color: var(--text-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -277,8 +361,9 @@ button, input, select, textarea {
 }
 
 .lang-switch-btn:hover {
-  background: var(--secondary-light);
-  border-color: var(--secondary);
+  background: var(--bg-card);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .mobile-menu-trigger {
@@ -288,18 +373,68 @@ button, input, select, textarea {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.4rem;
+  color: var(--text-primary);
 }
 
-/* Hero Section */
+/* Hero Section - Authentic Bihar Heritage: Bodh Gaya Mahabodhi Temple */
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, rgba(27, 59, 111, 0.92), rgba(184, 58, 36, 0.88)), url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+  overflow: hidden;
   color: #FFFFFF;
-  padding: 5rem 0 6rem 0;
+  padding: 5.5rem 0 6.5rem 0;
   text-align: center;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #080D18;
+}
+
+.hero-bg-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  filter: brightness(0.68) contrast(1.08);
+  display: block;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 13, 24, 0.72) 0%, rgba(8, 13, 24, 0.35) 48%, rgba(8, 13, 24, 0.88) 100%);
+  pointer-events: none;
+}
+
+.hero-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #F7EBD8;
+  background: rgba(8, 13, 24, 0.55);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 0.95rem;
+  border-radius: 20px;
+  margin-top: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 860px;
   margin: 0 auto;
 }
@@ -1638,17 +1773,158 @@ button, input, select, textarea {
   text-align: center;
 }
 
+/* Rich Tourist Destination Cards inside District Modal */
+.district-modal-lang-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: var(--bg-secondary);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+}
+
+.district-modal-lang-tag {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.district-modal-lang-pills {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.district-modal-lang-pill {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  padding: 0.4rem 0.95rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.district-modal-lang-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.district-modal-lang-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(232, 121, 36, 0.3);
+}
+
 .district-modal-dest-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.district-dest-card-rich {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.district-dest-card-rich:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+}
+
+.district-dest-card-img-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.district-dest-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.district-dest-card-rich:hover .district-dest-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.district-dest-card-body {
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.district-dest-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.district-dest-feature-box {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.district-dest-feature-box strong {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+
+.district-dest-food-box {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+}
+
+.district-dest-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .district-modal-dest-card {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: #fff;
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 0.5rem;
@@ -1858,7 +2134,7 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .mobile-menu-trigger {
     display: block;
   }
@@ -1869,13 +2145,37 @@ button, input, select, textarea {
     width: 100%;
     background: var(--bg-card);
     flex-direction: column;
-    padding: 1.5rem;
+    align-items: stretch;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
     box-shadow: var(--shadow-lg);
     border-bottom: 1px solid var(--border-color);
     display: none;
+    z-index: 1100;
   }
   .nav-menu.show {
     display: flex;
+  }
+  .nav-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.75rem 1rem;
+  }
+  .nav-dropdown {
+    width: 100%;
+  }
+  .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .nav-dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-sm);
+    margin: 0.25rem 0 0.5rem 0;
+    padding: 0.35rem 0.5rem;
+    width: 100%;
   }
   .mobile-only-theme-item {
     display: flex !important;

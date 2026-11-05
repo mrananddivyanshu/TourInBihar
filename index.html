@@ -16,7 +16,7 @@
   <!-- Favicon icon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20100%20100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
 
-  <!-- Anti-Flicker Theme Init Script (PRD FR-24, FR-25, FR-26) -->
+  <!-- Anti-Flicker Theme Init Script & Early Image Fallback Handlers -->
   <script>
     (function() {
       try {
@@ -26,6 +26,61 @@
         document.documentElement.setAttribute('data-theme', activeTheme);
       } catch (e) {}
     })();
+
+    var BIHAR_FALLBACK_SVG = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23111C2E'/%3E%3Cstop offset='50%25' stop-color='%2318263B'/%3E%3Cstop offset='100%25' stop-color='%23E87924'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3Ccircle cx='400' cy='220' r='90' fill='%23ffffff' opacity='0.08'/%3E%3Cpath d='M400 150 L430 220 L490 220 L440 255 L460 320 L400 280 L340 320 L360 255 L310 220 L370 220 Z' fill='%23E87924' opacity='0.7'/%3E%3Ctext x='400' y='360' font-family='system-ui, -apple-system, sans-serif' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EDiscover Bihar%3C/text%3E%3Ctext x='400' y='395' font-family='system-ui, -apple-system, sans-serif' font-size='16' font-weight='500' fill='%23F7EBD8' opacity='0.85' text-anchor='middle'%3EAuthentic Heritage %26 Tourism%3C/text%3E%3C/svg%3E";
+
+    function handleHeroImgError(img) {
+      if (!img) return;
+      if (!img.dataset) img.dataset = {};
+      if (!img.dataset.retry) {
+        img.dataset.retry = "1";
+        img.src = "images/mahabodhi.jpg";
+        return;
+      }
+      img.onerror = null;
+      img.src = "images/nalanda.jpg";
+    }
+
+    function handleImgError(img) {
+      if (!img) return;
+      if (!img.dataset) img.dataset = {};
+      if (img.dataset.hasFailed) {
+        img.onerror = null;
+        img.src = BIHAR_FALLBACK_SVG;
+        return;
+      }
+      img.dataset.hasFailed = "true";
+      img.onerror = function() {
+        this.onerror = null;
+        this.src = BIHAR_FALLBACK_SVG;
+      };
+      var alt = ((img.alt || '') + ' ' + (img.title || '')).toLowerCase();
+      if (alt.indexOf('bihar museum') !== -1 || alt.indexOf('बिहार संग्रहालय') !== -1) {
+        img.src = 'images/biharmuseum.jpg';
+      } else if (alt.indexOf('patna museum') !== -1 || alt.indexOf('पटना संग्रहालय') !== -1 || alt.indexOf('जादू') !== -1) {
+        img.src = 'images/patnamuseum.jpg';
+      } else if (alt.indexOf('mahabodhi') !== -1 || alt.indexOf('gaya') !== -1 || alt.indexOf('बोधगया') !== -1) {
+        img.src = 'images/mahabodhi.jpg';
+      } else if (alt.indexOf('nalanda') !== -1 || alt.indexOf('नालंदा') !== -1) {
+        img.src = 'images/nalanda.jpg';
+      } else if (alt.indexOf('rajgir') !== -1 || alt.indexOf('राजगीर') !== -1) {
+        img.src = 'images/rajgir.jpg';
+      } else if (alt.indexOf('golghar') !== -1 || alt.indexOf('गोलघर') !== -1) {
+        img.src = 'images/golghar.jpg';
+      } else if (alt.indexOf('patna') !== -1 || alt.indexOf('पटना') !== -1) {
+        img.src = 'images/patnasahib.jpg';
+      } else if (alt.indexOf('rohtas') !== -1 || alt.indexOf('शेरशाह') !== -1) {
+        img.src = 'images/shershah.jpg';
+      } else if (alt.indexOf('valmiki') !== -1 || alt.indexOf('वाल्मीकि') !== -1) {
+        img.src = 'images/valmiki.jpg';
+      } else if (alt.indexOf('kakolat') !== -1 || alt.indexOf('ककोलत') !== -1) {
+        img.src = 'images/kakolat.jpg';
+      } else if (alt.indexOf('madhubani') !== -1 || alt.indexOf('मधुबनी') !== -1) {
+        img.src = 'images/madhubani.jpg';
+      } else {
+        img.src = 'images/nalanda.jpg';
+      }
+    }
   </script>
 </head>
 <body>
@@ -36,7 +91,7 @@
       <div class="brand-logo-wrap" onclick="switchTab('home')">
         <div class="brand-emblem">🏛️</div>
         <div class="brand-titles">
-          <h1 data-i18n="brand_title">DISCOVER LOCAL BIHAR</h1>
+          <span class="brand-title-main" data-i18n="brand_title">DISCOVER BIHAR</span>
           <span class="brand-tagline" data-i18n="tagline">Explore Beyond the Ordinary</span>
         </div>
       </div>
@@ -45,17 +100,47 @@
         <li><a href="#home" class="nav-link active" data-tab="home" data-i18n="nav_home">Home</a></li>
         <li><a href="#destinations" class="nav-link" data-tab="destinations" data-i18n="nav_destinations">Destinations</a></li>
         <li><a href="#districts" class="nav-link" data-tab="districts" data-i18n="nav_districts">38 Districts</a></li>
-        <li><a href="#culture" class="nav-link" data-tab="culture" data-i18n="nav_culture">Food & Culture</a></li>
-        <li><a href="#festivals" class="nav-link" data-tab="festivals" data-i18n="nav_festivals">Festivals Calendar</a></li>
-        <li><a href="#stats" class="nav-link" data-tab="stats" data-i18n="nav_stats">Tourism Statistics</a></li>
-        <li><a href="#planner" class="nav-link" data-tab="planner" data-i18n="nav_planner">Trip Planner</a></li>
-        <li><a href="#guide" class="nav-link" data-tab="guide" data-i18n="nav_guide">Travel Guide</a></li>
+        
+        <!-- Culture & Events Dropdown -->
+        <li class="nav-dropdown">
+          <button class="nav-link nav-dropdown-toggle" id="culture-dropdown-btn" type="button">
+            <span data-i18n="nav_culture_events">Culture & Events</span> <span class="arrow-indicator">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#culture" class="nav-dropdown-item" data-tab="culture">
+              <span>🍲</span> <span data-i18n="nav_culture">Food, Arts & Heritage</span>
+            </a>
+            <a href="#festivals" class="nav-dropdown-item" data-tab="festivals">
+              <span>🎪</span> <span data-i18n="nav_festivals">Festivals Calendar</span>
+            </a>
+          </div>
+        </li>
+
+        <!-- Plan & Guide Dropdown -->
+        <li class="nav-dropdown">
+          <button class="nav-link nav-dropdown-toggle" id="plan-dropdown-btn" type="button">
+            <span data-i18n="nav_plan_guide">Plan & Guide</span> <span class="arrow-indicator">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#planner" class="nav-dropdown-item" data-tab="planner">
+              <span>🗺️</span> <span data-i18n="nav_planner">Trip Planner</span>
+            </a>
+            <a href="#guide" class="nav-dropdown-item" data-tab="guide">
+              <span>ℹ️</span> <span data-i18n="nav_guide">Travel Guide & Helplines</span>
+            </a>
+            <a href="#stats" class="nav-dropdown-item" data-tab="stats">
+              <span>📊</span> <span data-i18n="nav_stats">Tourism Statistics</span>
+            </a>
+          </div>
+        </li>
+
         <li>
           <a href="#saved" class="nav-link" data-tab="saved">
-            <span data-i18n="nav_saved">Favourites</span>
+            <span>♥</span> <span data-i18n="nav_saved">Favourites</span>
             <span class="nav-badge" id="fav-count-badge" style="display:none;">0</span>
           </a>
         </li>
+
         <!-- Mobile-Only Theme Toggle Row -->
         <li class="mobile-only-theme-item" style="display: none; padding: 0.75rem 1rem; border-top: 1px solid var(--border-color); margin-top: 0.5rem;">
           <button class="theme-toggle-btn" id="mobile-theme-toggle-btn" aria-label="Toggle dark/light mode" style="margin-right: 0.6rem;">
@@ -82,8 +167,17 @@
 
   <!-- ==================== VIEW 1: HOME ==================== -->
   <main id="view-home" class="view-tab-content active">
-    <!-- Hero Banner -->
+    <!-- Hero Banner with Iconic Bodh Gaya Mahabodhi Temple -->
     <section class="hero-section">
+      <div class="hero-bg-media">
+        <img 
+          src="images/mahabodhi.jpg" 
+          alt="Mahabodhi Temple Bodh Gaya Bihar" 
+          class="hero-bg-img" 
+          onerror="handleHeroImgError(this)" 
+        />
+        <div class="hero-bg-overlay"></div>
+      </div>
       <div class="container hero-content">
         <span class="hero-pill-badge" data-i18n="subtagline">One platform. 38 districts. Countless experiences.</span>
         <h2 class="hero-title" data-i18n="hero_title">Explore the Soul of Ancient India</h2>
@@ -108,6 +202,12 @@
           <button class="quick-pill" onclick="setQuickSearch('Waterfalls')">Waterfalls</button>
           <button class="quick-pill" onclick="setQuickSearch('Litti')">Litti Chokha</button>
           <button class="quick-pill" onclick="setQuickSearch('Madhubani')">Madhubani Art</button>
+        </div>
+
+        <!-- Featured Landmark Tag -->
+        <div class="hero-location-tag">
+          <span>🏛️</span>
+          <span data-i18n="hero_featured_landmark">Iconic Heritage: Mahabodhi Temple Complex, Bodh Gaya (UNESCO World Heritage Site)</span>
         </div>
       </div>
     </section>

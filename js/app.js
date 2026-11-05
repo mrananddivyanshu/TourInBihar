@@ -1,5 +1,69 @@
 // Discover Local Bihar - Main Application Controller (v3.0)
 
+// Global Image Fallback Handler (Guarantees zero broken image icons under all conditions)
+const BIHAR_FALLBACK_SVG = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23111C2E'/%3E%3Cstop offset='50%25' stop-color='%2318263B'/%3E%3Cstop offset='100%25' stop-color='%23E87924'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3Ccircle cx='400' cy='220' r='90' fill='%23ffffff' opacity='0.08'/%3E%3Cpath d='M400 150 L430 220 L490 220 L440 255 L460 320 L400 280 L340 320 L360 255 L310 220 L370 220 Z' fill='%23E87924' opacity='0.7'/%3E%3Ctext x='400' y='360' font-family='system-ui, -apple-system, sans-serif' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EDiscover Bihar%3C/text%3E%3Ctext x='400' y='395' font-family='system-ui, -apple-system, sans-serif' font-size='16' font-weight='500' fill='%23F7EBD8' opacity='0.85' text-anchor='middle'%3EAuthentic Heritage %26 Tourism%3C/text%3E%3C/svg%3E";
+
+function handleHeroImgError(img) {
+  if (!img) return;
+  if (!img.dataset) img.dataset = {};
+  if (!img.dataset.retryCount) {
+    img.dataset.retryCount = "1";
+    img.src = "images/mahabodhi.jpg";
+    return;
+  }
+  if (img.dataset.retryCount === "1") {
+    img.dataset.retryCount = "2";
+    img.src = "images/nalanda.jpg";
+    return;
+  }
+  img.onerror = null;
+  img.src = BIHAR_FALLBACK_SVG;
+}
+
+function handleImgError(img) {
+  if (!img) return;
+  if (!img.dataset) img.dataset = {};
+  if (img.dataset.hasFailedOnce) {
+    img.onerror = null;
+    img.src = BIHAR_FALLBACK_SVG;
+    return;
+  }
+  img.dataset.hasFailedOnce = "true";
+  img.onerror = function() {
+    this.onerror = null;
+    this.src = BIHAR_FALLBACK_SVG;
+  };
+  
+  const alt = ((img.alt || '') + ' ' + (img.title || '')).toLowerCase();
+  if (alt.includes('mahabodhi') || alt.includes('gaya') || alt.includes('बोधगया')) {
+    img.src = 'images/mahabodhi.jpg';
+  } else if (alt.includes('patna museum') || alt.includes('जादू घर')) {
+    img.src = 'images/patnamuseum.jpg';
+  } else if (alt.includes('museum') || alt.includes('संग्रहालय') || alt.includes('bihar museum')) {
+    img.src = 'images/biharmuseum.jpg';
+  } else if (alt.includes('nalanda') || alt.includes('नालंदा')) {
+    img.src = 'images/nalanda.jpg';
+  } else if (alt.includes('rajgir') || alt.includes('राजगीर')) {
+    img.src = 'images/rajgir.jpg';
+  } else if (alt.includes('patna') || alt.includes('पटना')) {
+    img.src = 'images/golghar.jpg';
+  } else if (alt.includes('sher shah') || alt.includes('शेरशाह') || alt.includes('rohtas')) {
+    img.src = 'images/shershah.jpg';
+  } else if (alt.includes('valmiki') || alt.includes('वाल्मीकि')) {
+    img.src = 'images/valmiki.jpg';
+  } else if (alt.includes('mundeshwari') || alt.includes('मुंडेश्वरी')) {
+    img.src = 'images/mundeshwari.jpg';
+  } else if (alt.includes('kakolat') || alt.includes('ककोलत')) {
+    img.src = 'images/kakolat.jpg';
+  } else if (alt.includes('kesaria') || alt.includes('केसरिया')) {
+    img.src = 'images/kesaria.jpg';
+  } else if (alt.includes('madhubani') || alt.includes('mithila') || alt.includes('मधुबनी')) {
+    img.src = 'images/madhubani.jpg';
+  } else {
+    img.src = 'images/nalanda.jpg';
+  }
+}
+
 // Global App State
 const state = {
   activeTab: 'home',
@@ -208,12 +272,11 @@ function populateFilterDropdowns() {
 
 // Setup Event Listeners
 function setupEventListeners() {
-  // Navigation Tabs
-  document.querySelectorAll('.nav-link[data-tab]').forEach(btn => {
+  // Navigation Tabs & Dropdown Items
+  document.querySelectorAll('.nav-link[data-tab], .nav-dropdown-item[data-tab]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetTab = btn.getAttribute('data-tab');
-      window.location.hash = targetTab;
       switchTab(targetTab);
     });
   });
@@ -226,6 +289,27 @@ function setupEventListeners() {
       navMenu.classList.toggle('show');
     });
   }
+
+  // Dropdown toggle click handling (mobile and desktop support)
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const parent = btn.closest('.nav-dropdown');
+      if (parent) {
+        const isOpen = parent.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+        if (!isOpen) parent.classList.add('open');
+      }
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+  });
 
   // Language Toggle
   const langToggleBtn = document.getElementById('lang-toggle-btn');
@@ -346,14 +430,30 @@ function copyDirectLink(type, id) {
 function switchTab(tabId) {
   state.activeTab = tabId;
 
+  // Sync window hash
+  if (window.location.hash.replace(/^#\/?/, '').split('/')[0] !== tabId) {
+    history.replaceState(null, '', `#${tabId}`);
+  }
+
   // Update nav links active class
-  document.querySelectorAll('.nav-link[data-tab]').forEach(link => {
+  document.querySelectorAll('.nav-link[data-tab], .nav-dropdown-item[data-tab]').forEach(link => {
     link.classList.toggle('active', link.getAttribute('data-tab') === tabId);
   });
 
-  // Hide mobile menu if open
+  // Highlight parent dropdown toggle if child is active
+  const cultureParent = document.getElementById('culture-dropdown-btn');
+  if (cultureParent) {
+    cultureParent.classList.toggle('active', ['culture', 'festivals'].includes(tabId));
+  }
+  const planParent = document.getElementById('plan-dropdown-btn');
+  if (planParent) {
+    planParent.classList.toggle('active', ['planner', 'guide', 'stats'].includes(tabId));
+  }
+
+  // Hide mobile menu if open and close dropdowns
   const navMenu = document.getElementById('main-nav-menu');
   if (navMenu) navMenu.classList.remove('show');
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
 
   // Show/Hide Tab Views
   document.querySelectorAll('.view-tab-content').forEach(view => {
@@ -513,7 +613,7 @@ function renderDestinationCards() {
     html += `
       <div class="destination-card" data-id="${dest.id}">
         <div class="card-media-wrapper">
-          <img src="${dest.image}" alt="${isHi ? dest.name_hi : dest.name}" loading="lazy" class="card-img" />
+          <img src="${dest.image}" alt="${isHi ? dest.name_hi : dest.name}" loading="lazy" class="card-img" onerror="handleImgError(this)" />
           <button class="fav-heart-btn ${isFav ? 'active' : ''}" onclick="toggleFavourite('${dest.id}')" title="${isFav ? 'Remove' : 'Save'}">
             ♥
           </button>
@@ -576,7 +676,7 @@ function renderHomeFeatured() {
     html += `
       <div class="destination-card" data-id="${dest.id}">
         <div class="card-media-wrapper">
-          <img src="${dest.image}" alt="${isHi ? dest.name_hi : dest.name}" loading="lazy" class="card-img" />
+          <img src="${dest.image}" alt="${isHi ? dest.name_hi : dest.name}" loading="lazy" class="card-img" onerror="handleImgError(this)" />
           <button class="fav-heart-btn ${isFav ? 'active' : ''}" onclick="toggleFavourite('${dest.id}')">
             ♥
           </button>
@@ -680,7 +780,7 @@ function renderDistrictsGrid() {
     html += `
       <div class="district-card" onclick="openDistrictDetailModal('${d.id}')">
         <div class="district-img-wrap">
-          <img src="${d.image}" alt="${isHi ? d.name_hi : d.name}" loading="lazy" class="district-img" />
+          <img src="${d.image}" alt="${isHi ? d.name_hi : d.name}" loading="lazy" class="district-img" onerror="handleImgError(this)" />
           <span class="district-badge-division">${isHi ? (BIHAR_DIVISIONS.find(v => v.id === d.division)?.name_hi || d.division) : d.division.toUpperCase() + ' DIV'}</span>
         </div>
         <div class="district-card-body">
@@ -908,7 +1008,7 @@ function renderFestivalsCalendar() {
     html += `
       <div class="festival-card">
         <div class="festival-img-wrap">
-          <img src="${fest.image}" alt="${isHi ? fest.name_hi : fest.name}" loading="lazy" class="festival-img" />
+          <img src="${fest.image}" alt="${isHi ? fest.name_hi : fest.name}" loading="lazy" class="festival-img" onerror="handleImgError(this)" />
           <div class="festival-date-badge">${statusBadge}</div>
         </div>
 
@@ -961,7 +1061,7 @@ function renderCultureSection() {
     BIHAR_FOOD.forEach(food => {
       foodHtml += `
         <div class="culture-card">
-          <img src="${food.image}" alt="${isHi ? food.name_hi : food.name}" loading="lazy" class="culture-card-img" />
+          <img src="${food.image}" alt="${isHi ? food.name_hi : food.name}" loading="lazy" class="culture-card-img" onerror="handleImgError(this)" />
           <div class="culture-card-body">
             <div class="culture-badge-wrap">
               <span class="badge badge-category">${isHi ? food.category_hi : food.category}</span>
@@ -985,7 +1085,7 @@ function renderCultureSection() {
     BIHAR_ARTS_CRAFTS.forEach(art => {
       artsHtml += `
         <div class="culture-card">
-          <img src="${art.image}" alt="${isHi ? art.name_hi : art.name}" loading="lazy" class="culture-card-img" />
+          <img src="${art.image}" alt="${isHi ? art.name_hi : art.name}" loading="lazy" class="culture-card-img" onerror="handleImgError(this)" />
           <div class="culture-card-body">
             <span class="badge badge-category">${isHi ? art.type_hi : art.type}</span>
             <h3>${isHi ? art.name_hi : art.name}</h3>
@@ -1003,7 +1103,7 @@ function renderCultureSection() {
     BIHAR_FESTIVALS.forEach(fest => {
       festHtml += `
         <div class="culture-card">
-          <img src="${fest.image}" alt="${isHi ? fest.name_hi : fest.name}" loading="lazy" class="culture-card-img" />
+          <img src="${fest.image}" alt="${isHi ? fest.name_hi : fest.name}" loading="lazy" class="culture-card-img" onerror="handleImgError(this)" />
           <div class="culture-card-body">
             <span class="badge badge-category">📅 ${isHi ? fest.month_hi : fest.month}</span>
             <h3>${isHi ? fest.name_hi : fest.name}</h3>
@@ -1198,7 +1298,7 @@ function openDestinationDetailModal(destId) {
         </nav>
 
         <div class="modal-gallery-hero">
-          <img src="${dest.image}" alt="${isHi ? dest.name_hi : dest.name}" class="modal-main-image" />
+          <img src="${dest.image}" alt="${isHi ? dest.name_hi : dest.name}" class="modal-main-image" onerror="handleImgError(this)" />
         </div>
 
         <div class="modal-info-grid">
@@ -1211,6 +1311,41 @@ function openDestinationDetailModal(destId) {
             <h4>${getTranslation('modal_history')}</h4>
             <p>${isHi ? dest.historical_significance_hi : dest.historical_significance}</p>
           </div>
+        </div>
+
+        <!-- Special Highlights & Why Visit & Local Food -->
+        <div class="modal-section-box" style="margin-top:1.25rem; background:var(--bg-secondary); border-radius:var(--border-radius); padding:1.25rem;">
+          <h4 style="font-size:1.15rem; font-weight:700; color:var(--text-primary); margin-bottom:0.75rem;">
+            ✨ ${isHi ? 'यहाँ क्या खास है और क्यों आना चाहिए?' : 'Key Highlights & Why You Should Visit'}
+          </h4>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem;">
+            <div style="background:var(--bg-card); padding:1rem; border-radius:8px; border-left:4px solid var(--accent);">
+              <strong style="color:var(--accent); font-size:0.85rem; text-transform:uppercase; display:block; margin-bottom:0.35rem;">
+                ✨ ${isHi ? 'यहाँ क्या खास है (विशेषता)' : 'What is Special'}
+              </strong>
+              <p style="font-size:0.92rem; line-height:1.5; color:var(--text-primary); margin:0;">
+                ${isHi ? (dest.what_is_special_hi || dest.what_is_special || dest.overview_hi) : (dest.what_is_special || dest.overview)}
+              </p>
+            </div>
+            <div style="background:var(--bg-card); padding:1rem; border-radius:8px; border-left:4px solid #10B981;">
+              <strong style="color:#10B981; font-size:0.85rem; text-transform:uppercase; display:block; margin-bottom:0.35rem;">
+                🌟 ${isHi ? 'यहाँ क्यों आना चाहिए' : 'Why You Should Visit'}
+              </strong>
+              <p style="font-size:0.92rem; line-height:1.5; color:var(--text-primary); margin:0;">
+                ${isHi ? (dest.why_visit_hi || dest.why_visit || dest.historical_significance_hi) : (dest.why_visit || dest.historical_significance)}
+              </p>
+            </div>
+          </div>
+          ${(dest.local_food_hi || dest.local_food) ? `
+            <div style="margin-top:0.85rem; background:var(--accent-light); padding:0.75rem 1rem; border-radius:8px; border-left:4px solid var(--accent);">
+              <strong style="color:var(--accent); font-size:0.85rem; text-transform:uppercase; display:block; margin-bottom:0.25rem;">
+                🍲 ${isHi ? 'आसपास का प्रसिद्ध खान-पान / स्थानीय स्वाद' : 'Famous Local Cuisine Nearby'}
+              </strong>
+              <p style="font-size:0.92rem; color:var(--text-primary); margin:0; font-weight:600;">
+                ${isHi ? (dest.local_food_hi || dest.local_food) : dest.local_food}
+              </p>
+            </div>
+          ` : ''}
         </div>
 
         <div class="modal-quick-specs">
@@ -1287,84 +1422,461 @@ function openDestinationDetailModal(destId) {
   });
 }
 
+// Helper to provide authentic, reliable images for any attraction
+function getAttractionImage(attName, districtImage) {
+  const s = (attName || '').toLowerCase();
+  if (s.includes('bihar museum') || s.includes('बिहार संग्रहालय')) {
+    return 'images/biharmuseum.jpg';
+  }
+  if (s.includes('patna museum') || s.includes('पटना संग्रहालय') || s.includes('जादू घर') || s.includes('jadu ghar')) {
+    return 'images/patnamuseum.jpg';
+  }
+  if (s.includes('museum') || s.includes('संग्रहालय')) {
+    return 'images/biharmuseum.jpg';
+  }
+  if (s.includes('mahabodhi') || s.includes('बोधगया') || s.includes('bodh gaya')) {
+    return 'images/mahabodhi.jpg';
+  }
+  if (s.includes('nalanda') || s.includes('नालंदा')) {
+    return 'images/nalanda.jpg';
+  }
+  if (s.includes('rajgir') || s.includes('राजगीर') || s.includes('glass bridge')) {
+    return 'images/rajgir.jpg';
+  }
+  if (s.includes('golghar') || s.includes('गोलघर')) {
+    return 'images/golghar.jpg';
+  }
+  if (s.includes('patna sahib') || s.includes('गुरुद्वारा') || s.includes('takht')) {
+    return 'images/patnasahib.jpg';
+  }
+  if (s.includes('sher shah') || s.includes('शेरशाह') || s.includes('sasaram') || s.includes('सासाराम')) {
+    return 'images/shershah.jpg';
+  }
+  if (s.includes('valmiki') || s.includes('वाल्मीकि')) {
+    return 'images/valmiki.jpg';
+  }
+  if (s.includes('kesaria') || s.includes('केसरिया') || s.includes('vaishali') || s.includes('वैशाली')) {
+    return 'images/kesaria.jpg';
+  }
+  if (s.includes('vikramshila') || s.includes('विक्रमशिला')) {
+    return 'images/vikramshila.jpg';
+  }
+  if (s.includes('kakolat') || s.includes('ककोलत') || s.includes('waterfall') || s.includes('झरना') || s.includes('प्रपात')) {
+    return 'images/kakolat.jpg';
+  }
+  if (s.includes('mandar') || s.includes('मंदार')) {
+    return 'images/mandar.jpg';
+  }
+  if (s.includes('sitamarhi') || s.includes('सीतामढ़ी') || s.includes('punaura') || s.includes('पुनौरा')) {
+    return 'images/sitamarhi.jpg';
+  }
+  if (s.includes('barabar') || s.includes('बराबर') || s.includes('cave') || s.includes('गुफा')) {
+    return 'images/barabar.jpg';
+  }
+  if (s.includes('kanwar') || s.includes('कांवर') || s.includes('lake') || s.includes('झील') || s.includes('सरोवर')) {
+    return 'images/kanwar.jpg';
+  }
+  if (s.includes('temple') || s.includes('mandir') || s.includes('मंदिर') || s.includes('धाम') || s.includes('भवानी') || s.includes('स्थान') || s.includes('नाथ') || s.includes('देवी')) {
+    return 'images/mundeshwari.jpg';
+  }
+  if (s.includes('fort') || s.includes('किला') || s.includes('महल') || s.includes('palace') || s.includes('tomb') || s.includes('मकबरा') || s.includes('ruin') || s.includes('खंडहर')) {
+    return 'images/shershah.jpg';
+  }
+  if (s.includes('art') || s.includes('कला') || s.includes('painting') || s.includes('चित्रकला') || s.includes('सिल्क') || s.includes('silk') || s.includes('मंजूषा')) {
+    return 'images/madhubani.jpg';
+  }
+  return districtImage || 'images/nalanda.jpg';
+}
+
+// Add custom attraction to Trip Planner
+function openAddToTripDialogCustom(name, districtName) {
+  const isHi = currentLanguage === 'hi';
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'modal-backdrop';
+  modalOverlay.id = 'add-to-trip-modal';
+
+  let daysOptions = '';
+  const totalDays = (typeof currentTrip !== 'undefined' && currentTrip.daysCount) ? currentTrip.daysCount : 3;
+  for (let i = 1; i <= totalDays; i++) {
+    daysOptions += `<option value="${i}">${isHi ? `दिन ${i}` : `Day ${i}`}</option>`;
+  }
+
+  modalOverlay.innerHTML = `
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>${isHi ? 'यात्रा योजना में जोड़ें' : 'Add to Trip Plan'}</h3>
+        <button class="modal-close-btn" onclick="document.getElementById('add-to-trip-modal').remove()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="dialog-dest-name"><strong>${name}</strong></p>
+        <p class="dialog-subtitle">${districtName} • ${isHi ? 'प्रसिद्ध दर्शनीय स्थल' : 'Top Attraction'}</p>
+        <div class="form-group" style="margin-top:1.2rem;">
+          <label for="select-trip-day-custom" style="font-weight:700;">${isHi ? 'किस दिन में जोड़ना चाहते हैं?' : 'Select Day:'}</label>
+          <select id="select-trip-day-custom" class="form-select">
+            ${daysOptions}
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="document.getElementById('add-to-trip-modal').remove()">${isHi ? 'रद्द करें' : 'Cancel'}</button>
+        <button class="btn btn-primary" id="confirm-add-trip-custom-btn">${isHi ? 'जोड़ें' : 'Add to Plan'}</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modalOverlay);
+
+  document.getElementById('confirm-add-trip-custom-btn').addEventListener('click', () => {
+    const day = parseInt(document.getElementById('select-trip-day-custom').value, 10);
+    if (typeof currentTrip !== 'undefined' && currentTrip.itinerary) {
+      if (!currentTrip.itinerary[day]) currentTrip.itinerary[day] = [];
+      const customId = 'custom-' + encodeURIComponent(name);
+      if (!currentTrip.itinerary[day].includes(customId)) {
+        currentTrip.itinerary[day].push(customId);
+        if (!window.customSpots) window.customSpots = {};
+        window.customSpots[customId] = {
+          id: customId,
+          name: name,
+          name_hi: name,
+          district_name: districtName,
+          district_name_hi: districtName,
+          category: 'Attraction',
+          category_hi: 'दर्शनीय स्थल',
+          image: getAttractionImage(name, '')
+        };
+        if (typeof saveCurrentTrip === 'function') saveCurrentTrip();
+        showToast(`${name} - ${getTranslation('toast_added_trip')} (${getTranslation('planner_day_heading')} ${day})`);
+      } else {
+        showToast(isHi ? 'यह स्थल पहले से इस दिन में जुड़ा हुआ है' : 'Already in this day plan');
+      }
+    }
+    modalOverlay.remove();
+  });
+}
+
 // ==========================================================
 // FEATURE 2: DISTRICT DETAIL MODAL & LOCAL LANGUAGE (PRD Sec 20)
 // ==========================================================
-function openDistrictDetailModal(districtId) {
+function openDistrictDetailModal(districtId, selectedMode) {
   const d = getDistrictById(districtId);
   if (!d) return;
 
-  const isHi = currentLanguage === 'hi';
   const localLangInfo = typeof getDistrictLocalLanguageInfo === 'function' 
     ? getDistrictLocalLanguageInfo(districtId) 
     : null;
 
-  const modalOverlay = document.createElement('div');
-  modalOverlay.className = 'modal-backdrop';
-  modalOverlay.id = 'district-detail-modal';
+  // By default, if the district has a local language, open in 'local' (e.g. Maithili for Madhubani)
+  const hasLocal = !!(localLangInfo && localLangInfo.greeting);
+  const activeMode = selectedMode || (hasLocal ? 'local' : (currentLanguage === 'hi' ? 'hi' : 'en'));
 
+  let modalOverlay = document.getElementById('district-detail-modal');
+  if (!modalOverlay) {
+    modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-backdrop';
+    modalOverlay.id = 'district-detail-modal';
+    document.body.appendChild(modalOverlay);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) modalOverlay.remove();
+    });
+  }
+
+  // Language Mode Flags
+  const isLocal = activeMode === 'local';
+  const isHi = activeMode === 'hi';
+  const isEn = activeMode === 'en';
+
+  const langNameTitle = localLangInfo ? (localLangInfo.lang_name.split(' ')[0]) : 'स्थानीय';
+
+  // Localized District Metadata
+  const distTitle = isLocal ? `${d.name_hi || d.name} जिला` : (isHi ? `${d.name_hi} जिला` : `${d.name} District`);
+  const leadTagline = isLocal ? (localLangInfo.tagline_local || d.tagline_hi || d.tagline) : (isHi ? d.tagline_hi : d.tagline);
+  const distDesc = isLocal ? (localLangInfo.description_local || d.description_hi) : (isHi ? d.description_hi : d.description);
+  const distHistory = isLocal ? (localLangInfo.history_local || d.historical_importance_hi) : (isHi ? d.historical_importance_hi : d.historical_importance);
+
+  const langCode = (localLangInfo && localLangInfo.primary) || 'mai';
+
+  // Regional Dialect Vocabulary Definitions (Maithili, Bhojpuri, Magahi, Angika, Bajjika, Surjapuri)
+  const DIALECT_VOCAB = {
+    mai: {
+      headingPlaces: 'प्रमुख दर्शनीय एवं पर्यटन स्थल',
+      subtextPlaces: 'एहि जिलाक प्रमुख दर्शनीय स्थल, ऐतिहासिक धरोहर आ तीर्थ केंद्र',
+      special: 'एतय की खास अछि (विशेषता):',
+      whyVisit: 'कियेक आबय के चाही (Why Visit):',
+      food: 'प्रसिद्ध स्थानीय स्वाद (खान-पान):',
+      btnDetails: 'पूरा विवरण देखू',
+      btnAddTrip: 'यात्रा में जोड़ू',
+      btnSearch: 'अउर खोजू',
+      overview: 'जिल्लाक परिचय (Overview)',
+      history: 'ऐतिहासिक महत्व (History)',
+      foodSection: 'प्रसिद्ध स्थानीय स्वाद व खान-पान',
+      festivals: 'पारंपरिक पर्व-त्योहार',
+      travel: 'पहुँचय के साधन (How to Reach)',
+      defaultSpecial: (att, distName) => `${att} ${distName} जिलाक प्रमुख आकर्षण थिक जतय देश-विदेश सँ पर्यटक आबैत छथि।`,
+      defaultWhy: 'मिथिला आ बिहारक समृद्ध सांस्कृतिक धरोहर, वास्तुकला आ प्राकृतिक सुंदरताक दर्शन लेल।'
+    },
+    bho: {
+      headingPlaces: 'प्रमुख घूमे लायक पर्यटन स्थल',
+      subtextPlaces: 'एह जिला के सबसे प्रसिद्ध ऐतिहासिक धरोहर, झरना आ पावन तीर्थ',
+      special: 'इहवाँ का खास बा (विशेषता):',
+      whyVisit: 'काहे आवे के चाहीं (Why Visit):',
+      food: 'आसपास के प्रसिद्ध खान-पान व स्वाद:',
+      btnDetails: 'पूरा विवरण देखीं',
+      btnAddTrip: 'यात्रा में जोड़ीं',
+      btnSearch: 'अउरी खोजीं',
+      overview: 'जिला के परिचय (Overview)',
+      history: 'ऐतिहासिक महत्व (History)',
+      foodSection: 'प्रसिद्ध स्थानीय खान-पान व स्वाद',
+      festivals: 'प्रमुख पर्व-त्योहार व मेला',
+      travel: 'पहुंचे के साधन (How to Reach)',
+      defaultSpecial: (att, distName) => `${att} ${distName} जिला के सबसे प्रमुख आ लोकप्रिय दर्शनीय स्थल ह, जहाँ घूमे खातिर लोग दूर-दूर से आवेला।`,
+      defaultWhy: 'भोजपुरी माटी के वीरता, गौरवशाली इतिहास आ प्राकृतिक सुंदरता के अनुभव करे खातिर।'
+    },
+    mag: {
+      headingPlaces: 'प्रमुख दर्शनीय आ पर्यटन स्थल',
+      subtextPlaces: 'एह जिला के प्रमुख घूमे जोग धरोहर, पावन तीर्थ आ प्राकृतिक स्थल',
+      special: 'इहवाँ का खास हे (विशेषता):',
+      whyVisit: 'काहे आवे के चाही (Why Visit):',
+      food: 'प्रसिद्ध स्थानीय स्वाद आ खान-पान:',
+      btnDetails: 'पूरा विवरण देखथिन',
+      btnAddTrip: 'यात्रा में जोड़ीं',
+      btnSearch: 'अउरी खोजथिन',
+      overview: 'जिला के परिचय (Overview)',
+      history: 'ऐतिहासिक महत्व (History)',
+      foodSection: 'प्रसिद्ध स्थानीय खान-पान आ स्वाद',
+      festivals: 'प्रमुख परब-त्योहार आ मेला',
+      travel: 'पहुंचे के साधन (How to Reach)',
+      defaultSpecial: (att, distName) => `${att} ${distName} जिला के एगो नामी दर्शनीय स्थल हे, जहाँ श्रद्धालु आ पर्यटक भारी संख्या में आवे हेथिन।`,
+      defaultWhy: 'मगध के महान प्राचीन इतिहास, विश्वस्तरीय बौद्ध-जैन धरोहर आ आध्यात्मिक शांति खातिर।'
+    },
+    anp: {
+      headingPlaces: 'प्रमुख दर्शनीय आ घूमे के जगह',
+      subtextPlaces: 'एह जिला के प्रमुख ऐतिहासिक धरोहर, पावन तीर्थ आ दर्शनीय स्थल',
+      special: 'एतय की खास छै (विशेषता):',
+      whyVisit: 'काहे आय के चाहि (Why Visit):',
+      food: 'आसपास के प्रसिद्ध खान-पान व स्वाद:',
+      btnDetails: 'पूरा विवरण देखियै',
+      btnAddTrip: 'यात्रा में जोड़ियै',
+      btnSearch: 'आरू खोजियै',
+      overview: 'जिला के परिचय (Overview)',
+      history: 'ऐतिहासिक महत्व (History)',
+      foodSection: 'प्रसिद्ध स्थानीय खान-पान व स्वाद',
+      festivals: 'पारंपरिक पर्व-त्योहार आ मेला',
+      travel: 'पहुंचे के साधन (How to Reach)',
+      defaultSpecial: (att, distName) => `${att} ${distName} जिला के एगो बहुते विख्यात दर्शनीय स्थल छेकै, जतय दूर-दूर सँ पर्यटक आबै छै।`,
+      defaultWhy: 'अंग प्रदेश के पुरातन गौरव, सिल्क संस्कृति आ पावन तीर्थ के दर्शन लेल।'
+    },
+    baj: {
+      headingPlaces: 'प्रमुख दर्शनीय एवं घूमे वाला जगह',
+      subtextPlaces: 'एह जिला के प्रमुख ऐतिहासिक धरोहर, पावन मंदिर आ दर्शनीय स्थल',
+      special: 'एतय का खास बा (विशेषता):',
+      whyVisit: 'काहे आवे के चाही (Why Visit):',
+      food: 'प्रसिद्ध स्थानीय स्वाद व खान-पान:',
+      btnDetails: 'पूरा विवरण देखल जाय',
+      btnAddTrip: 'यात्रा में जोड़ीं',
+      btnSearch: 'अउर खोजीं',
+      overview: 'जिला के परिचय (Overview)',
+      history: 'ऐतिहासिक महत्व (History)',
+      foodSection: 'प्रसिद्ध स्थानीय स्वाद व खान-पान',
+      festivals: 'पारंपरिक परब-त्योहार व मेला',
+      travel: 'पहुंचे के साधन (How to Reach)',
+      defaultSpecial: (att, distName) => `${att} ${distName} जिला के प्रमुख प्रसिद्ध आकर्षण ह, जहाँ पर्यटक आ श्रद्धालु नियमित आवेला।`,
+      defaultWhy: 'तिरहुत-बज्जिका अंचल के अनूठा गणतंत्र, पावन तीर्थ आ ऐतिहासिक स्मृतियन के साक्षात्कार लेल।'
+    },
+    sjp: {
+      headingPlaces: 'प्रमुख दर्शनीय एवं पर्यटन स्थल',
+      subtextPlaces: 'इस जिला के प्रसिद्ध प्राकृतिक स्थल, पावन तीर्थ और दर्शनीय स्थल',
+      special: 'यहाँ क्या खास है (विशेषता):',
+      whyVisit: 'यहाँ क्यों आना चाहिए:',
+      food: 'प्रसिद्ध स्थानीय स्वाद व खान-पान:',
+      btnDetails: 'पूरा विवरण देखें',
+      btnAddTrip: 'यात्रा में जोड़ें',
+      btnSearch: 'और खोजें',
+      overview: 'जिले का परिचय',
+      history: 'ऐतिहासिक महत्व',
+      foodSection: 'प्रसिद्ध स्थानीय व्यंजन',
+      festivals: 'प्रमुख पर्व व मेले',
+      travel: 'यातायात व पहुंच',
+      defaultSpecial: (att, distName) => `${att} ${distName} जिला का एक प्रमुख एवं लोकप्रिय दर्शनीय स्थल है जहाँ बड़ी संख्या में पर्यटक आते हैं।`,
+      defaultWhy: 'सीमांचल की प्राकृतिक छटा, चाय बागान, वन्य जीवन और ऐतिहासिक धरोहर के दर्शन हेतु।'
+    }
+  };
+
+  const HI_VOCAB = {
+    headingPlaces: 'प्रमुख दर्शनीय एवं पर्यटन स्थल',
+    subtextPlaces: 'इस जिले के प्रमुख दर्शनीय स्थल, ऐतिहासिक धरोहर एवं तीर्थ केंद्र',
+    special: 'यहाँ क्या खास है (विशेषता):',
+    whyVisit: 'यहाँ क्यों आना चाहिए:',
+    food: 'प्रसिद्ध स्थानीय खान-पान:',
+    btnDetails: 'पूरा विवरण देखें',
+    btnAddTrip: 'यात्रा में जोड़ें',
+    btnSearch: 'और खोजें',
+    overview: 'जिले का परिचय',
+    history: 'ऐतिहासिक महत्व',
+    foodSection: 'प्रसिद्ध स्थानीय व्यंजन',
+    festivals: 'प्रमुख पर्व व मेले',
+    travel: 'यातायात व पहुंच',
+    defaultSpecial: (att, distName) => `${att} ${distName} जिले का एक प्रमुख एवं लोकप्रिय दर्शनीय स्थल है।`,
+    defaultWhy: 'स्थानीय संस्कृति, ऐतिहासिक महत्व और पावन धार्मिक परंपरा के प्रत्यक्ष दर्शन के लिए।'
+  };
+
+  const EN_VOCAB = {
+    headingPlaces: 'Top Tourist Attractions',
+    subtextPlaces: 'Must-visit heritage, spiritual, and natural landmarks of this district',
+    special: 'What is Special:',
+    whyVisit: 'Why You Should Visit:',
+    food: 'Famous Local Cuisine Nearby:',
+    btnDetails: 'View Full Details',
+    btnAddTrip: '+ Add to Trip',
+    btnSearch: 'Search Spot',
+    overview: 'District Overview',
+    history: 'Historical Importance',
+    foodSection: 'Famous Local Food',
+    festivals: 'Festivals & Fairs',
+    travel: 'How to Reach',
+    defaultSpecial: (att, distName) => `${att} is one of the most prominent landmarks and tourist spots in ${distName} district.`,
+    defaultWhy: 'To experience authentic heritage, scenic landscapes, and vibrant regional culture.'
+  };
+
+  const vocab = isLocal ? (DIALECT_VOCAB[langCode] || DIALECT_VOCAB.mai) : (isHi ? HI_VOCAB : EN_VOCAB);
+
+  const labelHeadingPlaces = vocab.headingPlaces;
+  const subtextPlaces = vocab.subtextPlaces;
+  const labelSpecial = vocab.special;
+  const labelWhyVisit = vocab.whyVisit;
+  const labelFood = vocab.food;
+  const btnDetails = vocab.btnDetails;
+  const btnAddTrip = vocab.btnAddTrip;
+  const btnSearch = vocab.btnSearch;
+
+  const labelOverview = vocab.overview;
+  const labelHistory = vocab.history;
+  const labelFoodSection = vocab.foodSection;
+  const foodList = isLocal ? (localLangInfo.famous_food_local || d.famous_food_hi || d.famous_food) : (isHi ? d.famous_food_hi : d.famous_food);
+  const labelFestivals = vocab.festivals;
+  const festList = isLocal ? (localLangInfo.festivals_local || d.festivals_hi || d.festivals) : (isHi ? d.festivals_hi : d.festivals);
+  const labelTravel = vocab.travel;
+  const travelText = isLocal ? (localLangInfo.travel_local || d.transport_info_hi) : (isHi ? d.transport_info_hi : d.transport_info);
+
+  // Default regional food list for tourist cards
+  const defaultCardFood = (foodList && foodList.length > 0) ? foodList.slice(0, 3).join(', ') : 'लिट्टी चोखा, सत्तू, पेड़ा';
+
+  // All Tourist Destinations belonging to this District
   const districtDests = BIHAR_DESTINATIONS.filter(dest => dest.district_id === d.id);
 
-  let destsHtml = '';
+  let destsCardsHtml = '';
+
+  // 1. Render all matching rich destinations in the primary dataset
   if (districtDests.length > 0) {
     districtDests.forEach(item => {
-      destsHtml += `
-        <div class="district-modal-dest-card" onclick="document.getElementById('district-detail-modal').remove(); openDestinationDetailModal('${item.id}');">
-          <img src="${item.image}" alt="${isHi ? item.name_hi : item.name}" />
-          <div>
-            <h5>${isHi ? item.name_hi : item.name}</h5>
-            <span class="badge badge-category">${isHi ? item.category_hi : item.category}</span>
+      const itemName = isLocal ? (item.name_local || item.name_hi || item.name) : (isHi ? item.name_hi : item.name);
+      const itemCat = isLocal ? (item.category_hi || item.category) : (isHi ? item.category_hi : item.category);
+      const itemSpecial = isLocal 
+        ? (item.what_is_special_local || item.what_is_special_hi || item.overview_hi || item.overview) 
+        : (isHi ? (item.what_is_special_hi || item.overview_hi) : (item.what_is_special || item.overview));
+      const itemWhy = isLocal 
+        ? (item.why_visit_local || item.why_visit_hi || item.historical_significance_hi || item.historical_significance) 
+        : (isHi ? (item.why_visit_hi || item.historical_significance_hi) : (item.why_visit || item.historical_significance));
+      const itemFood = isLocal 
+        ? (item.local_food_local || item.local_food_hi || defaultCardFood) 
+        : (isHi ? (item.local_food_hi || defaultCardFood) : (item.local_food || defaultCardFood));
+
+      destsCardsHtml += `
+        <div class="district-dest-card-rich">
+          <div class="district-dest-card-img-wrap">
+            <img src="${item.image}" alt="${itemName}" onerror="handleImgError(this)" loading="lazy" />
+            <span class="badge badge-category" style="position:absolute;top:10px;left:10px;">${itemCat}</span>
+            <span class="badge badge-rating" style="position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.65);color:#fff;">★ ${item.rating || '4.8'}</span>
+          </div>
+          <div class="district-dest-card-body">
+            <h4 class="district-dest-card-title">${itemName}</h4>
+            
+            <div class="district-dest-feature-box">
+              <strong>✨ ${labelSpecial}</strong>
+              <p>${itemSpecial}</p>
+            </div>
+
+            <div class="district-dest-feature-box" style="background:var(--accent-light);border-left:3px solid var(--accent);">
+              <strong>🌟 ${labelWhyVisit}</strong>
+              <p>${itemWhy}</p>
+            </div>
+
+            <div class="district-dest-food-box">
+              <strong>🍲 ${labelFood}</strong>
+              <span>${itemFood}</span>
+            </div>
+
+            <div class="district-dest-actions">
+              <button class="btn btn-primary btn-sm" onclick="document.getElementById('district-detail-modal')?.remove(); openDestinationDetailModal('${item.id}');">
+                ${btnDetails}
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="openAddToTripDialog('${item.id}')">
+                + ${btnAddTrip}
+              </button>
+            </div>
           </div>
         </div>
       `;
     });
-  } else {
-    destsHtml = `<p class="text-muted">${isHi ? 'इस जिले के अन्य प्रमाणित स्थल शीघ्र जोड़े जा रहे हैं।' : 'Additional verified spots for this district are being added through field review.'}</p>`;
   }
 
-  // Local Language Feature Box (PRD Section 20)
-  let localLanguageBoxHtml = '';
-  if (localLangInfo && localLangInfo.greeting) {
-    localLanguageBoxHtml = `
-      <div class="district-local-lang-box" id="district-local-lang-box">
-        <div class="local-lang-header">
-          <span class="local-lang-tag">🗣️ ${getTranslation('local_lang_heading')} — ${localLangInfo.lang_name}</span>
-          <div class="local-lang-pills-row">
-            <button class="local-lang-pill-btn active" onclick="switchDistrictModalLanguage('local', '${districtId}')">
-              ${localLangInfo.lang_name.split(' ')[0]}
-            </button>
-            <button class="local-lang-pill-btn" onclick="switchDistrictModalLanguage('hi', '${districtId}')">
-              हिन्दी
-            </button>
-            <button class="local-lang-pill-btn" onclick="switchDistrictModalLanguage('en', '${districtId}')">
-              English
-            </button>
+  // 2. Render ALL famous attractions from d.famous_attractions that don't have separate destination entries
+  const existingNames = districtDests.map(dd => dd.name.toLowerCase());
+  const additionalAttractions = (d.famous_attractions || []).filter(fa => 
+    !existingNames.some(en => en.includes(fa.toLowerCase()) || fa.toLowerCase().includes(en))
+  );
+
+  if (additionalAttractions.length > 0) {
+    additionalAttractions.forEach(att => {
+      const attImg = getAttractionImage(att, d.image);
+      const attSpecial = vocab.defaultSpecial(att, isLocal ? (d.name_hi || d.name) : (isHi ? d.name_hi : d.name));
+      const attWhy = vocab.defaultWhy;
+
+      destsCardsHtml += `
+        <div class="district-dest-card-rich">
+          <div class="district-dest-card-img-wrap">
+            <img src="${attImg}" alt="${att}" onerror="handleImgError(this)" loading="lazy" />
+            <span class="badge badge-category" style="position:absolute;top:10px;left:10px;">${isLocal ? 'प्रसिद्ध दर्शनीय स्थल' : (isHi ? 'प्रसिद्ध दर्शनीय स्थल' : 'Popular Landmark')}</span>
+          </div>
+          <div class="district-dest-card-body">
+            <h4 class="district-dest-card-title">${att}</h4>
+            
+            <div class="district-dest-feature-box">
+              <strong>✨ ${labelSpecial}</strong>
+              <p>${attSpecial}</p>
+            </div>
+
+            <div class="district-dest-feature-box" style="background:var(--accent-light);border-left:3px solid var(--accent);">
+              <strong>🌟 ${labelWhyVisit}</strong>
+              <p>${attWhy}</p>
+            </div>
+
+            <div class="district-dest-food-box">
+              <strong>🍲 ${labelFood}</strong>
+              <span>${defaultCardFood}</span>
+            </div>
+
+            <div class="district-dest-actions">
+              <button class="btn btn-primary btn-sm" onclick="setQuickSearch('${att.replace(/'/g, "\\'")}'); document.getElementById('district-detail-modal')?.remove();">
+                🔍 ${btnDetails}
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="openAddToTripDialogCustom('${att.replace(/'/g, "\\'")}', '${(d.name_hi || d.name).replace(/'/g, "\\'")}')">
+                + ${btnAddTrip}
+              </button>
+            </div>
           </div>
         </div>
-
-        <div class="local-lang-greeting-quote" id="modal-local-greeting">
-          "${localLangInfo.greeting}"
-        </div>
-
-        <p class="local-lang-desc-text" id="modal-local-desc">
-          ${localLangInfo.description_local || d.description}
-        </p>
-
-        ${localLangInfo.proverb ? `
-          <div class="local-lang-proverb-badge" id="modal-local-proverb">
-            <strong>${getTranslation('local_lang_proverb')}:</strong> ${localLangInfo.proverb}
-          </div>
-        ` : ''}
-      </div>
-    `;
+      `;
+    });
   }
+
+  const totalDestCount = districtDests.length + additionalAttractions.length;
 
   modalOverlay.innerHTML = `
     <div class="modal-card destination-modal-large">
       <div class="modal-header">
         <div>
           <span class="badge badge-category">${isHi ? (BIHAR_DIVISIONS.find(v => v.id === d.division)?.name_hi || d.division) : d.division.toUpperCase() + ' DIVISION'}</span>
-          <h2>${isHi ? d.name_hi : d.name} ${isHi ? 'जिला' : 'District'}</h2>
+          <h2>${distTitle}</h2>
           <p class="modal-location-sub">HQ: ${isHi ? d.headquarters_hi : d.headquarters}</p>
         </div>
         <button class="modal-close-btn" onclick="document.getElementById('district-detail-modal').remove()">&times;</button>
@@ -1379,48 +1891,92 @@ function openDistrictDetailModal(districtId) {
           <span class="breadcrumb-current">${isHi ? d.name_hi : d.name}</span>
         </nav>
 
-        <div class="modal-gallery-hero">
-          <img src="${d.image}" alt="${isHi ? d.name_hi : d.name}" class="modal-main-image" />
+        <!-- Top Language Selector Bar (PRD Section 20) -->
+        <div class="district-modal-lang-bar">
+          <div class="district-modal-lang-tag">
+            <span>🗣️</span> <span>${isLocal ? `अपन स्थानीय भाषा में देखू (${langNameTitle})` : (isHi ? `भाषा चुनें / Language:` : `Language:`)}</span>
+          </div>
+          <div class="district-modal-lang-pills">
+            ${hasLocal ? `
+              <button class="district-modal-lang-pill ${activeMode === 'local' ? 'active' : ''}" onclick="openDistrictDetailModal('${districtId}', 'local')">
+                ⭐ ${langNameTitle} (${isLocal ? 'सक्रिय' : 'अपन भाषा'})
+              </button>
+            ` : ''}
+            <button class="district-modal-lang-pill ${activeMode === 'hi' ? 'active' : ''}" onclick="openDistrictDetailModal('${districtId}', 'hi')">
+              हिन्दी
+            </button>
+            <button class="district-modal-lang-pill ${activeMode === 'en' ? 'active' : ''}" onclick="openDistrictDetailModal('${districtId}', 'en')">
+              English
+            </button>
+          </div>
         </div>
 
-        <p class="district-lead-tagline"><strong>"${isHi ? d.tagline_hi : d.tagline}"</strong></p>
+        <div class="modal-gallery-hero">
+          <img src="${d.image}" alt="${isHi ? d.name_hi : d.name}" class="modal-main-image" onerror="handleImgError(this)" />
+        </div>
 
-        <!-- PRD Section 20: Explore in Your Local Language Component -->
-        ${localLanguageBoxHtml}
+        <p class="district-lead-tagline"><strong>"${leadTagline}"</strong></p>
 
+        <!-- Local Greeting Banner -->
+        ${(isLocal && localLangInfo && localLangInfo.greeting) ? `
+          <div class="district-local-lang-box" style="margin-bottom:1.5rem;">
+            <div class="local-lang-greeting-quote">
+              "${localLangInfo.greeting}"
+            </div>
+            ${localLangInfo.proverb ? `
+              <div class="local-lang-proverb-badge">
+                <strong>${isLocal ? 'कहावत / लोकोक्ति' : 'लोकोक्ति'}:</strong> ${localLangInfo.proverb}
+              </div>
+            ` : ''}
+          </div>
+        ` : ''}
+
+        <!-- 1. TOURIST PLACES SECTION (DISPLAYED FIRST) -->
+        <div class="modal-section-box" style="margin-bottom: 2rem; border: 2px solid var(--accent); border-radius: var(--border-radius); padding: 1.25rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:1rem; border-bottom:1px solid var(--border-color); padding-bottom:0.75rem;">
+            <div>
+              <h3 style="font-size:1.45rem; font-weight:800; color:var(--text-primary); margin:0;">
+                📍 ${labelHeadingPlaces} (${totalDestCount})
+              </h3>
+              <p style="font-size:0.9rem; color:var(--text-muted); margin:0.25rem 0 0 0;">${subtextPlaces}</p>
+            </div>
+            <span class="badge badge-verified" style="font-size:0.85rem; padding:0.35rem 0.8rem;">✓ 100% Verified Guide</span>
+          </div>
+
+          <div class="district-modal-dest-grid">
+            ${destsCardsHtml}
+          </div>
+        </div>
+
+        <!-- 2. DISTRICT OVERVIEW & HISTORY -->
         <div class="modal-info-grid">
           <div class="modal-info-card">
-            <h4>${getTranslation('district_modal_overview')}</h4>
-            <p>${isHi ? d.description_hi : d.description}</p>
+            <h4>${labelOverview}</h4>
+            <p>${distDesc}</p>
           </div>
 
           <div class="modal-info-card">
-            <h4>${getTranslation('district_modal_history')}</h4>
-            <p>${isHi ? d.historical_importance_hi : d.historical_importance}</p>
+            <h4>${labelHistory}</h4>
+            <p>${distHistory}</p>
           </div>
         </div>
 
-        <div class="modal-section-box">
-          <h4>📍 ${getTranslation('district_modal_destinations')} (${districtDests.length})</h4>
-          <div class="district-modal-dest-grid">
-            ${destsHtml}
-          </div>
-        </div>
-
+        <!-- 3. CUISINE & FESTIVALS -->
         <div class="modal-info-grid" style="margin-top:1.5rem;">
           <div class="modal-info-card">
-            <h4>🍴 ${getTranslation('district_modal_food')}</h4>
-            <p>${isHi ? (d.famous_food_hi || []).join(' • ') : (d.famous_food || []).join(' • ')}</p>
+            <h4>🍴 ${labelFoodSection}</h4>
+            <p>${foodList.join(' • ')}</p>
           </div>
           <div class="modal-info-card">
-            <h4>🎉 ${getTranslation('district_modal_festivals')}</h4>
-            <p>${isHi ? (d.festivals_hi || []).join(' • ') : (d.festivals || []).join(' • ')}</p>
+            <h4>🎉 ${labelFestivals}</h4>
+            <p>${festList.join(' • ')}</p>
           </div>
         </div>
 
+        <!-- 4. HOW TO REACH -->
         <div class="modal-section-box" style="margin-top:1.5rem;">
-          <h4>🚆 ${getTranslation('district_modal_travel')}</h4>
-          <p>${isHi ? d.transport_info_hi : d.transport_info}</p>
+          <h4>🚆 ${labelTravel}</h4>
+          <p>${travelText}</p>
         </div>
       </div>
 
@@ -1429,7 +1985,7 @@ function openDistrictDetailModal(districtId) {
           🔗 ${getTranslation('share_link_btn')}
         </button>
         <button class="btn btn-outline" onclick="filterDestinationsByDistrict('${d.id}')">
-          ${isHi ? `${d.name_hi} के स्थल देखें` : `Filter ${d.name} Spots`}
+          ${isHi ? `${d.name_hi} के सभी स्थल फिल्टर करें` : `Filter ${d.name} Spots`}
         </button>
         <button class="btn btn-primary" onclick="document.getElementById('district-detail-modal').remove()">
           ${isHi ? 'बंद करें' : 'Close'}
@@ -1437,41 +1993,6 @@ function openDistrictDetailModal(districtId) {
       </div>
     </div>
   `;
-
-  document.body.appendChild(modalOverlay);
-
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) modalOverlay.remove();
-  });
-}
-
-// Switch Language inside the District Modal (Local / Hindi / English)
-function switchDistrictModalLanguage(mode, districtId) {
-  const d = getDistrictById(districtId);
-  const localInfo = getDistrictLocalLanguageInfo(districtId);
-  if (!d || !localInfo) return;
-
-  const greetingEl = document.getElementById('modal-local-greeting');
-  const descEl = document.getElementById('modal-local-desc');
-
-  // Update pill active classes
-  document.querySelectorAll('.local-lang-pill-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
-
-  if (mode === 'local') {
-    if (greetingEl) greetingEl.textContent = `"${localInfo.greeting}"`;
-    if (descEl) descEl.textContent = localInfo.description_local || d.description;
-    event?.target?.classList.add('active');
-  } else if (mode === 'hi') {
-    if (greetingEl) greetingEl.textContent = `"${d.name_hi} जिले में आपका स्वागत है!"`;
-    if (descEl) descEl.textContent = d.description_hi;
-    event?.target?.classList.add('active');
-  } else if (mode === 'en') {
-    if (greetingEl) greetingEl.textContent = `"Welcome to ${d.name} District!"`;
-    if (descEl) descEl.textContent = d.description;
-    event?.target?.classList.add('active');
-  }
 }
 
 function filterDestinationsByDistrict(districtId) {

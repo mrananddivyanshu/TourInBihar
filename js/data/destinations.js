@@ -28,10 +28,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 8420,
-    image: "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=1000&q=80",
+    image: "images/nalanda.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1000&q=80"
+      "images/nalanda.jpg",
+      "images/nalanda.jpg"
     ],
     overview: "A UNESCO World Heritage site, Nalanda Mahavihara was the world's first great residential university, flourishing from the 5th to the 12th century CE. It attracted over 10,000 students and 2,000 teachers from across Asia including China, Korea, Japan, Tibet, and Persia.",
     overview_hi: "यूनेस्को विश्व धरोहर स्थल, नालंदा महाविहार विश्व का पहला महान आवासीय विश्वविद्यालय था, जो 5वीं से 12वीं शताब्दी ईस्वी तक ज्ञान का वैश्विक केंद्र रहा। यहाँ चीन, कोरिया, जापान, तिब्बत और फारस सहित पूरे एशिया से 10,000 से अधिक छात्र अध्ययन करते थे।",
@@ -86,10 +86,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.9,
     reviews_count: 14200,
-    image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1000&q=80",
+    image: "images/mahabodhi.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80"
+      "images/mahabodhi.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Mahabodhi_temple_front_view.jpg/800px-Mahabodhi_temple_front_view.jpg"
     ],
     overview: "A UNESCO World Heritage site of supreme spiritual significance, this is the exact holy ground where Prince Siddhartha Gautama attained Enlightenment (Bodhi) under the sacred Bodhi Tree around 531 BCE, becoming the Supreme Buddha.",
     overview_hi: "परम पावन यूनेस्को विश्व धरोहर स्थल, यह वह पवित्र भूमि है जहाँ लगभग 531 ईसा पूर्व में राजकुमार सिद्धार्थ गौतम ने पवित्र बोधि वृक्ष के नीचे तपस्या कर बुद्धत्व (ज्ञान) प्राप्त किया था।",
@@ -144,10 +144,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 5120,
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80",
+    image: "images/rajgir.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80"
+      "images/rajgir.jpg",
+      "images/rajgir.jpg"
     ],
     overview: "Suspended 250 feet above a picturesque canyon in the lush green Giri hills of Rajgir, this 85-foot-long crystal-clear glass bridge is Bihar's iconic modern eco-adventure attraction. The complex also features zip-lining, archery, wall climbing, and an open Zoo Safari.",
     overview_hi: "राजगीर की हरी-भरी गिरी पहाड़ियों के बीच 250 फीट की ऊंचाई पर बना 85 फीट लंबा यह पारदर्शी ग्लास स्काईवॉक बिहार का प्रमुख रोमांचक आकर्षण है। यहाँ जिप-लाइन, तीरंदाजी, रॉक क्लाइंबिंग और आधुनिक जू सफारी भी स्थित है।",
@@ -188,11 +188,12 @@ const BIHAR_DESTINATIONS = [
     best_season_hi: "अक्टूबर से मार्च"
   },
 
-  // 4. Bihar Museum, Patna
+        // 4. Bihar Museum, Patna (Asia's Premier & Largest World-Class Museum)
   {
     id: "bihar-museum",
-    name: "Bihar Museum",
-    name_hi: "बिहार संग्रहालय, पटना",
+    name: "Bihar Museum (Asia's #1 World-Class Museum)",
+    name_hi: "बिहार संग्रहालय, पटना (एशिया का नंबर-1 विश्वस्तरीय संग्रहालय)",
+    name_local: "बिहार संग्रहालय, पटना (एशिया केर नंबर-1 भव्य संग्रहालय)",
     district_id: "patna",
     district_name: "Patna",
     district_name_hi: "पटना",
@@ -200,17 +201,26 @@ const BIHAR_DESTINATIONS = [
     category: "Museums & Education",
     category_hi: "संग्रहालय व ज्ञान केंद्र",
     featured: true,
-    rating: 4.8,
-    reviews_count: 9800,
-    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1000&q=80",
+    rating: 4.9,
+    reviews_count: 12500,
+    image: "images/biharmuseum.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1000&q=80"
+      "images/biharmuseum.jpg",
+      "images/patnamuseum.jpg"
     ],
-    overview: "Designed by world-acclaimed architect Fumihiko Maki across 13.5 acres on Bailey Road, Bihar Museum is one of South Asia's largest and most technologically sophisticated cultural museums. It chronicles 3,000+ years of civilizational heritage through interactive galleries.",
-    overview_hi: "प्रसिद्ध जापानी वास्तुकार फुमिहिको माकी द्वारा बेली रोड पर 13.5 एकड़ में डिज़ाइन किया गया बिहार संग्रहालय दक्षिण एशिया के सबसे बड़े और सबसे अत्याधुनिक सांस्कृतिक संग्रहालयों में से एक है। यह 3,000 वर्षों से अधिक के समृद्ध इतिहास को प्रदर्शित करता है।",
-    historical_significance: "Houses world-renowned ancient antiquities including the Didarganj Yakshi (3rd century BCE polished Mauryan masterpiece), bronze idols, and historical artifacts from Magadha and Mithila.",
+    overview: "Spanning 13.5 acres on Bailey Road with an investment of ₹530+ crores, Bihar Museum is recognized as Asia's #1 world-class experiential museum and South Asia's largest cultural institution. Designed by Pritzker Prize-winning Japanese architect Fumihiko Maki and Opolis Architects, it won the prestigious international Leading Culture Destinations Award ('Oscars for Museums'). It houses the iconic 2,300-year-old Didarganj Yakshi, ancient Kurkihar bronzes, and 3,000+ years of civilizational treasures across state-of-the-art interactive galleries.",
+    overview_hi: "बेली रोड पर 13.5 एकड़ में 530 करोड़ रुपये से अधिक की लागत से निर्मित बिहार संग्रहालय को एशिया का नंबर-1 विश्वस्तरीय अनुभवात्मक संग्रहालय और दक्षिण एशिया का सबसे बड़ा सांस्कृतिक केंद्र माना जाता है। प्रित्ज़कर पुरस्कार विजेता जापानी वास्तुकार फुमिहिको माकी द्वारा डिज़ाइन किए गए इस संग्रहालय ने अंतरराष्ट्रीय 'लीडिंग कल्चर डेस्टिनेशंस अवार्ड' (संग्रहालयों का ऑस्कर) जीता है। यहाँ 2,300 वर्ष पुरानी विश्वप्रसिद्ध दीदारगंज यक्षी और 3,000 वर्षों की ऐतिहासिक विरासत प्रदर्शित है।",
+    historical_significance: "Houses world-renowned ancient antiquities including the Didarganj Yakshi (3rd century BCE polished Mauryan masterpiece), Kurkihar bronze idols, and historical artifacts from Magadha and Mithila.",
     historical_significance_hi: "विश्वप्रसिद्ध दीदारगंज यक्षी (तीसरी सदी ई.पू. की अद्भुत मौर्यकालीन मूर्ति), प्राचीन कांस्य प्रतिमाएं और मिथिला-मगध की अद्वितीय पुरातात्विक संपदा यहाँ संरक्षित है।",
+    what_is_special: "Asia's #1 premier world-class museum spanning 13.5 acres, home to the priceless 3rd-century BCE polished Mauryan Didarganj Yakshi sculpture, Kurkihar bronzes, and high-tech immersive history galleries.",
+    what_is_special_hi: "एशिया का नंबर-1 विश्वस्तरीय आधुनिक संग्रहालय जो 13.5 एकड़ में फैला है; यहाँ 2300 वर्ष पुरानी मौर्यकालीन दीदारगंज यक्षी की अद्भुत चमकती प्रतिमा, कुरकिहार कांस्य मूर्तियां और अत्याधुनिक डिजिटल दीर्घाएं हैं।",
+    what_is_special_local: "एशिया केर नंबर-1 विश्वस्तरीय संग्रहालय जे 13.5 एकड़ में पसरल अछि; एतय विश्वप्रसिद्ध 2300 बरिस पुरान मौर्यकालीन दीदारगंज यक्षी केर प्रतिमा आ अत्याधुनिक दीर्घा अछि।",
+    why_visit: "To witness Asia's most award-winning, state-of-the-art museum, explore ancient Magadhan civilizational masterworks, and walk through the historic subterranean heritage tunnel.",
+    why_visit_hi: "एशिया के सबसे भव्य और पुरस्कार-विजेता अत्याधुनिक संग्रहालय को देखने, प्राचीन मगध की ऐतिहासिक धरोहरों का सजीव अनुभव करने और 1.5 किमी लंबी भूमिगत हेरिटेज टनल का अनुभव लेने के लिए।",
+    why_visit_local: "एशिया केर सबसँ भव्य आ आधुनिक संग्रहालय देखय लेल, प्राचीन भारतक गौरवशाली इतिहासक प्रत्यक्ष साक्षात्कार करय लेल।",
+    local_food: "Potbelly Cafe Bihari Delicacies (Litti Chokha, Champaran Meat, Makhana Kheer), Patna Khaja",
+    local_food_hi: "पॉटबेली कैफे के बिहारी व्यंजन (लिट्टी चोखा, चंपारण हांडी मीट, मखाना खीर), पटना का खाजा",
+    local_food_local: "पॉटबेली कैफे केर पारंपरिक बिहारी स्वाद, लिट्टी चोखा आ मखान खीर",
     coordinates: { lat: 25.6095, lng: 85.1165 },
     google_maps_url: "https://maps.google.com/?q=25.6095,85.1165",
     visiting_duration: "3 - 4 Hours",
@@ -241,7 +251,75 @@ const BIHAR_DESTINATIONS = [
       "रिसेप्शन पर हिंदी और अंग्रेजी में ऑडियो गाइड उपलब्ध है।",
       "संग्रहालय परिसर के कैफे 'द पॉटबेली' में पारंपरिक बिहारी व्यंजनों का आनंद लें।"
     ],
-    nearby_attractions: ["Patna Museum (Old)", "Golghar", "Patna Planetarium", "Eco Park", "Ganga Marine Drive"],
+    nearby_attractions: ["Patna Museum (Historic Jadu Ghar)", "Golghar", "Patna Planetarium", "Eco Park", "Ganga Marine Drive"],
+    best_season: "All Year Round",
+    best_season_hi: "वर्ष भर अनुकूल"
+  },
+
+  // 4B. Patna Museum (Historic Jadu Ghar, Estd 1917)
+  {
+    id: "patna-museum",
+    name: "Patna Museum (Historic Jadu Ghar)",
+    name_hi: "पटना संग्रहालय (ऐतिहासिक जादू घर)",
+    name_local: "पटना संग्रहालय (ऐतिहासिक जादू घर)",
+    district_id: "patna",
+    district_name: "Patna",
+    district_name_hi: "पटना",
+    category_slug: "museums",
+    category: "Museums & Education",
+    category_hi: "संग्रहालय व ज्ञान केंद्र",
+    featured: true,
+    rating: 4.8,
+    reviews_count: 8900,
+    image: "images/patnamuseum.jpg",
+    gallery: [
+      "images/patnamuseum.jpg",
+      "images/biharmuseum.jpg"
+    ],
+    overview: "Established in 1917 during the British Raj, Patna Museum (popularly known as Jadu Ghar) is one of the oldest, richest, and most prestigious museums in Asia. Built in majestic Indo-Saracenic (Mughal-Rajput) architecture on Buddha Marg, it famously safeguards the sacred 5th-century BCE casket containing the holy bone relics of Lord Gautama Buddha (unearthed from Vaishali), a 200-million-year-old fossilized tree trunk (53 feet long), and Rahul Sankrityayan's priceless collection of ancient Tibetan Thangka paintings.",
+    overview_hi: "1917 में स्थापित पटना संग्रहालय (लोकप्रिय नाम 'जादू घर') एशिया के सबसे पुराने, समृद्ध और प्रतिष्ठित संग्रहालयों में गिना जाता है। बुद्ध मार्ग पर भव्य इंडो-सारसेनिक (मुगल-राजपूत) स्थापत्य में निर्मित इस संग्रहालय में भगवान गौतम बुद्ध के पावन अस्थि अवशेषों की पवित्र मंजूषा (वैशाली स्तूप से प्राप्त), 20 करोड़ वर्ष पुराना 53 फीट लंबा जीवाश्मीकृत वृक्ष और महापंडित राहुल सांकृत्यायन द्वारा तिब्बत से लाई गई अमूल्य थंका पेंटिंग्स सुरक्षित हैं।",
+    historical_significance: "Founded by the British to house antiquities found across Bihar; possesses one of the world's only verified Buddha relic caskets from Vaishali.",
+    historical_significance_hi: "ब्रिटिश काल में स्थापित ऐतिहासिक संस्थान; यहाँ वैशाली से प्राप्त भगवान बुद्ध की पवित्र अस्थि मंजूषा संरक्षित है।",
+    what_is_special: "Houses the supreme sacred bone relics of Lord Buddha in a special gold-plated sanctum, along with a 200-million-year-old fossil tree and over 50,000 ancient artifacts.",
+    what_is_special_hi: "भगवान बुद्ध के पवित्र पावन अस्थि अवशेष, 20 करोड़ वर्ष पुराना जीवाश्म वृक्ष और 50,000 से अधिक दुर्लभ पुरातात्विक व ब्रिटिशकालीन संग्रह।",
+    what_is_special_local: "भगवान बुद्धक पावन अस्थि अवशेष केर पवित्र मंजूषा आ 20 करोड़ बरिस पुरान जीवाश्म वृक्ष केर ऐतिहासिक धरोहर।",
+    why_visit: "To offer reverence at the sacred Buddha Relic Sanctum, admire royal British and Mughal-Rajput palace architecture, and experience over a century of museum legacy.",
+    why_visit_hi: "भगवान बुद्ध के पावन अस्थि दर्शन करने, 100 वर्ष से अधिक पुरानी ऐतिहासिक इमारत की वास्तुकला देखने और प्राचीन भारत के दुर्लभ सिक्कों व मूर्तियों को निहारने के लिए।",
+    why_visit_local: "भगवान बुद्धक पावन दर्शन आ 100 बरिस पुरान ऐतिहासिक जादू घरक अद्भुत संग्रह देखय लेल।",
+    local_food: "Patna Maurya Litti Chokha, Fraser Road Sattu Paratha, Chandrakala, Khaja",
+    local_food_hi: "पटना मौर्य कॉम्पलेक्स का लिट्टी चोखा, फ्रेजर रोड का सत्तू पराठा, चंद्रकला, खाजा",
+    local_food_local: "पटनाक प्रसिद्ध लिट्टी चोखा, चंद्रकला आ सत्तू शरबत",
+    coordinates: { lat: 25.6111, lng: 85.1328 },
+    google_maps_url: "https://maps.google.com/?q=25.6111,85.1328",
+    visiting_duration: "2 - 3 Hours",
+    visiting_duration_hi: "2 - 3 घंटे",
+    opening_hours: "10:30 AM - 04:30 PM (Closed Mondays)",
+    opening_hours_hi: "सुबह 10:30 से शाम 04:30 बजे तक (सोमवार को बंद)",
+    entry_fee: "₹20 for Indians, ₹10 for students, ₹250 for Buddha Relic Gallery, ₹500 for Foreigners",
+    entry_fee_hi: "सामान्य प्रवेश ₹20, विद्यार्थियों के लिए ₹10, बुद्ध अस्थि दर्शन गैलरी ₹250, विदेशी पर्यटकों के लिए ₹500",
+    entry_type: "Paid",
+    family_friendly: true,
+    accessibility: {
+      wheelchair: true,
+      notes: "Ground floor galleries are accessible, ramp access at entrance.",
+      notes_hi: "भूतल दीर्घाएं व्हीलचेयर अनुकूल, प्रवेश द्वार पर रैंप सुविधा उपलब्ध।"
+    },
+    verification: {
+      status: "Verified",
+      date: "2026-10-22",
+      source: "Directorate of Museums, Govt. of Bihar"
+    },
+    travel_tips: [
+      "Special ticket required for the Buddha Relic Casket Gallery.",
+      "Photography may require additional nominal ticket fee.",
+      "Visit both Bihar Museum and Patna Museum on the same day for a complete heritage journey."
+    ],
+    travel_tips_hi: [
+      "भगवान बुद्ध अस्थि अवशेष गैलरी देखने के लिए विशेष टिकट आवश्यक है।",
+      "फोटोग्राफी के लिए अतिरिक्त मामूली शुल्क लागू है।",
+      "संपूर्ण ऐतिहासिक अनुभव के लिए बिहार संग्रहालय और पटना संग्रहालय दोनों का भ्रमण अवश्य करें।"
+    ],
+    nearby_attractions: ["Bihar Museum (via Heritage Tunnel)", "Golghar", "Ganga Ghats", "Patna Planetarium", "High Court"],
     best_season: "All Year Round",
     best_season_hi: "वर्ष भर अनुकूल"
   },
@@ -260,10 +338,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 3200,
-    image: "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=1000&q=80",
+    image: "images/shershah.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1000&q=80"
+      "images/shershah.jpg"
     ],
     overview: "Perched 1,500 feet atop the Kaimur plateau overlooking the Sone River, Rohtasgarh is one of the most impregnable and sprawling hill-fortresses in India, spanning over 28 square miles. It features royal palace chambers, hanging balconies, ancient temples, and cannon bastions.",
     overview_hi: "सोन नदी के ऊपर कैमूर पठार पर 1,500 फीट की ऊंचाई पर स्थित रोहतासगढ़ भारत के सबसे दुर्भेद्य और विशाल पहाड़ी किलों में से एक है, जो लगभग 28 वर्ग मील में फैला है। इसमें भव्य महल, लटकते झरोखे, मंदिर और प्राचीन तोपखाने हैं।",
@@ -318,9 +395,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 6700,
-    image: "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=1000&q=80",
+    image: "images/shershah.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=1000&q=80"
+      "images/shershah.jpg"
     ],
     overview: "Regarded as the 'Taj Mahal of Bihar' and an Indo-Islamic architectural marvel, this magnificent red sandstone mausoleum stands 122 feet high in the center of a scenic square artificial lake. Built between 1540 and 1545 CE, its dome is actually larger than that of the Taj Mahal.",
     overview_hi: "'बिहार का ताजमहल' कहा जाने वाला यह भव्य लाल बलुआ पत्थर का मकबरा एक विशाल कृत्रिम झील के बीच 122 फीट ऊंचा खड़ा है। 1540 से 1545 के बीच निर्मित इस मकबरे का गुंबद आकार में ताजमहल के गुंबद से भी बड़ा है।",
@@ -373,10 +450,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 4200,
-    image: "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1000&q=80",
+    image: "images/valmiki.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1000&q=80",
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80"
+      "images/valmiki.jpg"
     ],
     overview: "Nestled in the foothills of the Himalayas along the India-Nepal border, Valmiki is Bihar's only Tiger Reserve and premier national park, covering 898 sq km. Home to royal Bengal tigers, leopards, Indian one-horned rhinos, flying foxes, and 250+ exotic bird species.",
     overview_hi: "भारत-नेपाल सीमा पर हिमालय की तराई में स्थित वाल्मीकि बिहार का एकमात्र राष्ट्रीय उद्यान और टाइगर रिजर्व है, जो 898 वर्ग किमी में फैला है। यहाँ रॉयल बंगाल टाइगर, तेंदुए, एक सींग वाले गैंडे और 250 से अधिक दुर्लभ पक्षी पाए जाते हैं।",
@@ -431,9 +507,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.9,
     reviews_count: 11500,
-    image: "https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=1000&q=80",
+    image: "images/patnasahib.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=1000&q=80"
+      "images/patnasahib.jpg"
     ],
     overview: "One of the five sacred Takhts (Thrones of Authority) of Sikhism, Takht Sri Harmandir Ji Patna Sahib is the revered birthplace of the Tenth Sikh Guru, Guru Gobind Singh Ji, born here in 1666 CE. Standing near the bank of River Ganga, it welcomes pilgrims with continuous langar.",
     overview_hi: "सिख धर्म के पांच पावन तख्तों में से एक, तख्त श्री हरमंदिर जी पटना साहिब सिखों के दसवें गुरु, गुरु गोबिंद सिंह जी की पवित्र जन्मस्थली (1666 ई.) है। गंगा तट के निकट स्थित यह पावन गुरुद्वारा 24 घंटे लंगर और आध्यात्मिक शांति प्रदान करता है।",
@@ -488,9 +564,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 4800,
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80",
+    image: "images/mundeshwari.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80"
+      "images/mundeshwari.jpg"
     ],
     overview: "Perched atop the isolated Pavra hill (608 ft) in Kaimur, Mundeshwari is certified by the Archaeological Survey of India as the oldest surviving functional Hindu temple in India. Continuous worship has been conducted here since at least 108 CE / 635 CE.",
     overview_hi: "कैमूर की 608 फीट ऊंची पवरा पहाड़ी पर स्थित माँ मुंडेश्वरी मंदिर भारतीय पुरातत्व सर्वेक्षण (एएसआई) द्वारा भारत का सबसे प्राचीन निरंतर सक्रिय मंदिर प्रमाणित है, जहाँ लगभग 108 ई./635 ई. से बिना रुके निरंतर पूजा-अर्चना होती आ रही है।",
@@ -543,9 +619,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.6,
     reviews_count: 3800,
-    image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1000&q=80",
+    image: "images/kakolat.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1000&q=80"
+      "images/kakolat.jpg"
     ],
     overview: "Cascading from a height of about 160 feet amidst dense forested hills on the border of Bihar and Jharkhand, Kakolat is Bihar's most iconic natural waterfall. The cold crystal-clear mineral spring waters pool into a natural reservoir revered for its refreshing and therapeutic qualities.",
     overview_hi: "बिहार और झारखंड की सीमा पर घने जंगलों से आच्छादित पहाड़ियों के बीच 160 फीट की ऊंचाई से गिरता ककोलत बिहार का सबसे लोकप्रिय प्राकृतिक जलप्रपात है। इसका निर्मल और शीतल जल एक प्राकृतिक कुंड में एकत्र होता है जो अत्यंत स्फूर्तिदायक है।",
@@ -600,9 +676,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 2900,
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80",
+    image: "images/kesaria.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80"
+      "images/kesaria.jpg"
     ],
     overview: "Rising majestically to a height of 104 feet with a circumference of nearly 1,400 feet, Kesaria is celebrated as the tallest Buddhist stupa in the world, standing one foot taller than the famous Borobudur temple in Indonesia. It features multiple circular terraces with Buddha shrines in niches.",
     overview_hi: "104 फीट की भव्य ऊंचाई और लगभग 1,400 फीट की परिधि के साथ केसरिया स्तूप दुनिया का सबसे ऊंचा बौद्ध स्तूप माना जाता है, जो इंडोनेशिया के बोरोबुदुर मंदिर से भी 1 फीट ऊंचा है। इसमें सीढ़ीदार चबूतरों पर भगवान बुद्ध की प्रतिमाएं स्थापित हैं।",
@@ -655,9 +731,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.6,
     reviews_count: 2400,
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80",
+    image: "images/vikramshila.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80"
+      "images/vikramshila.jpg"
     ],
     overview: "Along with Nalanda, Vikramshila was one of the two most important seats of Buddhist learning in India during the Pala Empire. Established at Antichak near Kahalgaon, its centerpiece is a gigantic cruciform central stupa surrounded by 208 monastic cells and landscaped lawns.",
     overview_hi: "नालंदा के साथ विक्रमशिला पाल साम्राज्य के दौरान भारत में बौद्ध शिक्षा का सबसे प्रमुख विश्वविद्यालय था। कहलगांव के निकट अंतीचक में स्थित इसका मुख्य केंद्र एक विशाल क्रूसीफॉर्म महास्तूप है जिसके चारों ओर 208 मठ कक्ष बने हुए हैं।",
@@ -710,9 +786,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.6,
     reviews_count: 2100,
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80",
+    image: "images/vikramshila.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80"
+      "images/vikramshila.jpg"
     ],
     overview: "Spanning 60 kilometers of the sacred Ganges River from Sultanganj to Kahalgaon in Bhagalpur, this is the only protected aquatic sanctuary for India's National Aquatic Animal—the endangered freshwater Gangetic Dolphin (Platanista gangetica, locally called 'Susu').",
     overview_hi: "भागलपुर में सुल्तानगंज से कहलगांव तक गंगा नदी के 60 किलोमीटर के हिस्से में फैला यह भारत के राष्ट्रीय जलीय जीव—दुर्लभ गंगा डॉल्फिन (सॉस) का देश में एकमात्र संरक्षित जलीय अभयारण्य है।",
@@ -758,6 +834,7 @@ const BIHAR_DESTINATIONS = [
     id: "madhubani-art-villages",
     name: "Madhubani Art Villages (Jitwarpur & Ranti)",
     name_hi: "मधुबनी कला ग्राम (जीतवारपुर और रांटी)",
+    name_local: "जीतवारपुर एवं रांटी (मिथिला चित्रकला ग्राम)",
     district_id: "madhubani",
     district_name: "Madhubani",
     district_name_hi: "मधुबनी",
@@ -767,14 +844,25 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.9,
     reviews_count: 3100,
-    image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80",
+    image: "images/madhubani.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80"
+      "images/madhubani.jpg"
     ],
     overview: "Jitwarpur and Ranti are the living cradles of the world-celebrated GI-tagged Madhubani (Mithila) Painting. Walking through these villages is an open-air artistic pilgrimage—almost every household has women masters painting vivid murals of deities, nature, and rituals on mud walls and handmade paper.",
     overview_hi: "जीतवारपुर और रांटी विश्व प्रसिद्ध जीआई-टैग प्राप्त 'मधुबनी (मिथिला) चित्रकला' के जीवंत गांव हैं। इन गांवों में घूमना एक खुली कला दीर्घा में घूमने जैसा है, जहाँ लगभग हर घर में पद्मश्री और राष्ट्रीय पुरस्कार विजेता महिला कलाकार अपनी पारंपरिक कला का सृजन करती हैं।",
+    overview_local: "जीतवारपुर आ रांटी विश्वविख्यात जीआई-टैग प्राप्त 'मिथिला चित्रकला'क पावन मायके थिक। एहि गामक घर-घर में माटीक भित्ति आ कागज पर प्राकृतिक रंग सँ जीवंत कला रचल जाइत अछि; बहुते रास पद्मश्री कलाकारक ई पावन माटी थिक।",
     historical_significance: "Centuries-old folk art traditionally passed mother-to-daughter; produced multiple Padma Shri awardees including Jagdamba Devi, Mahasundari Devi, Sita Devi, Godavari Dutta, and Dulari Devi.",
     historical_significance_hi: "सदियों पुरानी परंपरा जो माताओं द्वारा बेटियों को सिखाई जाती रही है; यहाँ से जगदम्बा देवी, महासुंदरी देवी, सीता देवी, गोदावरी दत्ता और दुलारी देवी जैसी कई पद्मश्री कलाकार उभरी हैं।",
+    historical_significance_local: "मायक हाथ सँ बेटी केँ मिलल पीढ़ी-दर-पीढ़ीक पावन कला परंपरा; एतय सँ जगदम्बा देवी, महासुंदरी देवी, सीता देवी, गोदावरी दत्ता आ दुलारी देवी जकाँ कतेको पद्मश्री कलाकार देश-दुनिया में मिथिलाक नाम रौशन कएने छथि।",
+    what_is_special: "An entire open-air village where living room walls, courtyards, and lanes are painted with authentic Mithila art.",
+    what_is_special_hi: "एक पूरा खुला गांव जहाँ हर घर की दीवारें, दालान और गलियां असली मधुबनी पेंटिंग से सजी हुई हैं।",
+    what_is_special_local: "पूरा गामक घर-आँगन, दालान आ भित्ति विश्व प्रसिद्ध प्राकृतिक रंगक मिथिला चित्रकला सँ सजल अछि।",
+    why_visit: "To meet legendary living folk masters, observe live painting creation, and purchase authentic GI-tagged masterpieces directly.",
+    why_visit_hi: "पद्मश्री और राष्ट्रीय पुरस्कार विजेता कलाकारों से सीधे मिलने, कला का लाइव निर्माण देखने और प्रामाणिक पेंटिंग खरीदने के लिए।",
+    why_visit_local: "पद्मश्री कलाकार लोकनि सँ प्रत्यक्ष भेट करय, आँखि आगाँ चित्रकला बनैत देखय आ असली पेंटिंग सीधे कलाकार सँ खरीदय लेल।",
+    local_food: "Mithila Makhana Kheer, Tilkor Tarua, Dahi Chura, Madhubani Khaja",
+    local_food_hi: "मिथिला मखाना खीर, तिलकोर का तरुआ, दही-चूड़ा, मधुबनी का खाजा",
+    local_food_local: "मिथिलाक मखान खीर, तिलकोरक तरुआ, दही-चूड़ा आ मधुबनीक खाजा",
     coordinates: { lat: 26.3541, lng: 86.0748 },
     google_maps_url: "https://maps.google.com/?q=26.3541,86.0748",
     visiting_duration: "3 - 5 Hours",
@@ -824,9 +912,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.4,
     reviews_count: 7500,
-    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1000&q=80",
+    image: "images/golghar.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1000&q=80"
+      "images/golghar.jpg"
     ],
     overview: "Built in 1786 by Captain John Garstin following the catastrophic Bengal famine of 1770, Golghar is an iconic stupa-shaped pillarless granary standing 29 meters high near Gandhi Maidan. Twin spiral staircases of 145 steps wind around the outside, offering panoramic views of Patna city and the Ganga.",
     overview_hi: "1770 के भीषण अकाल के बाद 1786 में कैप्टन जॉन गार्स्टिन द्वारा निर्मित गोलघर 29 मीटर ऊंचा बिना किसी खंभे का विशाल अन्नागार है। इसके चारों ओर 145 घुमावदार सीढ़ियां बनी हैं, जहाँ से पटना शहर और गंगा नदी का मनोरम विहंगम दृश्य दिखाई देता है।",
@@ -879,9 +967,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 8100,
-    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1000&q=80",
+    image: "images/rajgir.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1000&q=80"
+      "images/rajgir.jpg"
     ],
     overview: "Gleaming pure white atop the 400-meter Ratnagiri hill, Vishwa Shanti Stupa is one of the 80 Peace Pagodas constructed worldwide by Japanese Buddhist monk Nichidatsu Fujii. Accessible via a historic single-chair aerial ropeway or trekking steps, it houses four golden statues representing Buddha's birth, enlightenment, teaching, and passing.",
     overview_hi: "400 मीटर ऊंची रत्नागिरी पहाड़ी के शिखर पर स्थित दूधिया सफेद विश्व शांति स्तूप जापानी बौद्ध भिक्षु निचिदात्सु फूजी द्वारा निर्मित दुनिया के 80 शांति स्तूपों में से एक है। यहाँ तक एरियल रोपवे या सीढ़ियों द्वारा पहुंचा जा सकता है। इसमें भगवान बुद्ध की चार स्वर्णिम प्रतिमाएं स्थापित हैं।",
@@ -934,9 +1022,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.5,
     reviews_count: 1800,
-    image: "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1000&q=80",
+    image: "images/kanwar.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1000&q=80"
+      "images/kanwar.jpg"
     ],
     overview: "Covering 68 sq km, Kabartal (Kanwar Lake) is Asia's largest freshwater oxbow lake and Bihar's first internationally certified Ramsar Wetland Site. In winter, it becomes a mesmerizing haven for over 106 species of migratory birds flying from Siberia, Central Asia, and the Arctic.",
     overview_hi: "68 वर्ग किमी में फैली काबरताल (कांवर झील) एशिया की सबसे बड़ी मीठे पानी की गोखुर झील और बिहार का पहला अंतर्राष्ट्रीय रामसर आर्द्रभूमि स्थल है। सर्दियों में यहाँ साइबेरिया, मध्य एशिया और आर्कटिक से 106 से अधिक प्रजातियों के लाखों प्रवासी पक्षी आते हैं।",
@@ -989,9 +1077,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 2600,
-    image: "https://images.unsplash.com/photo-1598890777032-bde13fba5be3?auto=format&fit=crop&w=1000&q=80",
+    image: "images/barabar.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1598890777032-bde13fba5be3?auto=format&fit=crop&w=1000&q=80"
+      "images/barabar.jpg"
     ],
     overview: "Carved into colossal monolithic granite boulders during the 3rd century BCE reign of Emperor Ashoka, the Barabar Caves are the oldest surviving rock-cut caves in India. The interiors feature astounding mirror-like granite polish and extraordinary acoustic resonance.",
     overview_hi: "ईसा पूर्व तीसरी शताब्दी में सम्राट अशोक के शासनकाल में विशाल ग्रेनाइट चट्टानों को काटकर बनाई गई बराबर की गुफाएं भारत की सबसे प्राचीन शैलकृत गुफाएं हैं। इनके भीतर की दीवारें दर्पण जैसी चिकनी पॉलिश और अद्भुत ध्वनि प्रतिध्वनि (इको) के लिए प्रसिद्ध हैं।",
@@ -1044,9 +1132,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 5200,
-    image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80",
+    image: "images/rajgir.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80"
+      "images/rajgir.jpg"
     ],
     overview: "Built in pristine white marble in the center of a lotus-filled water tank spanning 16 acres, Jal Mandir marks the sacred spot where Lord Mahavira, the 24th Tirthankara of Jainism, was cremated after attaining Nirvana in 527 BCE.",
     overview_hi: "कमल के फूलों से आच्छादित 16 एकड़ के विशाल सरोवर के ठीक बीचों-बीच संगमरमर से बना जल मंदिर वह परम पवित्र स्थल है जहाँ 527 ईसा पूर्व में जैन धर्म के 24वें तीर्थंकर भगवान महावीर का निर्वाण और अंतिम संस्कार हुआ था।",
@@ -1099,9 +1187,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 3600,
-    image: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1000&q=80",
+    image: "images/sitamarhi.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1000&q=80"
+      "images/sitamarhi.jpg"
     ],
     overview: "Located 5 km west of Sitamarhi town, Punaura Dham is revered in the Ramayana tradition as the sacred birthplace of Goddess Sita. The holy complex features the Sita Kund pond, Janaki temple, and ancient groves where King Janaka ploughed the field.",
     overview_hi: "सीतामढ़ी से 5 किमी पश्चिम में स्थित पुनौरा धाम रामायण काल से माता जानकी (सीता जी) की पावन प्राकट्य स्थली के रूप में पूजनीय है। यहाँ पवित्र सीता कुंड, जानकी मंदिर और वह भूमि है जहाँ राजा जनक ने हल चलाया था।",
@@ -1154,9 +1242,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.6,
     reviews_count: 2800,
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80",
+    image: "images/mandar.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80"
+      "images/mandar.jpg"
     ],
     overview: "Rising 700 feet as a solitary granite monolith in Banka, Mandar Hill is celebrated in Hindu puranas as the churning rod used by Gods and Demons during the cosmic churning of the ocean (Samudra Manthan). Equipped with a modern scenic ropeway, it hosts Jain shrines and Papaharini lake.",
     overview_hi: "बांका में 700 फीट की ऊंचाई पर स्थित मंदार पर्वत हिंदू पुराणों में समुद्र मंथन की मथनी के रूप में विख्यात है। यहाँ अब आधुनिक रोपवे की सुविधा उपलब्ध है। पर्वत की तलहटी में पापहरिणी सरोवर और शिखर पर जैन मंदिर स्थित हैं।",
@@ -1209,9 +1297,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 3900,
-    image: "https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1000&q=80",
+    image: "images/kakolat.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1000&q=80"
+      "images/kakolat.jpg"
     ],
     overview: "Hidden inside a breathtaking gorge of the Kaimur hills, Tutla Bhawani features a sparkling waterfall dropping over 200 feet down a sheer red cliff. Visitors walk across an iconic suspension hanging bridge spanning the river gorge to reach the ancient Maa Tutla Bhawani shrine.",
     overview_hi: "कैमूर पहाड़ियों की मनोहारी संकरी घाटी में स्थित तुतला भवानी 200 फीट की ऊंचाई से लाल चट्टानों से गिरता एक जादुई जलप्रपात है। श्रद्धालु नदी घाटी के ऊपर बने सस्पेंशन हैंगिंग ब्रिज (झूला पुल) से होकर माँ तुतला भवानी के प्राचीन मंदिर तक पहुंचते हैं।",
@@ -1264,9 +1352,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.9,
     reviews_count: 3100,
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=80",
+    image: "images/vikramshila.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=80"
+      "images/vikramshila.jpg"
     ],
     overview: "Founded in 1963 by Swami Satyananda Saraswati atop a panoramic hillock overlooking the Ganges, Bihar School of Yoga is considered the world's premier center of classical yogic wisdom and research. It has trained millions of practitioners and researchers from over 100 countries.",
     overview_hi: "गंगा नदी के तट पर एक सुंदर पहाड़ी पर स्वामी सत्यानंद सरस्वती द्वारा 1963 में स्थापित बिहार योग विद्यालय विश्व में पारंपरिक योग शिक्षा और शोध का सर्वोच्च केंद्र माना जाता है। यहाँ 100 से अधिक देशों के योग साधक साधना करने आते हैं।",
@@ -1319,9 +1407,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 5300,
-    image: "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=1000&q=80",
+    image: "images/kesaria.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1590076212457-3620e2ef5b46?auto=format&fit=crop&w=1000&q=80"
+      "images/kesaria.jpg"
     ],
     overview: "Kolhua in Vaishali is one of the rare places in India where Emperor Ashoka's monolithic polished sandstone pillar stands complete with its majestic single Asiatic lion capital facing north towards Kushinagar. Beside it lies the sacred brick Stupa and Ramkund (Monkey Pond).",
     overview_hi: "वैशाली के कोल्हुआ में स्थित सम्राट अशोक का यह एकाश्म पॉलिशदार बलुआ पत्थर का स्तंभ भारत के उन दुर्लभ स्तंभों में से एक है जिसका सिंह शीर्ष पूरी तरह सुरक्षित है और इसका मुख कुशीनगर की ओर है। इसके पास ही पवित्र ईंटों का स्तूप और रामकुंड स्थित हैं।",
@@ -1356,6 +1444,271 @@ const BIHAR_DESTINATIONS = [
       "अभिषेक पुष्करिणी के पास जापानी बौद्धों द्वारा निर्मित विश्व शांति स्तूप भी अवश्य देखें।"
     ],
     nearby_attractions: ["Vishwa Shanti Stupa Vaishali", "Abhishek Pushkarini", "Kundalpur (Mahavira Birthplace)", "Archaeological Museum"],
+    best_season: "October to March",
+    best_season_hi: "अक्टूबर से मार्च"
+  },
+
+  // 25. Saurath Sabha Gachhi, Madhubani
+  {
+    id: "saurath-sabha-gachhi",
+    name: "Saurath Sabha Gachhi",
+    name_hi: "सौराठ सभा गाछी",
+    name_local: "सौराठ सभा गाछी (पंजी प्रबंध स्थल)",
+    district_id: "madhubani",
+    district_name: "Madhubani",
+    district_name_hi: "मधुबनी",
+    category_slug: "cultural",
+    category: "Cultural & Heritage",
+    category_hi: "संस्कृति और विरासत",
+    featured: true,
+    rating: 4.8,
+    reviews_count: 2450,
+    image: "images/madhubani.jpg",
+    gallery: [
+      "images/madhubani.jpg"
+    ],
+    overview: "Saurath Sabha Gachhi is a legendary 22-acre grove of sacred Peepal trees where, for over 700 years, Maithil Brahmins gather annually. Genealogists (Panjikars) consult centuries-old palm-leaf genealogical records (Panji) to verify lineages before finalizing marriages without dowry.",
+    overview_hi: "सौराठ सभा गाछी 22 एकड़ में फैला प्राचीन पीपल वृक्षों का ऐतिहासिक बाग है जहाँ 700 वर्षों से अधिक समय से मैथिल समुदाय के लोग वार्षिक सभा में एकत्रित होते हैं। यहाँ पंजीकार प्राचीन ताड़पत्र वंशावलियों का मिलान कर बिना दहेज के शादियां तय करते हैं।",
+    overview_local: "सौराठ सभा गाछी मिथिलाक 700 वर्ष पुरान ऐतिहासिक वैवाहिक सभा स्थल थिक। 22 एकड़ में पसरल पीपलक पावन गाछी में पंजीकार लोकनि ताड़पत्र पर लिखल प्राचीन वंशावली (पंजी) मिला क' बिना दहेजक विवाह तय करैत छथि।",
+    historical_significance: "Instituted in the 14th century by King Harisingh Deva of the Karnat dynasty to preserve genealogical purity and eradicate dowry.",
+    historical_significance_hi: "14वीं शताब्दी में कर्णाट वंश के राजा हरिसिंह देव द्वारा पंजी प्रथा और सामाजिक विवाह सुधार के लिए इसकी स्थापना की गई थी।",
+    historical_significance_local: "14वीं सदी में कर्णाट वंशक प्रतापी राजा हरिसिंह देव द्वारा सामाजिक सुधार आ वंशावली संरक्षण लेल पंजी प्रबंध केर स्थापना कएल गेल छल।",
+    what_is_special: "700-year-old open-air matrimonial parliament with unique handwritten palm-leaf genealogies (Panji Prabandh).",
+    what_is_special_hi: "700 साल पुरानी खुली वैवाहिक संसद जहाँ ताड़पत्र पर हस्तलिखित प्राचीन वंशावली से विवाह संबंध तय होते हैं।",
+    what_is_special_local: "700 वर्ष पुरान खुली वैवाहिक संसद जतय ताड़पत्र पर लिखल प्राचीन वंशावली सँ रक्त-संबंध जाँचि क' संबंध तय होइत अछि।",
+    why_visit: "To witness one of humanity's oldest surviving scientific genealogical traditions and peaceful cultural gatherings.",
+    why_visit_hi: "मानव इतिहास की सबसे प्राचीन जीवित वंशावली परंपरा और मिथिला की अनूठी सामाजिक विरासत को साक्षात देखने के लिए।",
+    why_visit_local: "मानव सभ्यताक सभ सँ पुरान जीवित वंशावली परंपरा आ मिथिलाक गौरवशाली सामाजिक धरोहर केर साक्षात दर्शन लेल।",
+    local_food: "Mithila Makhana Kheer, Madhubani Khaja, Tilkor Tarua, Mithila Paan",
+    local_food_hi: "मिथिला मखाना खीर, मधुबनी का खाजा, तिलकोर का तरुआ, मिथिला मीठा पान",
+    local_food_local: "मिथिलाक मखान खीर, मधुबनीक खाजा, तिलकोरक तरुआ, दही-चूड़ा आ मिथिलाक मीठ पान",
+    coordinates: { lat: 26.3982, lng: 86.0421 },
+    google_maps_url: "https://maps.google.com/?q=26.3982,86.0421",
+    visiting_duration: "1.5 - 2 Hours",
+    visiting_duration_hi: "1.5 - 2 घंटे",
+    opening_hours: "06:00 AM - 07:00 PM (Daily)",
+    opening_hours_hi: "सुबह 06:00 से शाम 07:00 बजे तक (प्रतिदिन)",
+    entry_fee: "Free Entry",
+    entry_fee_hi: "निःशुल्क प्रवेश",
+    entry_type: "Free",
+    family_friendly: true,
+    accessibility: { wheelchair: true, notes: "Level rural pathways through grove", notes_hi: "परिसर में समतल रास्ते उपलब्ध हैं" },
+    verification: { status: "Verified", date: "2026-10-18", source: "Mithila Heritage Trust & BSTDC" },
+    travel_tips: ["Visit during Jyeshtha-Ashadh (June-July) to witness the live Saurath Sabha gathering", "Visit the adjacent historic Somnath Mahadev Temple"],
+    travel_tips_hi: ["सौराठ सभा का जीवंत रूप देखने के लिए ज्येष्ठ-आषाढ़ (जून-जुलाई) के वार्षिक सभा काल में आएं", "परिसर में स्थित प्राचीन सोमनाथ महादेव मंदिर के दर्शन अवश्य करें"],
+    nearby_attractions: ["Somnath Mahadev Temple", "Madhubani Town (6 km)", "Rajnagar Palace (14 km)"],
+    best_season: "October to March (or June-July for Annual Sabha)",
+    best_season_hi: "अक्टूबर से मार्च (या वार्षिक सभा हेतु जून-जुलाई)"
+  },
+
+  // 26. Uchaita Bhagwati Temple, Madhubani
+  {
+    id: "uchaita-bhagwati",
+    name: "Uchaita Bhagwati Sthan (Kalidas Dih)",
+    name_hi: "उचैठ भगवती स्थान (कालिदास डीह)",
+    name_local: "उचैठ भगवती स्थान (कालिदासक सिद्धपीठ)",
+    district_id: "madhubani",
+    district_name: "Madhubani",
+    district_name_hi: "मधुबनी",
+    category_slug: "religious",
+    category: "Religious & Spiritual",
+    category_hi: "धार्मिक व आध्यात्मिक",
+    featured: true,
+    rating: 4.8,
+    reviews_count: 3200,
+    image: "images/mundeshwari.jpg",
+    gallery: [
+      "images/mundeshwari.jpg"
+    ],
+    overview: "Located on the serene banks of the sacred Thumne river in Benipatti, Uchaita Bhagwati is celebrated as the holy site where Goddess Durga blessed Mahakavi Kalidasa with unparalleled poetic genius and Sanskrit wisdom.",
+    overview_hi: "बेनीपट्टी में पवित्र थुम्हने नदी के किनारे स्थित उचैठ भगवती स्थान वह पावन सिद्धपीठ है जहाँ भगवती दुर्गा ने महाकवि कालिदास की अगाध भक्ति से प्रसन्न होकर उन्हें साक्षात ज्ञान और कवित्व का वरदान दिया था।",
+    overview_local: "बेनीपट्टी में थुम्हने नदीक तीर पर स्थित उचैठ भगवती पावन सिद्धपीठ थिक जतय भगवतीक वरदान सँ महामूर्ख कालिदास महान संस्कृत महाकवि बनलाह। एतय कालिदासक प्राचीन डीह आ भगवतीक जागृत मंदिर अछि।",
+    historical_significance: "Associated with ancient Sanskrit literature and Mahakavi Kalidasa; holy shrine dedicated to Goddess Chhinnamasta / Durga.",
+    historical_significance_hi: "संस्कृत साहित्य के सिरमौर महाकवि कालिदास की ज्ञान स्थली; यहाँ देवी छिन्नमस्तिका / दुर्गा की प्राचीन स्वयंभू मूर्ति पूजित है।",
+    historical_significance_local: "महाकवि कालिदासक विद्या प्राप्ति स्थल; देवी छिन्नमस्तिका रूप में भगवतीक स्वयंभू पावन विग्रह सदियों सँ पूजित अछि।",
+    what_is_special: "Holy Kalidas Dih on riverbank where students and scholars seek blessings for academic excellence and wisdom.",
+    what_is_special_hi: "थुम्हने नदी तट पर स्थित कालिदास डीह जहाँ विद्यार्थी और साहित्यकार विद्या व बुद्धि की प्राप्ति के लिए शीश नवाते हैं।",
+    what_is_special_local: "थुम्हने नदीक पावन कछार पर कालिदासक डीह जतय विद्या, बुद्धि आ ज्ञान प्राप्तिक लेल श्रद्धालु माथ नवाबैत छथि।",
+    why_visit: "To experience profound spiritual tranquility where ancient India's greatest poet attained literary immortality.",
+    why_visit_hi: "उस पवित्र तपोभूमि का दर्शन करने के लिए जहाँ भारत के महानतम महाकवि कालिदास को ज्ञान का प्रकाश मिला।",
+    why_visit_local: "ओहि पवित्र तपोभूमिक दर्शन लेल जतय भारतक महानतम कवि कालिदास केँ ज्ञानक आलोक प्राप्त भेल छल।",
+    local_food: "Uchaita Peda, Mithila Makhana, Dal Pitha, Dahi Chura",
+    local_food_hi: "उचैठ का प्रसिद्ध पेड़ा, मिथिला मखाना, दाल पीठा, दही-चूड़ा",
+    local_food_local: "उचैठक प्रसिद्ध पेड़ा, मिथिलाक मखान, दाल पीठा आ मालभोग केलाक संग दही-चूड़ा",
+    coordinates: { lat: 26.4678, lng: 85.9189 },
+    google_maps_url: "https://maps.google.com/?q=26.4678,85.9189",
+    visiting_duration: "1.5 - 2 Hours",
+    visiting_duration_hi: "1.5 - 2 घंटे",
+    opening_hours: "05:00 AM - 08:30 PM (Daily)",
+    opening_hours_hi: "सुबह 05:00 से रात 08:30 बजे तक (प्रतिदिन)",
+    entry_fee: "Free Entry",
+    entry_fee_hi: "निःशुल्क प्रवेश",
+    entry_type: "Free",
+    family_friendly: true,
+    accessibility: { wheelchair: true, notes: "Ramps available to main temple sanctum", notes_hi: "मंदिर प्रांगण में रैंप सुविधा उपलब्ध है" },
+    verification: { status: "Verified", date: "2026-10-18", source: "Bihar State Religious Trust Board" },
+    travel_tips: ["Sit by the peaceful Thumne riverbank behind the temple for meditation", "Perform puja for students before major examinations"],
+    travel_tips_hi: ["मंदिर के पीछे शांत थुम्हने नदी के घाट पर ध्यान और शांति का अनुभव करें", "विद्यार्थियों के अध्ययन और परीक्षाओं में सफलता हेतु यहाँ विशेष पूजा की जाती है"],
+    nearby_attractions: ["Benipatti Market", "Bhavanipur (18 km)", "Madhubani Town (22 km)"],
+    best_season: "October to March",
+    best_season_hi: "अक्टूबर से मार्च"
+  },
+
+  // 27. Rajnagar Palace Complex & Navlakha Palace, Madhubani
+  {
+    id: "rajnagar-palace-ruins",
+    name: "Rajnagar Palace Complex & Navlakha Palace",
+    name_hi: "राजनगर राज परिसर एवं नौलखा महल",
+    name_local: "राजनगर राज परिसर आ नौलखा महल (दरभंगा राज)",
+    district_id: "madhubani",
+    district_name: "Madhubani",
+    district_name_hi: "मधुबनी",
+    category_slug: "historical",
+    category: "Historical Monuments",
+    category_hi: "ऐतिहासिक स्मारक",
+    featured: true,
+    rating: 4.7,
+    reviews_count: 2890,
+    image: "images/shershah.jpg",
+    gallery: [
+      "images/shershah.jpg"
+    ],
+    overview: "Built in the late 19th century by Maharaja Rameshwar Singh of Darbhanga Raj, Rajnagar features the majestic white marble Goddess Kali Temple, Durga Temple, massive elephant stables (Hathighar), and the ruins of Navlakha Palace on the Kamla river.",
+    overview_hi: "दरभंगा राज के महाराजा रामेश्वर सिंह द्वारा 19वीं सदी के अंत में निर्मित राजनगर राज परिसर में श्वेत संगमरमर का अलौकिक माँ काली मंदिर, दुर्गा मंदिर, विशाल हाथीघर और कमला नदी के तट पर नौलखा महल के ऐतिहासिक खंडहर स्थित हैं।",
+    overview_local: "दरभंगा राजक महाराजा रामेश्वर सिंह द्वारा निर्मित राजनगर परिसर एक स्वप्निल राजसी राजधानी छल। एतय संगमरमरक भव्य माँ काली मंदिर, दुर्गा मंदिर, विशाल हथिघर आ कमला नदीक तट पर नौलखा महलक ऐतिहासिक खंडहर स्थित अछि।",
+    historical_significance: "Grand architectural jewel of Darbhanga Raj; withstood the massive 1934 Bihar earthquake whose scars add romantic drama to the regal palace ruins.",
+    historical_significance_hi: "दरभंगा राज की स्थापत्य कला का अनुपम नमूना; 1934 के भूकंप के बावजूद इसके संगमरमर के मंदिर और मेहराब आज भी शान से खड़े हैं।",
+    historical_significance_local: "दरभंगा राजक वास्तुकलाक अद्भुत नमूना; 1934 क भीषण भूकंपक बादो एकर संगमरमरक काली मंदिर आ भव्य मेहराब अद्यापि सीना तानि क' ठाढ़ अछि।",
+    what_is_special: "Exquisite carved white marble Kali temple sitting unharmed amidst palatial royal ruins and picturesque Kamla river.",
+    what_is_special_hi: "भव्य राजसी खंडहरों के बीच संगमरमर का अद्वितीय नक्काशीदार माँ काली मंदिर और शांत कमला नदी का किनारा।",
+    what_is_special_local: "राजसी महलक खंडहरक बीचे संगमरमरक नक्काशीदार माँ काली मंदिर, पोखरि आ शांत कमला नदीक तट।",
+    why_visit: "For photography, history lovers, and marveling at the royal grandeur and temple craftsmanship of the Darbhanga kings.",
+    why_visit_hi: "शाही वास्तुकला, फोटोग्राफी और दरभंगा महाराज की भव्य विरासत को करीब से जानने के लिए।",
+    why_visit_local: "फोटोग्राफी, इतिहास प्रेम आ दरभंगा महाराजक राजसी ठाठ-बाट एवं मंदिर शिल्पकला देखय लेल।",
+    local_food: "Rajnagar Makhana, Balushahi, Belgrami, Sattu Sharbat",
+    local_food_hi: "राजनगर का मखाना, बालूशाही, बेलग्रामी, सत्तू शरबत",
+    local_food_local: "राजनगरक कुरकुरा मखान, बालूशाही, बेलग्रामी आ ठंडक सत्तू शरबत",
+    coordinates: { lat: 26.4172, lng: 86.1364 },
+    google_maps_url: "https://maps.google.com/?q=26.4172,86.1364",
+    visiting_duration: "2 - 3 Hours",
+    visiting_duration_hi: "2 - 3 घंटे",
+    opening_hours: "07:00 AM - 06:30 PM (Daily)",
+    opening_hours_hi: "सुबह 07:00 से शाम 06:30 बजे तक (प्रतिदिन)",
+    entry_fee: "Free Entry (Temple and palace compound)",
+    entry_fee_hi: "निःशुल्क प्रवेश",
+    entry_type: "Free",
+    family_friendly: true,
+    accessibility: { wheelchair: true, notes: "Paved compound pathways", notes_hi: "परिसर में पक्के रास्ते हैं" },
+    verification: { status: "Verified", date: "2026-10-18", source: "Darbhanga Raj Trust & BSTDC" },
+    travel_tips: ["Carry your camera as the palace arches and marble temple make stunning photo backdrops", "Visit around golden hour (4:30 PM - 6:00 PM)"],
+    travel_tips_hi: ["फोटोग्राफी के शौकीन कैमरा जरूर साथ रखें; महलों के मेहराब और मंदिर शाम की धूप में बेहद खूबसूरत दिखते हैं", "शाम 4:30 से 6:00 बजे का समय सबसे सुंदर होता है"],
+    nearby_attractions: ["Kali Mandir Rajnagar", "Kamla River Ghat", "Saurath (14 km)", "Madhubani Town (13 km)"],
+    best_season: "October to March",
+    best_season_hi: "अक्टूबर से मार्च"
+  },
+
+  // 28. Kapileshwar Mahadev Sthan, Madhubani
+  {
+    id: "kapileshwar-temple",
+    name: "Kapileshwar Mahadev Temple, Rahika",
+    name_hi: "कपलेश्वर महादेव स्थान, रहिका (मधुबनी)",
+    name_local: "कपलेश्वर महादेव स्थान (महर्षि कपिलक तपोभूमि)",
+    district_id: "madhubani",
+    district_name: "Madhubani",
+    district_name_hi: "मधुबनी",
+    category_slug: "religious",
+    category: "Religious & Spiritual",
+    category_hi: "धार्मिक व आध्यात्मिक",
+    featured: false,
+    rating: 4.7,
+    reviews_count: 2150,
+    image: "images/mahabodhi.jpg",
+    gallery: [
+      "images/mahabodhi.jpg"
+    ],
+    overview: "Located 9 km from Madhubani in Rahika block, Kapileshwar Sthan is an ancient pilgrimage temple revered for its miraculous Shiva Lingam, believed to have been consecrated by Sage Kapila, the propounder of the Sankhya philosophy.",
+    overview_hi: "मधुबनी से 9 किमी दूर रहिका में स्थित कपलेश्वर स्थान एक अति प्राचीन शिव तीर्थ है। मान्यता है कि इस स्वयंभू शिवलिंग की स्थापना सांख्य दर्शन के प्रणेता महर्षि कपिल ने की थी। यहाँ विशाल पवित्र सरोवर और शांत प्रांगण स्थित है।",
+    overview_local: "मधुबनी सँ 9 किमी दूर रहिका में स्थित कपलेश्वर महादेव स्थान मिथिलाक परम पूजनीय शिव तीर्थ थिक। मान्यता अछि जे सांख्य दर्शनक प्रणेता महर्षि कपिल एतय शिवलिंगक स्थापना कएने छलाह। साओन आ महाशिवरात्रि पर लाखन श्रद्धालु जल चढ़बैत छथि।",
+    historical_significance: "Attributed to Vedic sage Kapila; patronized by Darbhanga royal kings who constructed the present temple structures and holy tank.",
+    historical_significance_hi: "वैदिक ऋषि कपिल की तपोस्थली; दरभंगा राजघराने द्वारा इसके वर्तमान मंदिर और विशाल सरोवर का जीर्णोद्धार कराया गया था।",
+    historical_significance_local: "महर्षि कपिलक तपोस्थली; दरभंगा महाराज छत्र सिंह द्वारा एह मंदिर आ पावन सरोवरक भव्य निर्माण कराओल गेल छल।",
+    what_is_special: "Sacred Shivalingam worshipped since ancient times, sacred pond for holy dips, and grand festive fervor during Shravan and Shivratri.",
+    what_is_special_hi: "महर्षि कपिल द्वारा स्थापित पावन शिवलिंग, स्नान हेतु पवित्र सरोवर और सावन में कांवड़ियों का विशाल जनसैलाब।",
+    what_is_special_local: "महर्षि कपिल द्वारा स्थापित चमत्कारी शिवलिंग, पावन पोखरि आ साओन में काँवरिया लोकनिक भक्ति भाव।",
+    why_visit: "To experience serene Vedic temple spirituality and seek Lord Shiva's divine peace and blessings in Mithila.",
+    why_visit_hi: "भगवान भोलेनाथ का जलाभिषेक करने, मानसिक शांति और मिथिला की प्राचीन शैव परंपरा के दर्शन के लिए।",
+    why_visit_local: "भोलेनाथक जलाभिषेक, मनक शांति आ मिथिलाक प्राचीन शैव संस्कृतिक अनुभव लेल।",
+    local_food: "Rahika Peda, Rabri, Litti Chokha, Sattu Sharbat",
+    local_food_hi: "रहिका का पेड़ा, रबड़ी, लिट्टी चोखा, सत्तू शरबत",
+    local_food_local: "रहिकाक पेड़ा, रबड़ी, सत्तू शरबत आ गरमा-गरम लिट्टी चोखा",
+    coordinates: { lat: 26.3312, lng: 86.0124 },
+    google_maps_url: "https://maps.google.com/?q=26.3312,86.0124",
+    visiting_duration: "1 - 1.5 Hours",
+    visiting_duration_hi: "1 - 1.5 घंटे",
+    opening_hours: "05:00 AM - 09:00 PM (Daily)",
+    opening_hours_hi: "सुबह 05:00 से रात 09:00 बजे तक (प्रतिदिन)",
+    entry_fee: "Free Entry",
+    entry_fee_hi: "निःशुल्क प्रवेश",
+    entry_type: "Free",
+    family_friendly: true,
+    accessibility: { wheelchair: true, notes: "Easy access to temple courtyard", notes_hi: "मंदिर प्रांगण तक सुगम पहुंच" },
+    verification: { status: "Verified", date: "2026-10-18", source: "Bihar State Religious Trust Board" },
+    travel_tips: ["Mondays and Shravan month witness huge crowds; early morning visit is ideal for peaceful darshan", "Holy bath in the pond is considered auspicious"],
+    travel_tips_hi: ["सोमवार और सावन मास में भारी भीड़ रहती है; शांत दर्शन के लिए सुबह 6 से 8 बजे के बीच आएं", "मंदिर सरोवर में स्नान को अत्यंत पुण्यकारी माना जाता है"],
+    nearby_attractions: ["Madhubani Town (9 km)", "Jitwarpur Art Village (12 km)"],
+    best_season: "October to March (or Shravan for devotees)",
+    best_season_hi: "अक्टूबर से मार्च (या सावन मास)"
+  },
+
+  // 29. Bhavanipur Vidyapati Dham, Madhubani
+  {
+    id: "bhawanipur-vidyapati-dham",
+    name: "Bhavanipur Vidyapati Dham (Ugna Mahadev)",
+    name_hi: "भवानीपुर विद्यापति धाम (उगना महादेव)",
+    name_local: "भवानीपुर उगना महादेव स्थान (विद्यापतिक पावन धाम)",
+    district_id: "madhubani",
+    district_name: "Madhubani",
+    district_name_hi: "मधुबनी",
+    category_slug: "cultural",
+    category: "Cultural & Heritage",
+    category_hi: "संस्कृति और विरासत",
+    featured: false,
+    rating: 4.8,
+    reviews_count: 1980,
+    image: "images/nalanda.jpg",
+    gallery: [
+      "images/nalanda.jpg"
+    ],
+    overview: "Bhavanipur is an immortal cultural shrine in Mithila where Lord Shiva, enchanted by the divine poetry and devotion of Mahakavi Vidyapati, incarnated on earth as a humble domestic servant named 'Ugna' to serve the poet.",
+    overview_hi: "भवानीपुर मिथिला का वह अमर पावन धाम है जहाँ मैथिल कोकिल महाकवि विद्यापति की अनन्य भक्ति और मधुर पदावलियों से रीझकर स्वयं देवाधिदेव महादेव 'उगना' नामक घरेलू सेवक बनकर उनके घर रहे थे।",
+    overview_local: "भवानीपुर मिथिलाक ओहि अमर धाम थिक जतय महाकवि विद्यापतिक अनन्य भक्ति सँ प्रसन्न भ' क' साक्षात भगवान शिव 'उगना' रूप में सेवक बनि क' रहलाह। एतय उगना महादेव मंदिर आ विद्यापतिक स्मृति स्थल स्थित अछि।",
+    historical_significance: "14th-century epicenter of Maithili lyrical literature, Shiva bhakti, and the legendary bond between Mahakavi Vidyapati and Lord Shiva.",
+    historical_significance_hi: "14वीं सदी के मैथिली साहित्य और शिव-भक्ति का केंद्र; यहाँ स्थित कुआं और शिवलिंग विद्यापति और उगना की अमर गाथा के साक्षी हैं।",
+    historical_significance_local: "14वीं सदीक मैथिली साहित्य आ शिव-भक्तिक सर्वोच्च केंद्र; एतय स्थित प्राचीन कूप आ शिवलिंग विद्यापति-उगनाक अमर गाथाक साक्षी अछि।",
+    what_is_special: "The historical well (Kuan) from which Ugna (Lord Shiva) drew water to quench Vidyapati's dying thirst, revealing his divine form.",
+    what_is_special_hi: "वह ऐतिहासिक कुआं जहाँ उगना (शिव जी) ने अपनी जटा से जल निकालकर प्यास से व्याकुल विद्यापति को पिलाया और अपना वास्तविक स्वरूप प्रकट किया।",
+    what_is_special_local: "ओहि ऐतिहासिक कूप (इनार) जतय उगना (भगवान शिव) जटा सँ गंगाजल काढ़ि क' विद्यापतिक प्यास बुझओलनि आ अपन दिव्य रूप देखओलनि।",
+    why_visit: "To feel the soul-stirring romance of devotion and poetry where God himself served his human devotee.",
+    why_visit_hi: "भक्ति और प्रेम की उस अनुपम पराकाष्ठा को महसूस करने जहाँ भगवान ने स्वयं अपने भक्त की सेवा की थी।",
+    why_visit_local: "भक्ति आ प्रेमक ओहि अनुपम पराकाष्ठाक दर्शन लेल जतय ईश्वर स्वयं अपन भक्तक सेवा कएने छलाह।",
+    local_food: "Bhavanipur Peda, Makhana Kheer, Dahi Chura, Mithila Paan",
+    local_food_hi: "भवानीपुर का पेड़ा, मखाना खीर, दही-चूड़ा, मिथिला का मीठा पान",
+    local_food_local: "भवानीपुरक पेड़ा, मखान खीर, दही-चूड़ा आ मिथिलाक प्रसिद्ध मीठ पान",
+    coordinates: { lat: 26.2415, lng: 86.1102 },
+    google_maps_url: "https://maps.google.com/?q=26.2415,86.1102",
+    visiting_duration: "1 - 2 Hours",
+    visiting_duration_hi: "1 - 2 घंटे",
+    opening_hours: "06:00 AM - 08:00 PM (Daily)",
+    opening_hours_hi: "सुबह 06:00 से शाम 08:00 बजे तक (प्रतिदिन)",
+    entry_fee: "Free Entry",
+    entry_fee_hi: "निःशुल्क प्रवेश",
+    entry_type: "Free",
+    family_friendly: true,
+    accessibility: { wheelchair: true, notes: "Temple courtyard accessible", notes_hi: "मंदिर प्रांगण सुगम है" },
+    verification: { status: "Verified", date: "2026-10-18", source: "Mithila Heritage Trust" },
+    travel_tips: ["Recite or listen to Vidyapati's Shiva bhajans (Nachari & Maheshvani) at the temple", "Drink the holy sweet water of Ugna's well"],
+    travel_tips_hi: ["मंदिर में विद्यापति के प्रसिद्ध शिव भजन (नचारी व महेशवाणी) का श्रवण करें", "उगना के पवित्र कूप का जल अवश्य ग्रहण करें"],
+    nearby_attractions: ["Uchaita (18 km)", "Madhubani Town (16 km)", "Darbhanga (22 km)"],
     best_season: "October to March",
     best_season_hi: "अक्टूबर से मार्च"
   }

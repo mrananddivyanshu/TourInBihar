@@ -1,4 +1,4 @@
-// Discover Local Bihar - Culture, Food, Art & Festivals Dataset
+﻿// Discover Local Bihar - Culture, Food, Art & Festivals Dataset
 
 const BIHAR_FOOD = [
   {

@@ -10,10 +10,12 @@ const TRANSLATIONS = {
     nav_destinations: "Destinations",
     nav_districts: "38 Districts",
     nav_culture: "Food & Culture",
+    nav_culture_events: "Culture & Events",
     nav_stats: "Tourism Statistics",
     nav_festivals: "Festivals Calendar",
     nav_planner: "Trip Planner",
     nav_guide: "Travel Guide",
+    nav_plan_guide: "Plan & Guide",
     nav_saved: "Favourites",
 
     // Hero Section
@@ -22,6 +24,7 @@ const TRANSLATIONS = {
     search_placeholder: "Search destinations, districts, food (e.g. Nalanda, Litti, Waterfalls)...",
     search_btn: "Search",
     quick_search: "Popular searches:",
+    hero_featured_landmark: "Iconic Heritage: Mahabodhi Temple Complex, Bodh Gaya (UNESCO World Heritage Site)",
     stat_districts: "Districts of Bihar",
     stat_destinations: "Curated Destinations",
     stat_history: "Years of Living History",
@@ -220,10 +223,12 @@ const TRANSLATIONS = {
     nav_destinations: "पर्यटन स्थल",
     nav_districts: "38 जिले",
     nav_culture: "खान-पान व संस्कृति",
+    nav_culture_events: "संस्कृति व उत्सव",
     nav_stats: "पर्यटन सांख्यिकी",
     nav_festivals: "मेला व उत्सव कैलेंडर",
     nav_planner: "यात्रा योजना (प्लानर)",
     nav_guide: "यात्रा मार्गदर्शिका",
+    nav_plan_guide: "योजना व मार्गदर्शिका",
     nav_saved: "पसंदीदा",
 
     // Hero Section
@@ -232,6 +237,7 @@ const TRANSLATIONS = {
     search_placeholder: "पर्यटन स्थल, जिला या व्यंजन खोजें (जैसे: नालंदा, लिट्टी, जलप्रपात)...",
     search_btn: "खोजें",
     quick_search: "लोकप्रिय खोजें:",
+    hero_featured_landmark: "प्रमुख धरोहर: महाबोधि मंदिर परिसर, बोधगया (यूनेस्को विश्व धरोहर स्थल)",
     stat_districts: "बिहार के जिले",
     stat_destinations: "प्रमाणित पर्यटन स्थल",
     stat_history: "वर्षों का सजीव इतिहास",

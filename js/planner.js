@@ -230,7 +230,7 @@ function renderPlannerUI() {
       `;
     } else {
       destIds.forEach(id => {
-        const dest = getDestinationById(id);
+        const dest = getDestinationById(id) || (window.customSpots && window.customSpots[id]);
         if (dest) {
           html += `
             <div class="planner-spot-item">
