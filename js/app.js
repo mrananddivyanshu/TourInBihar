@@ -64,6 +64,19 @@ function handleImgError(img) {
   }
 }
 
+// Helper Query Functions (Guaranteed Global Safe Lookups)
+function getDestinationById(destId) {
+  if (!destId || typeof BIHAR_DESTINATIONS === 'undefined' || !Array.isArray(BIHAR_DESTINATIONS)) return null;
+  return BIHAR_DESTINATIONS.find(d => d.id === destId) || null;
+}
+window.getDestinationById = getDestinationById;
+
+function getDistrictById(districtId) {
+  if (!districtId || typeof BIHAR_DISTRICTS === 'undefined' || !Array.isArray(BIHAR_DISTRICTS)) return null;
+  return BIHAR_DISTRICTS.find(d => d.id === districtId) || null;
+}
+window.getDistrictById = getDistrictById;
+
 // Global App State
 const state = {
   activeTab: 'home',
@@ -84,12 +97,16 @@ const state = {
   markersLayer: null
 };
 
-// Initialize Application on DOM Ready
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Theme System (PRD FR-24, FR-25, FR-26)
-  initThemeSystem();
+// Global Safe switchTab Binding
+window.switchTab = switchTab;
+window.actualSwitchTab = switchTab;
 
-  // Load saved favourites
+// Initialize Application (Safe against already-fired DOMContentLoaded)
+function initApp() {
+  // 1. Initialize Theme System
+  try { initThemeSystem(); } catch (e) { console.warn('Theme init warning:', e); }
+
+  // 2. Load saved favourites
   try {
     const savedFavs = localStorage.getItem('dlb_favourites');
     if (savedFavs) {
@@ -99,35 +116,52 @@ document.addEventListener('DOMContentLoaded', () => {
     state.favourites = [];
   }
 
-  // Set Language
-  applyTranslations();
+  // 3. Set Language and apply i18n
+  try { applyTranslations(); } catch (e) { console.warn('Translations warning:', e); }
 
-  // Populate dynamic filter options
-  populateFilterDropdowns();
+  // 4. Populate dynamic filter dropdowns
+  try { populateFilterDropdowns(); } catch (e) { console.warn('Filters warning:', e); }
 
-  // Initialize Planner
-  if (typeof initTripPlanner === 'function') {
-    initTripPlanner();
-  }
+  // 5. Setup Navigation & Core Event Listeners (Must run early for responsive navigation)
+  try { setupEventListeners(); } catch (e) { console.warn('Listeners warning:', e); }
 
-  // Setup Event Listeners
-  setupEventListeners();
+  // 6. Initial Render of Views (Home featured, categories, districts)
+  try { renderAllViews(); } catch (e) { console.warn('Views render warning:', e); }
 
-  // Initial Views Render
-  renderAllViews();
+  // 7. Initialize Trip Planner
+  try {
+    if (typeof initTripPlanner === 'function') {
+      initTripPlanner();
+    }
+  } catch (e) { console.warn('Planner init warning:', e); }
 
-  // Initialize Leaflet Map
-  initLeafletMap();
+  // 8. Initialize Leaflet Map
+  try { initLeafletMap(); } catch (e) { console.warn('Map init warning:', e); }
 
-  // Update counters
-  updateFavouritesCount();
+  // 9. Update counters
+  try { updateFavouritesCount(); } catch (e) { console.warn('Favourites count warning:', e); }
 
-  // Handle Initial Deep-Link Hash Routing
-  handleHashRouting();
+  // 10. Handle Initial Deep-Link Hash Routing (or queued user tab click)
+  try {
+    if (window._pendingTab) {
+      const pending = window._pendingTab;
+      window._pendingTab = null;
+      switchTab(pending);
+    } else {
+      handleHashRouting();
+    }
+  } catch (e) { console.warn('Hash routing warning:', e); }
 
   // Listen for Browser Hash Changes (Deep-Linking)
   window.addEventListener('hashchange', handleHashRouting);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  // DOM is already ready (e.g. scripts executed after DOMContentLoaded)
+  initApp();
+}
 
 // ==========================================================
 // THEME MANAGEMENT SYSTEM (PRD v3.0 FR-24, FR-25, FR-26)
@@ -480,6 +514,8 @@ function switchTab(tabId) {
     renderFestivalsCalendar();
   }
 }
+window.switchTab = switchTab;
+window.actualSwitchTab = switchTab;
 
 // Execute Hero Search
 function executeMainSearch() {
@@ -635,7 +671,7 @@ function renderDestinationCards() {
           <h3 class="card-title">${isHi ? dest.name_hi : dest.name}</h3>
 
           <p class="card-description">
-            ${(isHi ? dest.overview_hi : dest.overview).substring(0, 115)}...
+            ${((isHi ? (dest.overview_hi || dest.overview) : (dest.overview || dest.overview_hi)) || '').substring(0, 115)}...
           </p>
 
           <div class="card-meta-row">
@@ -691,7 +727,7 @@ function renderHomeFeatured() {
             <span>📍 ${isHi ? dest.district_name_hi : dest.district_name}</span>
           </div>
           <h3 class="card-title">${isHi ? dest.name_hi : dest.name}</h3>
-          <p class="card-description">${(isHi ? dest.overview_hi : dest.overview).substring(0, 110)}...</p>
+          <p class="card-description">${((isHi ? (dest.overview_hi || dest.overview) : (dest.overview || dest.overview_hi)) || '').substring(0, 110)}...</p>
           <div class="card-actions">
             <button class="btn btn-primary btn-sm" onclick="openDestinationDetailModal('${dest.id}')">
               ${getTranslation('card_view_details')}
@@ -1245,7 +1281,7 @@ function renderSavedDestinations() {
             <span>📍 ${isHi ? dest.district_name_hi : dest.district_name}</span>
           </div>
           <h3 class="card-title">${isHi ? dest.name_hi : dest.name}</h3>
-          <p class="card-description">${(isHi ? dest.overview_hi : dest.overview).substring(0, 110)}...</p>
+          <p class="card-description">${((isHi ? (dest.overview_hi || dest.overview) : (dest.overview || dest.overview_hi)) || '').substring(0, 110)}...</p>
           <div class="card-actions">
             <button class="btn btn-primary btn-sm" onclick="openDestinationDetailModal('${dest.id}')">
               ${getTranslation('card_view_details')}

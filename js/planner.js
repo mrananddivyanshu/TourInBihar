@@ -1,5 +1,13 @@
 // Discover Local Bihar - Trip Planner & Itinerary Builder Module
 
+// Safe destination lookup fallback
+if (typeof getDestinationById !== 'function') {
+  window.getDestinationById = function(id) {
+    if (!id || typeof BIHAR_DESTINATIONS === 'undefined' || !Array.isArray(BIHAR_DESTINATIONS)) return null;
+    return BIHAR_DESTINATIONS.find(d => d.id === id) || null;
+  };
+}
+
 const DEFAULT_TRIP = {
   title: "My Bihar Expedition",
   daysCount: 3,

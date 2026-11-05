@@ -18,6 +18,21 @@
 
   <!-- Anti-Flicker Theme Init Script & Early Image Fallback Handlers -->
   <script>
+    // Global error listener to visibly alert if any module fails
+    window.onerror = function(msg, url, line, col, err) {
+      console.error('Fatal Script Error:', msg, url, line, err);
+    };
+
+    // Early safe stub for navigation
+    window._pendingTab = null;
+    window.switchTab = function(tabId) {
+      if (window.actualSwitchTab) {
+        window.actualSwitchTab(tabId);
+      } else {
+        window._pendingTab = tabId;
+      }
+    };
+
     (function() {
       try {
         var savedTheme = localStorage.getItem('dlb_theme_preference');
@@ -97,9 +112,9 @@
       </div>
 
       <ul class="nav-menu" id="main-nav-menu">
-        <li><a href="#home" class="nav-link active" data-tab="home" data-i18n="nav_home">Home</a></li>
-        <li><a href="#destinations" class="nav-link" data-tab="destinations" data-i18n="nav_destinations">Destinations</a></li>
-        <li><a href="#districts" class="nav-link" data-tab="districts" data-i18n="nav_districts">38 Districts</a></li>
+        <li><a href="#home" class="nav-link active" data-tab="home" onclick="switchTab('home'); return false;" data-i18n="nav_home">Home</a></li>
+        <li><a href="#destinations" class="nav-link" data-tab="destinations" onclick="switchTab('destinations'); return false;" data-i18n="nav_destinations">Destinations</a></li>
+        <li><a href="#districts" class="nav-link" data-tab="districts" onclick="switchTab('districts'); return false;" data-i18n="nav_districts">38 Districts</a></li>
         
         <!-- Culture & Events Dropdown -->
         <li class="nav-dropdown">
@@ -107,10 +122,10 @@
             <span data-i18n="nav_culture_events">Culture & Events</span> <span class="arrow-indicator">▾</span>
           </button>
           <div class="nav-dropdown-menu">
-            <a href="#culture" class="nav-dropdown-item" data-tab="culture">
+            <a href="#culture" class="nav-dropdown-item" data-tab="culture" onclick="switchTab('culture'); return false;">
               <span>🍲</span> <span data-i18n="nav_culture">Food, Arts & Heritage</span>
             </a>
-            <a href="#festivals" class="nav-dropdown-item" data-tab="festivals">
+            <a href="#festivals" class="nav-dropdown-item" data-tab="festivals" onclick="switchTab('festivals'); return false;">
               <span>🎪</span> <span data-i18n="nav_festivals">Festivals Calendar</span>
             </a>
           </div>
@@ -122,20 +137,20 @@
             <span data-i18n="nav_plan_guide">Plan & Guide</span> <span class="arrow-indicator">▾</span>
           </button>
           <div class="nav-dropdown-menu">
-            <a href="#planner" class="nav-dropdown-item" data-tab="planner">
+            <a href="#planner" class="nav-dropdown-item" data-tab="planner" onclick="switchTab('planner'); return false;">
               <span>🗺️</span> <span data-i18n="nav_planner">Trip Planner</span>
             </a>
-            <a href="#guide" class="nav-dropdown-item" data-tab="guide">
+            <a href="#guide" class="nav-dropdown-item" data-tab="guide" onclick="switchTab('guide'); return false;">
               <span>ℹ️</span> <span data-i18n="nav_guide">Travel Guide & Helplines</span>
             </a>
-            <a href="#stats" class="nav-dropdown-item" data-tab="stats">
+            <a href="#stats" class="nav-dropdown-item" data-tab="stats" onclick="switchTab('stats'); return false;">
               <span>📊</span> <span data-i18n="nav_stats">Tourism Statistics</span>
             </a>
           </div>
         </li>
 
         <li>
-          <a href="#saved" class="nav-link" data-tab="saved">
+          <a href="#saved" class="nav-link" data-tab="saved" onclick="switchTab('saved'); return false;">
             <span>♥</span> <span data-i18n="nav_saved">Favourites</span>
             <span class="nav-badge" id="fav-count-badge" style="display:none;">0</span>
           </a>

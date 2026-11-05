@@ -1,4 +1,4 @@
-﻿// Discover Local Bihar - Dedicated Festivals & Events Calendar Dataset (PRD Section 6.11)
+// Discover Local Bihar - Dedicated Festivals & Events Calendar Dataset (PRD Section 6.11)
 // PRD Rule: Never invent dates; display "Dates Awaited" when official schedules are pending.
 
 const BIHAR_FESTIVALS_CALENDAR = [
