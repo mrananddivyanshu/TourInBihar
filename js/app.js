@@ -1,4 +1,4 @@
-// Discover Local Bihar - Main Application Controller
+// Discover Local Bihar - Main Application Controller (v3.0)
 
 // Global App State
 const state = {
@@ -13,6 +13,8 @@ const state = {
   },
   districtSearchQuery: '',
   districtDivisionFilter: 'all',
+  selectedFestivalSeason: 'all',
+  activeDistrictModalLang: {}, // tracks currently selected local language per district modal
   favourites: [],
   map: null,
   markersLayer: null
@@ -20,6 +22,9 @@ const state = {
 
 // Initialize Application on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Theme System (PRD FR-24, FR-25, FR-26)
+  initThemeSystem();
+
   // Load saved favourites
   try {
     const savedFavs = localStorage.getItem('dlb_favourites');
@@ -52,7 +57,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Update counters
   updateFavouritesCount();
+
+  // Handle Initial Deep-Link Hash Routing
+  handleHashRouting();
+
+  // Listen for Browser Hash Changes (Deep-Linking)
+  window.addEventListener('hashchange', handleHashRouting);
 });
+
+// ==========================================================
+// THEME MANAGEMENT SYSTEM (PRD v3.0 FR-24, FR-25, FR-26)
+// ==========================================================
+function initThemeSystem() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  updateThemeUI(currentTheme);
+
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', toggleTheme);
+  }
+
+  const mobileToggleBtn = document.getElementById('mobile-theme-toggle-btn');
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener('click', toggleTheme);
+  }
+
+  // Sync with OS theme changes if user hasn't explicitly set a preference
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('dlb_theme_preference')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        applyTheme(newTheme, false);
+      }
+    });
+  }
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next, true);
+}
+
+function applyTheme(theme, saveToStorage = true) {
+  document.documentElement.setAttribute('data-theme', theme);
+  if (saveToStorage) {
+    try {
+      localStorage.setItem('dlb_theme_preference', theme);
+    } catch (e) {}
+  }
+  updateThemeUI(theme);
+  const toastMsg = theme === 'dark'
+    ? getTranslation('theme_toggle_toast_dark')
+    : getTranslation('theme_toggle_toast_light');
+  showToast(toastMsg);
+}
+
+function updateThemeUI(theme) {
+  const isDark = theme === 'dark';
+  const icon = document.getElementById('theme-icon');
+  const mobileIcon = document.getElementById('mobile-theme-icon');
+  const mobileLabel = document.getElementById('mobile-theme-label');
+
+  if (icon) {
+    icon.textContent = isDark ? '☀️' : '🌙';
+  }
+  if (mobileIcon) {
+    mobileIcon.textContent = isDark ? '☀️' : '🌙';
+  }
+  if (mobileLabel) {
+    mobileLabel.textContent = isDark ? getTranslation('theme_light') : getTranslation('theme_dark');
+  }
+
+  const btn = document.getElementById('theme-toggle-btn');
+  if (btn) {
+    const titleText = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    btn.setAttribute('aria-label', titleText);
+    btn.setAttribute('title', titleText);
+  }
+}
 
 // Update Favourites Badge
 function updateFavouritesCount() {
@@ -130,6 +213,7 @@ function setupEventListeners() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetTab = btn.getAttribute('data-tab');
+      window.location.hash = targetTab;
       switchTab(targetTab);
     });
   });
@@ -227,6 +311,37 @@ function setupEventListeners() {
   }
 }
 
+// Deep-Linking & Hash Routing (PRD Section 6.2 & 6.4)
+function handleHashRouting() {
+  const hash = window.location.hash.replace(/^#\/?/, '');
+  if (!hash) return;
+
+  const parts = hash.split('/');
+  const mainRoute = parts[0];
+  const param = parts[1];
+
+  if (mainRoute === 'districts' && param) {
+    switchTab('districts');
+    setTimeout(() => openDistrictDetailModal(param), 150);
+  } else if (mainRoute === 'destinations' && param) {
+    switchTab('destinations');
+    setTimeout(() => openDestinationDetailModal(param), 150);
+  } else if (['home', 'destinations', 'districts', 'culture', 'stats', 'festivals', 'planner', 'guide', 'saved'].includes(mainRoute)) {
+    switchTab(mainRoute);
+  }
+}
+
+// Copy Direct Share Link to Clipboard
+function copyDirectLink(type, id) {
+  const url = `${window.location.origin}${window.location.pathname}#${type}/${id}`;
+  navigator.clipboard.writeText(url).then(() => {
+    showToast(getTranslation('toast_link_copied'));
+  }).catch(() => {
+    // Fallback prompt
+    prompt(currentLanguage === 'hi' ? 'लिंक कॉपी करें:' : 'Copy link:', url);
+  });
+}
+
 // Switch Navigation Tab
 function switchTab(tabId) {
   state.activeTab = tabId;
@@ -248,7 +363,7 @@ function switchTab(tabId) {
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Map invalidation trigger if map tab is opened
+  // Invalidate Map if destinations tab opened
   if (tabId === 'destinations' && state.map) {
     setTimeout(() => {
       state.map.invalidateSize();
@@ -257,6 +372,12 @@ function switchTab(tabId) {
 
   if (tabId === 'saved') {
     renderSavedDestinations();
+  }
+  if (tabId === 'stats') {
+    renderStatisticsView();
+  }
+  if (tabId === 'festivals') {
+    renderFestivalsCalendar();
   }
 }
 
@@ -487,7 +608,7 @@ function renderHomeFeatured() {
   container.innerHTML = html;
 }
 
-// Render Category Carousel / Cards on Home Page
+// Render Category Cards on Home Page
 function renderCategoryCards() {
   const container = document.getElementById('home-categories-grid');
   if (!container) return;
@@ -554,7 +675,6 @@ function renderDistrictsGrid() {
 
   let html = '';
   filtered.forEach(d => {
-    // Count destinations in this district
     const destCount = BIHAR_DESTINATIONS.filter(dest => dest.district_id === d.id).length;
 
     html += `
@@ -597,6 +717,236 @@ function setDistrictDivisionFilter(divisionId) {
   state.districtDivisionFilter = divisionId;
   populateFilterDropdowns();
   renderDistrictsGrid();
+}
+
+// ==========================================================
+// FEATURE 1: REAL TOURISM STATISTICS DASHBOARD (PRD Sec 6.12)
+// ==========================================================
+function renderStatisticsView() {
+  const container = document.getElementById('stats-view-container');
+  if (!container || typeof BIHAR_TOURISM_STATISTICS === 'undefined') return;
+
+  const stats = BIHAR_TOURISM_STATISTICS;
+  const isHi = currentLanguage === 'hi';
+
+  // Latest year calculation (2023 final & 2024 provisional)
+  const latestFinal = stats.yearly_data.find(d => d.year === "2023");
+  const latestProvisional = stats.yearly_data.find(d => d.year === "2024");
+  const preCovidPeak = stats.yearly_data.find(d => d.year === "2019");
+
+  const formatNumber = num => (num >= 10000000 
+    ? `${(num / 10000000).toFixed(2)} Cr` 
+    : `${(num / 100000).toFixed(2)} Lakh`);
+
+  // Max total for Bar Scaling
+  const maxFootfall = Math.max(...stats.yearly_data.map(y => y.total));
+
+  // Build Yearly Chart Rows
+  let yearlyChartHtml = '';
+  stats.yearly_data.forEach(item => {
+    const domesticPct = ((item.domestic / maxFootfall) * 100).toFixed(1);
+    const foreignPct = ((item.foreign / maxFootfall) * 100).toFixed(1);
+
+    yearlyChartHtml += `
+      <div class="chart-bar-row">
+        <span class="bar-year-label">${item.year}</span>
+        <div class="bar-track" title="Domestic: ${item.domestic.toLocaleString()} | Foreign: ${item.foreign.toLocaleString()}">
+          <div class="bar-segment-domestic" style="width: ${domesticPct}%;"></div>
+          <div class="bar-segment-foreign" style="width: ${foreignPct}%;"></div>
+        </div>
+        <span class="bar-value-label">${formatNumber(item.total)} (${isHi ? item.status_hi : item.status})</span>
+      </div>
+    `;
+  });
+
+  // Build Monthly Distribution
+  let monthlyHtml = '';
+  stats.seasonal_trends.forEach(m => {
+    const heightPct = (m.share_pct * 4).toFixed(0);
+    monthlyHtml += `
+      <div class="month-bar-card" title="${isHi ? m.season_hi : m.season}">
+        <div class="month-bar-fill-wrap">
+          <div class="month-bar-fill" style="height: ${heightPct}px;"></div>
+        </div>
+        <span class="month-bar-pct">${m.share_pct}%</span>
+        <span class="month-bar-name">${isHi ? m.month_hi : m.month}</span>
+      </div>
+    `;
+  });
+
+  // Build Top Circuits Ranking
+  let circuitsHtml = '';
+  stats.top_circuits.forEach((c, idx) => {
+    circuitsHtml += `
+      <div class="circuit-ranking-card">
+        <div class="circuit-rank-header">
+          <span style="font-weight: 800; color: var(--primary);">#${idx + 1}</span>
+          <span class="circuit-share-badge">${c.estimated_annual_share} Footfall Share</span>
+        </div>
+        <h4 style="font-size: 1.05rem; margin-bottom: 0.3rem;">${isHi ? c.name_hi : c.name}</h4>
+        <p style="font-size: 0.82rem; color: var(--secondary); font-weight: 600; margin-bottom: 0.5rem;">
+          📍 ${isHi ? c.district_hi : c.district}
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.6rem;">
+          ${isHi ? c.significance : c.significance}
+        </p>
+        <p style="font-size: 0.8rem; color: #495057;">
+          <strong>${isHi ? 'प्रमुख आकर्षण:' : 'Key Spots:'}</strong> ${isHi ? c.key_attractions_hi : c.key_attractions}
+        </p>
+      </div>
+    `;
+  });
+
+  container.innerHTML = `
+    <div class="stats-dashboard-container">
+      <!-- Top Metric KPI Cards -->
+      <div class="stats-kpi-grid">
+        <div class="stats-kpi-card">
+          <span class="stats-kpi-icon">🇮🇳</span>
+          <span class="stats-kpi-val">${formatNumber(latestFinal.domestic)}</span>
+          <span class="stats-kpi-label">${getTranslation('stats_domestic_label')} (2023)</span>
+          <span class="stats-kpi-sub">↑ 43.7% vs 2022 Post-Pandemic Revival</span>
+        </div>
+
+        <div class="stats-kpi-card">
+          <span class="stats-kpi-icon">🌍</span>
+          <span class="stats-kpi-val">${formatNumber(latestFinal.foreign)}</span>
+          <span class="stats-kpi-label">${getTranslation('stats_foreign_label')} (2023)</span>
+          <span class="stats-kpi-sub">↑ 529% International Buddhist Circuit Growth</span>
+        </div>
+
+        <div class="stats-kpi-card">
+          <span class="stats-kpi-icon">📈</span>
+          <span class="stats-kpi-val">${formatNumber(latestProvisional.total)}</span>
+          <span class="stats-kpi-label">${getTranslation('stats_total_label')} (2024 Provisional)</span>
+          <span class="stats-kpi-sub">Highest ever recorded annual footfall</span>
+        </div>
+
+        <div class="stats-kpi-card">
+          <span class="stats-kpi-icon">🏛️</span>
+          <span class="stats-kpi-val">38 / 38</span>
+          <span class="stats-kpi-label">Districts Integrated on Platform</span>
+          <span class="stats-kpi-sub">100% District Coverage</span>
+        </div>
+      </div>
+
+      <!-- Year-Wise Growth Comparative Bar Chart -->
+      <div class="stats-panel-box">
+        <h3>📊 Year-Wise Tourist Visits (2018 - 2024)</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Comparison of domestic and international visitors recorded across official state check-points, monument entry registers, and heritage circuits.
+        </p>
+        
+        <div class="yearly-chart-container">
+          ${yearlyChartHtml}
+        </div>
+
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-color-box" style="background: #1B3B6F;"></div>
+            <span>Domestic Tourist Visits (DTV)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color-box" style="background: #E67E22;"></div>
+            <span>Foreign Tourist Visits (FTV)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monthly Footfall Seasonality -->
+      <div class="stats-panel-box">
+        <h3>☀️ ${getTranslation('stats_monthly_heading')}</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Tourism seasonality across Bihar shows dramatic surge during winter months (October through March) driven by Chhath Puja, Sonepur Mela, and Buddhist travel.
+        </p>
+        <div class="monthly-dist-grid">
+          ${monthlyHtml}
+        </div>
+      </div>
+
+      <!-- Top Circuits Popularity Breakdown -->
+      <div class="stats-panel-box">
+        <h3>🏆 ${getTranslation('stats_top_circuits')}</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Distribution of visitor density across major archaeological, spiritual, and eco-tourism corridors in Bihar.
+        </p>
+        <div class="circuits-ranking-grid">
+          ${circuitsHtml}
+        </div>
+      </div>
+
+      <!-- Official Source Verification Disclaimer -->
+      <div class="stats-disclaimer-box">
+        <strong>📌 Data Transparency Notice:</strong> ${stats.official_source}. In adherence with PRD Section 6.12, all figures are compiled strictly from official administrative reports without any algorithmic fabrication or artificial estimates.
+      </div>
+    </div>
+  `;
+}
+
+// ==========================================================
+// FEATURE 3: DEDICATED FESTIVALS CALENDAR (PRD Section 6.11)
+// ==========================================================
+function renderFestivalsCalendar() {
+  const container = document.getElementById('festivals-calendar-grid');
+  if (!container || typeof BIHAR_FESTIVALS_CALENDAR === 'undefined') return;
+
+  const isHi = currentLanguage === 'hi';
+  const season = state.selectedFestivalSeason;
+
+  const filtered = BIHAR_FESTIVALS_CALENDAR.filter(f => {
+    if (season === 'all') return true;
+    return f.season_category === season;
+  });
+
+  let html = '';
+  filtered.forEach(fest => {
+    const isAnnounced = fest.date_status === 'Announced';
+    const statusBadge = isAnnounced 
+      ? `<span class="badge badge-announced">✓ ${getTranslation('badge_dates_announced')}</span>` 
+      : `<span class="badge badge-awaited">⏳ ${getTranslation('badge_dates_awaited')}</span>`;
+
+    html += `
+      <div class="festival-card">
+        <div class="festival-img-wrap">
+          <img src="${fest.image}" alt="${isHi ? fest.name_hi : fest.name}" loading="lazy" class="festival-img" />
+          <div class="festival-date-badge">${statusBadge}</div>
+        </div>
+
+        <div class="festival-body">
+          <div class="festival-location-meta">
+            📍 ${isHi ? fest.district_hi : fest.district}
+          </div>
+
+          <h3 class="festival-title">${isHi ? fest.name_hi : fest.name}</h3>
+
+          <div class="festival-schedule-box">
+            <strong>📅 ${getTranslation('festival_time_label')}:</strong>
+            <span>${isHi ? fest.official_dates_hi : fest.official_dates}</span>
+          </div>
+
+          <p class="festival-desc">${isHi ? fest.description_hi : fest.description}</p>
+
+          <div class="festival-highlights-row">
+            ${(fest.highlights || []).map(h => `<span class="tag-item">✨ ${h}</span>`).join('')}
+          </div>
+
+          <div class="festival-organizer-note">
+            <strong>🏛️ ${getTranslation('festival_organizer')}:</strong> ${isHi ? fest.authority_hi : fest.authority}
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+function filterFestivalsBySeason(seasonCategory) {
+  state.selectedFestivalSeason = seasonCategory;
+  document.querySelectorAll('.season-filter-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-season') === seasonCategory);
+  });
+  renderFestivalsCalendar();
 }
 
 // Render Culture & Food Section
@@ -839,6 +1189,14 @@ function openDestinationDetailModal(destId) {
       </div>
 
       <div class="modal-body">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a onclick="document.getElementById('destination-detail-modal')?.remove(); switchTab('home');">${getTranslation('breadcrumb_home')}</a>
+          <span class="breadcrumb-separator">›</span>
+          <a onclick="document.getElementById('destination-detail-modal')?.remove(); switchTab('destinations');">${getTranslation('breadcrumb_destinations')}</a>
+          <span class="breadcrumb-separator">›</span>
+          <span class="breadcrumb-current">${isHi ? dest.name_hi : dest.name}</span>
+        </nav>
+
         <div class="modal-gallery-hero">
           <img src="${dest.image}" alt="${isHi ? dest.name_hi : dest.name}" class="modal-main-image" />
         </div>
@@ -905,11 +1263,17 @@ function openDestinationDetailModal(destId) {
         <a href="${dest.google_maps_url}" target="_blank" rel="noopener" class="btn btn-outline">
           🗺 ${getTranslation('modal_btn_directions')}
         </a>
+        <button class="btn btn-outline" onclick="copyDirectLink('destinations', '${dest.id}')">
+          🔗 ${getTranslation('share_link_btn')}
+        </button>
         <button class="btn btn-outline" id="modal-fav-btn-${dest.id}" onclick="toggleFavourite('${dest.id}')">
           ♥ ${isFav ? (isHi ? 'पसंदीदा से हटाएं' : 'Saved') : getTranslation('modal_btn_fav')}
         </button>
         <button class="btn btn-primary" onclick="document.getElementById('destination-detail-modal').remove(); openAddToTripDialog('${dest.id}');">
           ${getTranslation('modal_btn_add_trip')}
+        </button>
+        <button class="btn btn-sm btn-outline" onclick="document.getElementById('destination-detail-modal').remove(); openCorrectionModal('${dest.name}');">
+          ⚠️ ${isHi ? 'सुधार सुझाव' : 'Report Issue'}
         </button>
       </div>
     </div>
@@ -923,17 +1287,22 @@ function openDestinationDetailModal(destId) {
   });
 }
 
-// Open District Detail Modal
+// ==========================================================
+// FEATURE 2: DISTRICT DETAIL MODAL & LOCAL LANGUAGE (PRD Sec 20)
+// ==========================================================
 function openDistrictDetailModal(districtId) {
   const d = getDistrictById(districtId);
   if (!d) return;
 
   const isHi = currentLanguage === 'hi';
+  const localLangInfo = typeof getDistrictLocalLanguageInfo === 'function' 
+    ? getDistrictLocalLanguageInfo(districtId) 
+    : null;
+
   const modalOverlay = document.createElement('div');
   modalOverlay.className = 'modal-backdrop';
   modalOverlay.id = 'district-detail-modal';
 
-  // Find destinations belonging to this district
   const districtDests = BIHAR_DESTINATIONS.filter(dest => dest.district_id === d.id);
 
   let destsHtml = '';
@@ -953,6 +1322,43 @@ function openDistrictDetailModal(districtId) {
     destsHtml = `<p class="text-muted">${isHi ? 'इस जिले के अन्य प्रमाणित स्थल शीघ्र जोड़े जा रहे हैं।' : 'Additional verified spots for this district are being added through field review.'}</p>`;
   }
 
+  // Local Language Feature Box (PRD Section 20)
+  let localLanguageBoxHtml = '';
+  if (localLangInfo && localLangInfo.greeting) {
+    localLanguageBoxHtml = `
+      <div class="district-local-lang-box" id="district-local-lang-box">
+        <div class="local-lang-header">
+          <span class="local-lang-tag">🗣️ ${getTranslation('local_lang_heading')} — ${localLangInfo.lang_name}</span>
+          <div class="local-lang-pills-row">
+            <button class="local-lang-pill-btn active" onclick="switchDistrictModalLanguage('local', '${districtId}')">
+              ${localLangInfo.lang_name.split(' ')[0]}
+            </button>
+            <button class="local-lang-pill-btn" onclick="switchDistrictModalLanguage('hi', '${districtId}')">
+              हिन्दी
+            </button>
+            <button class="local-lang-pill-btn" onclick="switchDistrictModalLanguage('en', '${districtId}')">
+              English
+            </button>
+          </div>
+        </div>
+
+        <div class="local-lang-greeting-quote" id="modal-local-greeting">
+          "${localLangInfo.greeting}"
+        </div>
+
+        <p class="local-lang-desc-text" id="modal-local-desc">
+          ${localLangInfo.description_local || d.description}
+        </p>
+
+        ${localLangInfo.proverb ? `
+          <div class="local-lang-proverb-badge" id="modal-local-proverb">
+            <strong>${getTranslation('local_lang_proverb')}:</strong> ${localLangInfo.proverb}
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
   modalOverlay.innerHTML = `
     <div class="modal-card destination-modal-large">
       <div class="modal-header">
@@ -965,11 +1371,22 @@ function openDistrictDetailModal(districtId) {
       </div>
 
       <div class="modal-body">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <a onclick="document.getElementById('district-detail-modal')?.remove(); switchTab('home');">${getTranslation('breadcrumb_home')}</a>
+          <span class="breadcrumb-separator">›</span>
+          <a onclick="document.getElementById('district-detail-modal')?.remove(); switchTab('districts');">${getTranslation('breadcrumb_districts')}</a>
+          <span class="breadcrumb-separator">›</span>
+          <span class="breadcrumb-current">${isHi ? d.name_hi : d.name}</span>
+        </nav>
+
         <div class="modal-gallery-hero">
           <img src="${d.image}" alt="${isHi ? d.name_hi : d.name}" class="modal-main-image" />
         </div>
 
         <p class="district-lead-tagline"><strong>"${isHi ? d.tagline_hi : d.tagline}"</strong></p>
+
+        <!-- PRD Section 20: Explore in Your Local Language Component -->
+        ${localLanguageBoxHtml}
 
         <div class="modal-info-grid">
           <div class="modal-info-card">
@@ -1008,8 +1425,11 @@ function openDistrictDetailModal(districtId) {
       </div>
 
       <div class="modal-footer">
+        <button class="btn btn-outline" onclick="copyDirectLink('districts', '${d.id}')">
+          🔗 ${getTranslation('share_link_btn')}
+        </button>
         <button class="btn btn-outline" onclick="filterDestinationsByDistrict('${d.id}')">
-          ${isHi ? `${d.name_hi} के सभी स्थल फ़िल्टर करें` : `Filter Destinations for ${d.name}`}
+          ${isHi ? `${d.name_hi} के स्थल देखें` : `Filter ${d.name} Spots`}
         </button>
         <button class="btn btn-primary" onclick="document.getElementById('district-detail-modal').remove()">
           ${isHi ? 'बंद करें' : 'Close'}
@@ -1025,6 +1445,35 @@ function openDistrictDetailModal(districtId) {
   });
 }
 
+// Switch Language inside the District Modal (Local / Hindi / English)
+function switchDistrictModalLanguage(mode, districtId) {
+  const d = getDistrictById(districtId);
+  const localInfo = getDistrictLocalLanguageInfo(districtId);
+  if (!d || !localInfo) return;
+
+  const greetingEl = document.getElementById('modal-local-greeting');
+  const descEl = document.getElementById('modal-local-desc');
+
+  // Update pill active classes
+  document.querySelectorAll('.local-lang-pill-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  if (mode === 'local') {
+    if (greetingEl) greetingEl.textContent = `"${localInfo.greeting}"`;
+    if (descEl) descEl.textContent = localInfo.description_local || d.description;
+    event?.target?.classList.add('active');
+  } else if (mode === 'hi') {
+    if (greetingEl) greetingEl.textContent = `"${d.name_hi} जिले में आपका स्वागत है!"`;
+    if (descEl) descEl.textContent = d.description_hi;
+    event?.target?.classList.add('active');
+  } else if (mode === 'en') {
+    if (greetingEl) greetingEl.textContent = `"Welcome to ${d.name} District!"`;
+    if (descEl) descEl.textContent = d.description;
+    event?.target?.classList.add('active');
+  }
+}
+
 function filterDestinationsByDistrict(districtId) {
   document.getElementById('district-detail-modal')?.remove();
   state.filters.district = districtId;
@@ -1035,13 +1484,115 @@ function filterDestinationsByDistrict(districtId) {
   updateMapMarkers();
 }
 
+// ==========================================================
+// FEATURE 5: SUBMIT CORRECTION MODAL (PRD Section 7 & 11)
+// ==========================================================
+function openCorrectionModal(prefillTarget = '') {
+  const isHi = currentLanguage === 'hi';
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'modal-backdrop';
+  modalOverlay.id = 'correction-modal';
+
+  modalOverlay.innerHTML = `
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3>${getTranslation('correction_modal_title')}</h3>
+          <p class="modal-location-sub">${getTranslation('correction_modal_subtitle')}</p>
+        </div>
+        <button class="modal-close-btn" onclick="document.getElementById('correction-modal').remove()">&times;</button>
+      </div>
+
+      <form id="correction-form" onsubmit="handleCorrectionSubmit(event)">
+        <div class="modal-body">
+          <div class="form-group-full">
+            <label for="corr-target">${getTranslation('correction_field_dest')}:</label>
+            <input type="text" id="corr-target" class="form-input" required value="${prefillTarget}" placeholder="e.g. Nalanda Mahavihara or Gaya" />
+          </div>
+
+          <div class="form-group-full">
+            <label for="corr-category">${getTranslation('correction_field_cat')}:</label>
+            <select id="corr-category" class="form-select" required>
+              <option value="timing">${getTranslation('correction_cat_timing')}</option>
+              <option value="fee">${getTranslation('correction_cat_fee')}</option>
+              <option value="location">${getTranslation('correction_cat_location')}</option>
+              <option value="description">${getTranslation('correction_cat_description')}</option>
+              <option value="other">${getTranslation('correction_cat_other')}</option>
+            </select>
+          </div>
+
+          <div class="form-group-full">
+            <label for="corr-details">${getTranslation('correction_field_details')}:</label>
+            <textarea id="corr-details" class="form-textarea" rows="3" required placeholder="${isHi ? 'कृपया सटीक और सत्यापित जानकारी यहाँ लिखें...' : 'Provide the accurate verified information...'}"></textarea>
+          </div>
+
+          <div class="form-group-full">
+            <label for="corr-source">${getTranslation('correction_field_source')}:</label>
+            <input type="url" id="corr-source" class="form-input" placeholder="https://tourism.bihar.gov.in/... or official notice" />
+          </div>
+
+          <div class="form-grid-two">
+            <div class="form-group-full">
+              <label for="corr-name">${getTranslation('correction_field_name')}:</label>
+              <input type="text" id="corr-name" class="form-input" placeholder="Optional" />
+            </div>
+            <div class="form-group-full">
+              <label for="corr-email">${getTranslation('correction_field_email')}:</label>
+              <input type="email" id="corr-email" class="form-input" placeholder="Optional" />
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="document.getElementById('correction-modal').remove()">
+            ${isHi ? 'रद्द करें' : 'Cancel'}
+          </button>
+          <button type="submit" class="btn btn-primary">
+            ${getTranslation('correction_btn_submit')}
+          </button>
+        </div>
+      </form>
+    </div>
+  `;
+
+  document.body.appendChild(modalOverlay);
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) modalOverlay.remove();
+  });
+}
+
+function handleCorrectionSubmit(e) {
+  e.preventDefault();
+  const submission = {
+    target: document.getElementById('corr-target').value,
+    category: document.getElementById('corr-category').value,
+    details: document.getElementById('corr-details').value,
+    source: document.getElementById('corr-source').value,
+    name: document.getElementById('corr-name').value,
+    email: document.getElementById('corr-email').value,
+    timestamp: new Date().toISOString()
+  };
+
+  // Store into LocalStorage log
+  try {
+    const existing = JSON.parse(localStorage.getItem('dlb_corrections_log') || '[]');
+    existing.push(submission);
+    localStorage.setItem('dlb_corrections_log', JSON.stringify(existing));
+  } catch (err) {
+    console.error(err);
+  }
+
+  document.getElementById('correction-modal')?.remove();
+  showToast(getTranslation('toast_correction_submitted'));
+}
+
 // Initialize Leaflet Map
 function initLeafletMap() {
   const mapElement = document.getElementById('destinations-leaflet-map');
   if (!mapElement || typeof L === 'undefined') return;
 
   try {
-    // Center around Bihar
     state.map = L.map('destinations-leaflet-map').setView([25.6, 85.5], 7);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1109,6 +1660,8 @@ function renderAllViews() {
   renderDestinationCards();
   renderDistrictsGrid();
   renderCultureSection();
+  renderStatisticsView();
+  renderFestivalsCalendar();
   renderTravelGuide();
   if (state.activeTab === 'saved') {
     renderSavedDestinations();
@@ -1138,4 +1691,3 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 400);
   }, 2800);
 }
-

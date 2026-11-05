@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discover Local Bihar | Explore Beyond the Ordinary</title>
-  <meta name="description" content="Discover Bihar's historical landmarks, religious destinations, 38 districts, natural attractions, local food, arts, festivals, and trip planner.">
-  <meta name="keywords" content="Bihar Tourism, Nalanda, Bodh Gaya, Rajgir, Patna, Valmiki National Park, 38 Districts of Bihar, Litti Chokha, Madhubani Painting">
+  <meta name="description" content="Discover Bihar's historical landmarks, religious destinations, 38 districts, natural attractions, local food, arts, festivals, real tourism statistics, and trip planner.">
+  <meta name="keywords" content="Bihar Tourism, Nalanda, Bodh Gaya, Rajgir, Patna, Valmiki National Park, 38 Districts of Bihar, Litti Chokha, Madhubani Painting, Tourism Statistics">
   
   <!-- Leaflet CSS for Interactive Map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -15,6 +15,18 @@
   
   <!-- Favicon icon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20100%20100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+
+  <!-- Anti-Flicker Theme Init Script (PRD FR-24, FR-25, FR-26) -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('dlb_theme_preference');
+        var systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var activeTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', activeTheme);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -34,6 +46,8 @@
         <li><a href="#destinations" class="nav-link" data-tab="destinations" data-i18n="nav_destinations">Destinations</a></li>
         <li><a href="#districts" class="nav-link" data-tab="districts" data-i18n="nav_districts">38 Districts</a></li>
         <li><a href="#culture" class="nav-link" data-tab="culture" data-i18n="nav_culture">Food & Culture</a></li>
+        <li><a href="#festivals" class="nav-link" data-tab="festivals" data-i18n="nav_festivals">Festivals Calendar</a></li>
+        <li><a href="#stats" class="nav-link" data-tab="stats" data-i18n="nav_stats">Tourism Statistics</a></li>
         <li><a href="#planner" class="nav-link" data-tab="planner" data-i18n="nav_planner">Trip Planner</a></li>
         <li><a href="#guide" class="nav-link" data-tab="guide" data-i18n="nav_guide">Travel Guide</a></li>
         <li>
@@ -42,9 +56,20 @@
             <span class="nav-badge" id="fav-count-badge" style="display:none;">0</span>
           </a>
         </li>
+        <!-- Mobile-Only Theme Toggle Row -->
+        <li class="mobile-only-theme-item" style="display: none; padding: 0.75rem 1rem; border-top: 1px solid var(--border-color); margin-top: 0.5rem;">
+          <button class="theme-toggle-btn" id="mobile-theme-toggle-btn" aria-label="Toggle dark/light mode" style="margin-right: 0.6rem;">
+            <span class="theme-icon" id="mobile-theme-icon">🌙</span>
+          </button>
+          <span id="mobile-theme-label" style="font-weight: 700; font-size: 0.9rem;" data-i18n="theme_dark">Dark Mode</span>
+        </li>
       </ul>
 
       <div class="header-actions">
+        <!-- Desktop/Header Theme Switcher (PRD FR-24) -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle Theme (Dark / Light)">
+          <span class="theme-icon" id="theme-icon">🌙</span>
+        </button>
         <button class="lang-switch-btn" id="lang-toggle-btn" title="हिन्दी में बदलें">
           <span>हिन्दी</span>
         </button>
@@ -307,7 +332,46 @@
     </div>
   </main>
 
-  <!-- ==================== VIEW 5: TRIP PLANNER ==================== -->
+  <!-- ==================== VIEW 5: DEDICATED FESTIVALS CALENDAR (PRD Sec 6.11) ==================== -->
+  <main id="view-festivals" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="festivals_section_title">Festivals & Events Calendar</h2>
+        <p data-i18n="festivals_section_subtitle">Authentic schedule of state mahotsavs, historic melas, and cultural gatherings across all districts of Bihar</p>
+      </div>
+
+      <!-- Season Filter Pills -->
+      <div class="division-filter-pills" style="justify-content: center; margin-bottom: 2.5rem;">
+        <button class="pill-btn season-filter-pill active" data-season="all" onclick="filterFestivalsBySeason('all')" data-i18n="filter_season_all">All Seasons</button>
+        <button class="pill-btn season-filter-pill" data-season="winter" onclick="filterFestivalsBySeason('winter')" data-i18n="filter_season_winter">Winter Fairs</button>
+        <button class="pill-btn season-filter-pill" data-season="autumn" onclick="filterFestivalsBySeason('autumn')" data-i18n="filter_season_autumn">Autumn / Chhath</button>
+        <button class="pill-btn season-filter-pill" data-season="monsoon" onclick="filterFestivalsBySeason('monsoon')" data-i18n="filter_season_monsoon">Monsoon / Shravan</button>
+        <button class="pill-btn season-filter-pill" data-season="spring_summer" onclick="filterFestivalsBySeason('spring_summer')" data-i18n="filter_season_spring_summer">Spring & Summer</button>
+      </div>
+
+      <!-- Festivals Cards Grid -->
+      <div class="festivals-calendar-grid" id="festivals-calendar-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 6: REAL TOURISM STATISTICS (PRD Sec 6.12) ==================== -->
+  <main id="view-stats" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="stats_section_title">Real Bihar Tourism Statistics</h2>
+        <p data-i18n="stats_section_subtitle">Official footfall figures, historical trends, and seasonal distributions compiled from Ministry of Tourism & BSTDC annual reports</p>
+      </div>
+
+      <!-- Statistics Container -->
+      <div id="stats-view-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 7: TRIP PLANNER ==================== -->
   <main id="view-planner" class="view-tab-content section-padding">
     <div class="container">
       <div class="section-header">
@@ -369,7 +433,7 @@
     </div>
   </main>
 
-  <!-- ==================== VIEW 6: TRAVEL GUIDE & SAFETY ==================== -->
+  <!-- ==================== VIEW 8: TRAVEL GUIDE & SAFETY ==================== -->
   <main id="view-guide" class="view-tab-content section-padding">
     <div class="container">
       <div class="section-header">
@@ -419,7 +483,7 @@
     </div>
   </main>
 
-  <!-- ==================== VIEW 7: FAVOURITES ==================== -->
+  <!-- ==================== VIEW 9: FAVOURITES ==================== -->
   <main id="view-saved" class="view-tab-content section-padding">
     <div class="container">
       <div class="section-header">
@@ -451,6 +515,8 @@
           <ul class="footer-links">
             <li><a href="#destinations" onclick="switchTab('destinations')" data-i18n="nav_destinations">Destinations</a></li>
             <li><a href="#districts" onclick="switchTab('districts')" data-i18n="nav_districts">38 Districts</a></li>
+            <li><a href="#festivals" onclick="switchTab('festivals')" data-i18n="nav_festivals">Festivals Calendar</a></li>
+            <li><a href="#stats" onclick="switchTab('stats')" data-i18n="nav_stats">Tourism Statistics</a></li>
             <li><a href="#culture" onclick="switchTab('culture')" data-i18n="nav_culture">Food & Culture</a></li>
             <li><a href="#planner" onclick="switchTab('planner')" data-i18n="nav_planner">Trip Planner</a></li>
             <li><a href="#guide" onclick="switchTab('guide')" data-i18n="nav_guide">Travel Guide & Safety</a></li>
@@ -458,11 +524,12 @@
         </div>
 
         <div class="footer-col">
-          <h4 data-i18n="footer_govt_links">Official Resources</h4>
+          <h4 data-i18n="footer_govt_links">Official Resources & Transparency</h4>
           <ul class="footer-links">
             <li><a href="https://tourism.bihar.gov.in" target="_blank" rel="noopener" data-i18n="footer_bstdc">Bihar State Tourism Development Corp (BSTDC)</a></li>
             <li><a href="https://asi.nic.in" target="_blank" rel="noopener" data-i18n="footer_asi">Archaeological Survey of India (ASI)</a></li>
             <li><a href="https://state.bihar.gov.in" target="_blank" rel="noopener" data-i18n="footer_dept">Government of Bihar Portal</a></li>
+            <li><a href="javascript:void(0)" onclick="openCorrectionModal()" style="color: #F1C40F; font-weight: 700;" data-i18n="correction_footer_link">✍️ Submit Data Correction</a></li>
           </ul>
         </div>
       </div>
@@ -481,8 +548,11 @@
 
   <!-- Application Data Modules -->
   <script src="js/data/districts.js"></script>
+  <script src="js/data/district-languages.js"></script>
   <script src="js/data/destinations.js"></script>
   <script src="js/data/culture-food.js"></script>
+  <script src="js/data/festivals-calendar.js"></script>
+  <script src="js/data/statistics.js"></script>
   <script src="js/data/travel-guide.js"></script>
   
   <!-- Localization & Planner Modules -->
@@ -494,4 +564,3 @@
 
 </body>
 </html>
-

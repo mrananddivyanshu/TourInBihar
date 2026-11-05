@@ -1,4 +1,4 @@
-// Discover Local Bihar - Comprehensive English & Hindi Translations
+// Discover Local Bihar - Comprehensive English & Hindi Translations (v3.0)
 
 const TRANSLATIONS = {
   en: {
@@ -10,6 +10,8 @@ const TRANSLATIONS = {
     nav_destinations: "Destinations",
     nav_districts: "38 Districts",
     nav_culture: "Food & Culture",
+    nav_stats: "Tourism Statistics",
+    nav_festivals: "Festivals Calendar",
     nav_planner: "Trip Planner",
     nav_guide: "Travel Guide",
     nav_saved: "Favourites",
@@ -83,13 +85,16 @@ const TRANSLATIONS = {
     district_transport: "Connectivity",
     district_view_btn: "Explore District",
 
-    // District Detail Modal
+    // District Detail Modal & Local Language
     district_modal_overview: "District Introduction",
     district_modal_history: "Historical Heritage",
     district_modal_destinations: "Verified Destinations in this District",
     district_modal_food: "Culinary Highlights",
     district_modal_festivals: "Fairs & Celebrations",
     district_modal_travel: "Transport & How to Reach",
+    local_lang_pill: "Explore in Local Language",
+    local_lang_heading: "Regional Language Heritage",
+    local_lang_proverb: "Local Cultural Saying & Pride",
 
     // Culture & Food Section
     culture_section_title: "Flavours & Cultural Roots of Bihar",
@@ -97,6 +102,29 @@ const TRANSLATIONS = {
     tab_food: "Traditional Food & Delicacies",
     tab_arts: "Arts, Crafts & Handloom",
     tab_festivals: "Festivals & Celebrations",
+
+    // Real Tourism Statistics Section (PRD Section 6.12)
+    stats_section_title: "Real Bihar Tourism Statistics",
+    stats_section_subtitle: "Official footfall figures, historical trends, and seasonal distributions compiled from Ministry of Tourism & BSTDC annual reports",
+    stats_domestic_label: "Domestic Tourist Visits",
+    stats_foreign_label: "Foreign Tourist Visits",
+    stats_total_label: "Total Recorded Visits",
+    stats_top_circuits: "Top Visited Circuits & Destinations",
+    stats_monthly_heading: "Monthly Footfall Distribution Share (%)",
+    stats_source_notice: "Data Source & Verification: Ministry of Tourism (Govt. of India) Annual Reports & Department of Tourism, Govt. of Bihar. Figures are published with their authentic status (Final vs. Provisional).",
+
+    // Dedicated Festivals & Events Calendar (PRD Section 6.11)
+    festivals_section_title: "Festivals & Events Calendar",
+    festivals_section_subtitle: "Authentic schedule of state mahotsavs, historic melas, and cultural gatherings across all districts of Bihar",
+    filter_season_all: "All Seasons",
+    filter_season_winter: "Winter Fairs (Oct - Feb)",
+    filter_season_spring_summer: "Spring & Summer (March - June)",
+    filter_season_monsoon: "Monsoon Fairs (July - Sept)",
+    filter_season_autumn: "Autumn / Chhath (Oct - Nov)",
+    badge_dates_announced: "Official Dates Announced",
+    badge_dates_awaited: "Dates Awaited",
+    festival_organizer: "Organising Authority",
+    festival_time_label: "Estimated Schedule",
 
     // Trip Planner Section
     planner_section_title: "Interactive Trip Planner",
@@ -133,12 +161,43 @@ const TRANSLATIONS = {
     saved_empty: "You haven't saved any destinations yet. Click the heart icon on any destination card to bookmark it.",
     saved_remove: "Remove",
 
+    // Deep-linking & Sharing
+    share_link_btn: "Share Direct Link",
+    toast_link_copied: "Direct link copied to clipboard!",
+
+    // Data Correction & Verification Feedback Form (PRD Section 7)
+    correction_modal_title: "Submit Data Correction or New Information",
+    correction_modal_subtitle: "Help us keep Bihar's tourism information 100% authentic, accurate, and verified.",
+    correction_field_dest: "Destination or District Name",
+    correction_field_cat: "Type of Information to Correct",
+    correction_cat_timing: "Opening Hours / Timings",
+    correction_cat_fee: "Entry Fee / Admission Charges",
+    correction_cat_location: "Location / Coordinates / Map Point",
+    correction_cat_description: "History / Cultural Description",
+    correction_cat_other: "Other Inaccuracy or New Verified Source",
+    correction_field_details: "Accurate Information Details",
+    correction_field_source: "Official Document or Web Source Link",
+    correction_field_name: "Your Name",
+    correction_field_email: "Your Email (optional)",
+    correction_btn_submit: "Submit Correction for Review",
+    correction_footer_link: "Submit Data Correction",
+    toast_correction_submitted: "Thank you! Your correction has been recorded for review.",
+
     // Toasts
     toast_added_fav: "Added to your Saved Favourites!",
     toast_removed_fav: "Removed from Favourites",
     toast_added_trip: "Added to Trip Itinerary!",
     toast_itinerary_saved: "Trip Itinerary saved successfully to your browser!",
     toast_plan_cleared: "Trip itinerary has been reset.",
+
+    // Theme & UI/UX (PRD Requirements)
+    theme_light: "Light Mode",
+    theme_dark: "Dark Mode",
+    theme_toggle_toast_light: "Switched to Light Mode (Warm Cream & Orange)",
+    theme_toggle_toast_dark: "Switched to Dark Mode (Deep Black & Blue)",
+    breadcrumb_home: "Home",
+    breadcrumb_destinations: "Destinations",
+    breadcrumb_districts: "38 Districts",
 
     // Footer
     footer_about_heading: "Discover Local Bihar",
@@ -161,6 +220,8 @@ const TRANSLATIONS = {
     nav_destinations: "पर्यटन स्थल",
     nav_districts: "38 जिले",
     nav_culture: "खान-पान व संस्कृति",
+    nav_stats: "पर्यटन सांख्यिकी",
+    nav_festivals: "मेला व उत्सव कैलेंडर",
     nav_planner: "यात्रा योजना (प्लानर)",
     nav_guide: "यात्रा मार्गदर्शिका",
     nav_saved: "पसंदीदा",
@@ -234,13 +295,16 @@ const TRANSLATIONS = {
     district_transport: "आवागमन व संपर्क",
     district_view_btn: "जिला देखें",
 
-    // District Detail Modal
+    // District Detail Modal & Local Language
     district_modal_overview: "जिले का परिचय",
     district_modal_history: "ऐतिहासिक विरासत",
     district_modal_destinations: "इस जिले के प्रमाणित पर्यटन स्थल",
     district_modal_food: "खान-पान की विशेषताएं",
     district_modal_festivals: "मेले और उत्सव",
     district_modal_travel: "परिवहन और कैसे पहुंचें",
+    local_lang_pill: "अपन स्थानीय भाषा में देखू",
+    local_lang_heading: "क्षेत्रीय भाषाई विरासत",
+    local_lang_proverb: "क्षेत्रीय कहावत एवं लोक पहचान",
 
     // Culture & Food Section
     culture_section_title: "बिहार का स्वाद और सांस्कृतिक पहचान",
@@ -248,6 +312,29 @@ const TRANSLATIONS = {
     tab_food: "पारंपरिक व्यंजन व खान-पान",
     tab_arts: "कला, हस्तशिल्प व हथकरघा",
     tab_festivals: "त्योहार, उत्सव और मेले",
+
+    // Real Tourism Statistics Section (PRD Section 6.12)
+    stats_section_title: "बिहार पर्यटन के वास्तविक आंकड़े (सांख्यिकी)",
+    stats_section_subtitle: "पर्यटन मंत्रालय (भारत सरकार) एवं बिहार पर्यटन विभाग के आधिकारिक वार्षिक प्रतिवेदनों पर आधारित आंकड़े",
+    stats_domestic_label: "घरेलू पर्यटकों की संख्या",
+    stats_foreign_label: "विदेशी पर्यटकों की संख्या",
+    stats_total_label: "कुल दर्ज पर्यटक आवागमन",
+    stats_top_circuits: "सर्वाधिक भ्रमण किए गए परिपथ एवं स्थल",
+    stats_monthly_heading: "माह-वार पर्यटक आवागमन वितरण हिस्सा (%)",
+    stats_source_notice: "डेटा स्रोत एवं सत्यापन: पर्यटन मंत्रालय (भारत सरकार) वार्षिक रिपोर्ट एवं पर्यटन विभाग, बिहार सरकार। आंकड़े आधिकारिक स्थिति (अंतिम बनाम अनंतिम) के साथ प्रदर्शित हैं।",
+
+    // Dedicated Festivals & Events Calendar (PRD Section 6.11)
+    festivals_section_title: "मेला एवं उत्सव कैलेंडर",
+    festivals_section_subtitle: "बिहार के सभी जिलों के ऐतिहासिक मेलों, राज्य महोत्सवों और सांस्कृतिक आयोजनों का प्रामाणिक कैलेंडर",
+    filter_season_all: "सभी ऋतुएं",
+    filter_season_winter: "शीतकालीन मेले (अक्टूबर - फरवरी)",
+    filter_season_spring_summer: "वसंत एवं ग्रीष्म (मार्च - जून)",
+    filter_season_monsoon: "मानसून मेले (जुलाई - सितंबर)",
+    filter_season_autumn: "शरद / छठ (अक्टूबर - नवंबर)",
+    badge_dates_announced: "आधिकारिक तिथियां घोषित",
+    badge_dates_awaited: "तिथियों की प्रतीक्षा (Dates Awaited)",
+    festival_organizer: "आयोजक प्राधिकरण",
+    festival_time_label: "संभावित समय / तिथि",
 
     // Trip Planner Section
     planner_section_title: "इंटरैक्टिव यात्रा योजना (प्लानर)",
@@ -284,12 +371,43 @@ const TRANSLATIONS = {
     saved_empty: "आपने अभी तक कोई स्थल सहेजा नहीं है। पसंदीदा में जोड़ने के लिए किसी भी कार्ड पर बने दिल (हार्ट) आइकन पर क्लिक करें।",
     saved_remove: "हटाएं",
 
+    // Deep-linking & Sharing
+    share_link_btn: "सीधा लिंक शेयर करें",
+    toast_link_copied: "शेयर लिंक क्लिपबोर्ड पर कॉपी हो गया!",
+
+    // Data Correction & Verification Feedback Form (PRD Section 7)
+    correction_modal_title: "डेटा सुधार या नई जानकारी सुझाव फॉर्म",
+    correction_modal_subtitle: "बिहार पर्यटन की जानकारी को 100% सटीक, प्रामाणिक और अद्यतन रखने में सहयोग करें।",
+    correction_field_dest: "पर्यटन स्थल या जिले का नाम",
+    correction_field_cat: "सुधार का प्रकार",
+    correction_cat_timing: "खुलने का समय (Timings)",
+    correction_cat_fee: "प्रवेश शुल्क (Entry Fee)",
+    correction_cat_location: "स्थान / निर्देशांक (Coordinates) / मैप",
+    correction_cat_description: "ऐतिहासिक या सांस्कृतिक विवरण",
+    correction_cat_other: "अन्य त्रुटि या नया सत्यापित स्रोत",
+    correction_field_details: "सटीक जानकारी का विवरण",
+    correction_field_source: "आधिकारिक दस्तावेज या वेबसाइट संदर्भ लिंक",
+    correction_field_name: "आपका नाम",
+    correction_field_email: "आपका ईमेल (वैकल्पिक)",
+    correction_btn_submit: "सुधार सुझाव सबमिट करें",
+    correction_footer_link: "डेटा सुधार सुझाव दें",
+    toast_correction_submitted: "धन्यवाद! आपका सुधार सुझाव समीक्षा हेतु दर्ज कर लिया गया है।",
+
     // Toasts
     toast_added_fav: "पसंदीदा सूची में जोड़ा गया!",
     toast_removed_fav: "पसंदीदा सूची से हटाया गया",
     toast_added_trip: "यात्रा योजना में जोड़ा गया!",
     toast_itinerary_saved: "आपकी यात्रा योजना आपके ब्राउज़र में सुरक्षित हो गई है!",
     toast_plan_cleared: "यात्रा योजना रीसेट कर दी गई है।",
+
+    // Theme & UI/UX (PRD Requirements)
+    theme_light: "लाइट मोड",
+    theme_dark: "डार्क मोड",
+    theme_toggle_toast_light: "लाइट थीम सक्रिय (वार्म क्रीम व नारंगी)",
+    theme_toggle_toast_dark: "डार्क थीम सक्रिय (डीप ब्लैक व इलेक्ट्रिक ब्लू)",
+    breadcrumb_home: "होम",
+    breadcrumb_destinations: "पर्यटन स्थल",
+    breadcrumb_districts: "38 जिले",
 
     // Footer
     footer_about_heading: "डिस्कवर लोकल बिहार",
@@ -343,5 +461,9 @@ function applyTranslations() {
       : `<span>English</span>`;
     langToggleBtn.setAttribute('title', currentLanguage === 'en' ? 'हिन्दी में बदलें' : 'Switch to English');
   }
-}
 
+  // Update theme toggle indicator & tooltips if initialized
+  if (typeof updateThemeUI === 'function') {
+    updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
+  }
+}
