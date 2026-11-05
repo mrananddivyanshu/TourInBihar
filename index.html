@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Local Bihar | Explore Beyond the Ordinary</title>
+  <meta name="description" content="Discover Bihar's historical landmarks, religious destinations, 38 districts, natural attractions, local food, arts, festivals, and trip planner.">
+  <meta name="keywords" content="Bihar Tourism, Nalanda, Bodh Gaya, Rajgir, Patna, Valmiki National Park, 38 Districts of Bihar, Litti Chokha, Madhubani Painting">
+  
+  <!-- Leaflet CSS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  
+  <!-- Main Application CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Favicon icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20100%20100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <div class="brand-logo-wrap" onclick="switchTab('home')">
+        <div class="brand-emblem">🏛️</div>
+        <div class="brand-titles">
+          <h1 data-i18n="brand_title">DISCOVER LOCAL BIHAR</h1>
+          <span class="brand-tagline" data-i18n="tagline">Explore Beyond the Ordinary</span>
+        </div>
+      </div>
+
+      <ul class="nav-menu" id="main-nav-menu">
+        <li><a href="#home" class="nav-link active" data-tab="home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#destinations" class="nav-link" data-tab="destinations" data-i18n="nav_destinations">Destinations</a></li>
+        <li><a href="#districts" class="nav-link" data-tab="districts" data-i18n="nav_districts">38 Districts</a></li>
+        <li><a href="#culture" class="nav-link" data-tab="culture" data-i18n="nav_culture">Food & Culture</a></li>
+        <li><a href="#planner" class="nav-link" data-tab="planner" data-i18n="nav_planner">Trip Planner</a></li>
+        <li><a href="#guide" class="nav-link" data-tab="guide" data-i18n="nav_guide">Travel Guide</a></li>
+        <li>
+          <a href="#saved" class="nav-link" data-tab="saved">
+            <span data-i18n="nav_saved">Favourites</span>
+            <span class="nav-badge" id="fav-count-badge" style="display:none;">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="header-actions">
+        <button class="lang-switch-btn" id="lang-toggle-btn" title="हिन्दी में बदलें">
+          <span>हिन्दी</span>
+        </button>
+        <button class="mobile-menu-trigger" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== VIEW 1: HOME ==================== -->
+  <main id="view-home" class="view-tab-content active">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="container hero-content">
+        <span class="hero-pill-badge" data-i18n="subtagline">One platform. 38 districts. Countless experiences.</span>
+        <h2 class="hero-title" data-i18n="hero_title">Explore the Soul of Ancient India</h2>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          From the world's first university in Nalanda and Buddha's enlightenment in Bodh Gaya, to emerald tiger reserves and thunderous waterfalls across all 38 districts.
+        </p>
+
+        <!-- Main Smart Search Bar -->
+        <div class="hero-search-wrapper">
+          <input type="text" id="hero-search-input" placeholder="Search destinations, districts, food (e.g. Nalanda, Litti, Waterfalls)..." data-i18n="search_placeholder" autocomplete="off" />
+          <button class="hero-search-btn" id="hero-search-btn">
+            <span>🔍</span> <span data-i18n="search_btn">Search</span>
+          </button>
+        </div>
+
+        <!-- Quick Search Suggestion Pills -->
+        <div class="quick-search-row">
+          <span class="quick-search-label" data-i18n="quick_search">Popular searches:</span>
+          <button class="quick-pill" onclick="setQuickSearch('Nalanda')">Nalanda Ruins</button>
+          <button class="quick-pill" onclick="setQuickSearch('Bodh Gaya')">Bodh Gaya</button>
+          <button class="quick-pill" onclick="setQuickSearch('Glass Bridge')">Rajgir Glass Bridge</button>
+          <button class="quick-pill" onclick="setQuickSearch('Waterfalls')">Waterfalls</button>
+          <button class="quick-pill" onclick="setQuickSearch('Litti')">Litti Chokha</button>
+          <button class="quick-pill" onclick="setQuickSearch('Madhubani')">Madhubani Art</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Statistics Bar -->
+    <section class="stats-bar-section">
+      <div class="container">
+        <div class="stats-card-container">
+          <div class="stat-item">
+            <div class="stat-number">38</div>
+            <div class="stat-label" data-i18n="stat_districts">Districts of Bihar</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div class="stat-label" data-i18n="stat_destinations">Curated Destinations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3,000+</div>
+            <div class="stat-label" data-i18n="stat_history">Years of Living History</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label" data-i18n="stat_free">Free & Verified Guide</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="categories_title">Explore by Tourism Category</h2>
+          <p data-i18n="categories_subtitle">Find your perfect journey through Bihar's rich historical, religious, and natural landscape</p>
+        </div>
+        <div class="categories-grid" id="home-categories-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Destinations Section -->
+    <section class="section-padding" style="background-color: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="destinations_section_title">Featured Destinations</h2>
+          <p data-i18n="destinations_section_subtitle">Handpicked and verified attractions with authentic travel information</p>
+        </div>
+        <div class="destinations-grid" id="home-featured-grid">
+          <!-- Populated dynamically -->
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <button class="btn btn-primary" onclick="switchTab('destinations')">
+            <span data-i18n="nav_destinations">Explore All Destinations</span> →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore 38 Districts Callout Banner -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="background: linear-gradient(135deg, var(--secondary), #0E1E38); border-radius: var(--border-radius); color: #fff; padding: 3.5rem 2.5rem; text-align: center;">
+          <h2 style="font-size: 2.2rem; margin-bottom: 1rem;" data-i18n="districts_section_title">Directory of All 38 Districts</h2>
+          <p style="max-width: 680px; margin: 0 auto 2rem auto; opacity: 0.9;" data-i18n="districts_section_subtitle">
+            Comprehensive heritage, local cuisine, and travel connections across every single district of Bihar
+          </p>
+          <button class="btn btn-primary" onclick="switchTab('districts')">
+            <span data-i18n="district_view_btn">Explore District Directory</span> →
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== VIEW 2: DESTINATIONS ==================== -->
+  <main id="view-destinations" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="destinations_section_title">Explore Tourist Destinations</h2>
+        <p data-i18n="destinations_section_subtitle">Filter by district, category, admission fee, accessibility, and explore on the live map</p>
+      </div>
+
+      <!-- Advanced Filter Bar -->
+      <div class="filters-bar">
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label for="filter-category-select" data-i18n="filter_category">Category</label>
+            <select id="filter-category-select" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="historical">Historical Monuments</option>
+              <option value="religious">Religious & Spiritual</option>
+              <option value="nature">Nature & Wildlife</option>
+              <option value="adventure">Adventure & Outdoors</option>
+              <option value="cultural">Cultural & Heritage</option>
+              <option value="museums">Museums & Education</option>
+              <option value="waterfalls">Lakes & Waterfalls</option>
+              <option value="handicrafts">Markets & Crafts</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-district-select" data-i18n="filter_district">District</label>
+            <select id="filter-district-select" class="filter-select">
+              <!-- Dynamically populated with all 38 districts -->
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-entry-select" data-i18n="filter_entry">Entry Fee</label>
+            <select id="filter-entry-select" class="filter-select">
+              <option value="all" data-i18n="filter_entry_all">All (Free & Paid)</option>
+              <option value="free" data-i18n="filter_entry_free">Free Entry Only</option>
+              <option value="paid" data-i18n="filter_entry_paid">Paid Entry Only</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filter-wheelchair-check" />
+              <span data-i18n="filter_wheelchair">Wheelchair Accessible</span>
+            </label>
+          </div>
+
+          <div class="filter-group">
+            <button class="btn btn-outline" id="reset-filters-btn" style="width: 100%;" data-i18n="reset_filters">
+              Reset Filters
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Interactive Map of Bihar -->
+      <div class="map-container-box">
+        <div class="map-header-bar">
+          <h4>📍 Interactive Tourism Map of Bihar</h4>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Click any pin to inspect details or open Google Maps directions</span>
+        </div>
+        <div id="destinations-leaflet-map"></div>
+      </div>
+
+      <!-- Results Count Status -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <span id="destinations-count-badge" style="font-weight: 700; color: var(--secondary);">
+          Showing destinations
+        </span>
+      </div>
+
+      <!-- Destinations Grid -->
+      <div class="destinations-grid" id="destinations-grid-container">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 3: 38 DISTRICTS ==================== -->
+  <main id="view-districts" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="districts_section_title">Directory of All 38 Districts</h2>
+        <p data-i18n="districts_section_subtitle">Every single district of Bihar holds unique civilizational heritage, cuisines, traditions, and attractions</p>
+      </div>
+
+      <!-- District Search Bar -->
+      <div style="max-width: 580px; margin: 0 auto 2rem auto;">
+        <input type="text" id="district-search-input" class="form-input" placeholder="Search by district name or headquarters..." data-i18n="search_district_placeholder" />
+      </div>
+
+      <!-- Division Filter Pills -->
+      <div class="division-filter-pills" id="district-division-pills">
+        <!-- Dynamically populated with all 9 divisions -->
+      </div>
+
+      <!-- All 38 Districts Grid -->
+      <div class="districts-grid" id="districts-grid-container">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 4: FOOD & CULTURE ==================== -->
+  <main id="view-culture" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="culture_section_title">Flavours & Cultural Roots of Bihar</h2>
+        <p data-i18n="culture_section_subtitle">Discover GI-tagged delicacies, centuries-old folk art forms, and vibrant traditions</p>
+      </div>
+
+      <!-- Culture Sub-tabs -->
+      <div class="culture-subtabs-nav">
+        <button class="culture-subtab-btn active" data-subtab="food" onclick="switchCultureTab('food')">
+          🍴 <span data-i18n="tab_food">Traditional Food & Delicacies</span>
+        </button>
+        <button class="culture-subtab-btn" data-subtab="arts" onclick="switchCultureTab('arts')">
+          🎨 <span data-i18n="tab_arts">Arts, Crafts & Handloom</span>
+        </button>
+        <button class="culture-subtab-btn" data-subtab="festivals" onclick="switchCultureTab('festivals')">
+          🎉 <span data-i18n="tab_festivals">Festivals & Celebrations</span>
+        </button>
+      </div>
+
+      <!-- Food Sub-tab Content -->
+      <div class="culture-subtab-content active" id="culture-tab-food">
+        <div class="culture-cards-grid" id="culture-food-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Arts Sub-tab Content -->
+      <div class="culture-subtab-content" id="culture-tab-arts">
+        <div class="culture-cards-grid" id="culture-arts-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Festivals Sub-tab Content -->
+      <div class="culture-subtab-content" id="culture-tab-festivals">
+        <div class="culture-cards-grid" id="culture-festivals-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 5: TRIP PLANNER ==================== -->
+  <main id="view-planner" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="planner_section_title">Interactive Trip Planner</h2>
+        <p data-i18n="planner_section_subtitle">Create, customize, and print your personalized day-wise itinerary across Bihar</p>
+      </div>
+
+      <div class="planner-builder-card">
+        <!-- Trip Planner Top Controls Bar -->
+        <div class="planner-controls-bar">
+          <div style="flex: 1; min-width: 240px;">
+            <label for="planner-trip-title" style="font-weight: 700; font-size: 0.85rem; display:block; margin-bottom: 0.3rem;" data-i18n="planner_trip_title">Trip Title</label>
+            <input type="text" id="planner-trip-title" class="form-input" value="My Bihar Expedition" onchange="currentTrip.title = this.value; saveCurrentTrip();" />
+          </div>
+
+          <div style="min-width: 200px;">
+            <label for="planner-days-select" style="font-weight: 700; font-size: 0.85rem; display:block; margin-bottom: 0.3rem;" data-i18n="planner_days_label">Trip Duration</label>
+            <select id="planner-days-select" class="form-select">
+              <option value="1" data-i18n="planner_days_1">1 Day Trip</option>
+              <option value="2" data-i18n="planner_days_2">2 Days Weekend Trip</option>
+              <option value="3" selected data-i18n="planner_days_3">3 Days Circuit</option>
+              <option value="5" data-i18n="planner_days_5">5 Days Comprehensive</option>
+              <option value="7" data-i18n="planner_days_7">7 Days Grand Tour</option>
+            </select>
+          </div>
+
+          <div style="display: flex; gap: 0.6rem; align-items: flex-end;">
+            <span class="badge badge-verified" id="planner-total-spots-badge">Places Planned</span>
+            <button class="btn btn-outline btn-sm" onclick="printItinerary()" data-i18n="planner_print_btn">
+              🖨 Print / PDF
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="resetTripPlan()" data-i18n="planner_clear_btn">
+              Reset Plan
+            </button>
+          </div>
+        </div>
+
+        <!-- Curated Preset Circuits -->
+        <div class="planner-circuit-presets">
+          <h4 data-i18n="planner_preset_circuits">Or start with a curated circuit:</h4>
+          <div class="presets-btns">
+            <button class="btn btn-sm btn-outline" onclick="loadPresetCircuit('buddhist')">
+              ☸ <span data-i18n="circuit_buddhist">Buddhist Circuit (Patna - Nalanda - Rajgir - Bodh Gaya)</span>
+            </button>
+            <button class="btn btn-sm btn-outline" onclick="loadPresetCircuit('nature')">
+              🐅 <span data-i18n="circuit_nature">Nature Circuit (Rohtas - Kaimur - Kakolat)</span>
+            </button>
+            <button class="btn btn-sm btn-outline" onclick="loadPresetCircuit('mithila')">
+              🎨 <span data-i18n="circuit_mithila">Mithila Art Trail (Darbhanga - Madhubani - Sitamarhi)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Day-by-Day Schedule Columns Grid -->
+        <div class="planner-days-grid" id="planner-schedule-container">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 6: TRAVEL GUIDE & SAFETY ==================== -->
+  <main id="view-guide" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="guide_section_title">Travel Guide, Safety & Helplines</h2>
+        <p data-i18n="guide_section_subtitle">Essential verified travel information, seasons, emergency contacts, and visitor guidelines</p>
+      </div>
+
+      <!-- Emergency Helplines Block -->
+      <div class="guide-category-block">
+        <h3 class="guide-block-title">
+          <span>🚨</span> <span data-i18n="guide_helplines_heading">Emergency Helplines (24x7)</span>
+        </h3>
+        <div class="helplines-grid" id="guide-helplines-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Best Seasons Block -->
+      <div class="guide-category-block">
+        <h3 class="guide-block-title">
+          <span>☀️</span> <span data-i18n="guide_seasons_heading">Best Seasons to Visit</span>
+        </h3>
+        <div class="seasons-grid" id="guide-seasons-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Transport Guide Block -->
+      <div class="guide-category-block">
+        <h3 class="guide-block-title">
+          <span>🚆</span> <span data-i18n="guide_transport_heading">How to Travel Across Bihar</span>
+        </h3>
+        <div class="transport-grid" id="guide-transport-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Etiquette Dos & Don'ts -->
+      <div class="guide-category-block">
+        <h3 class="guide-block-title">
+          <span>📋</span> <span data-i18n="guide_etiquette_heading">Visitor Guidelines (Dos & Don'ts)</span>
+        </h3>
+        <div class="etiquette-box" id="guide-etiquette-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== VIEW 7: FAVOURITES ==================== -->
+  <main id="view-saved" class="view-tab-content section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="saved_title">Saved Destinations</h2>
+        <p>Your personalized collection of bookmarked places across Bihar</p>
+      </div>
+      <div class="destinations-grid" id="saved-destinations-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 data-i18n="footer_about_heading">Discover Local Bihar</h3>
+          <p data-i18n="footer_about_text" style="margin-bottom: 1rem;">
+            A dedicated digital tourism initiative created to make exploring Bihar simple, informative, accessible, and enjoyable for visitors from across India and the globe.
+          </p>
+          <p style="font-weight: 700; color: #F39C12;">
+            Tagline: Explore Beyond the Ordinary / साधारण से परे अन्वेषण करें
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_quick_links">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#destinations" onclick="switchTab('destinations')" data-i18n="nav_destinations">Destinations</a></li>
+            <li><a href="#districts" onclick="switchTab('districts')" data-i18n="nav_districts">38 Districts</a></li>
+            <li><a href="#culture" onclick="switchTab('culture')" data-i18n="nav_culture">Food & Culture</a></li>
+            <li><a href="#planner" onclick="switchTab('planner')" data-i18n="nav_planner">Trip Planner</a></li>
+            <li><a href="#guide" onclick="switchTab('guide')" data-i18n="nav_guide">Travel Guide & Safety</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_govt_links">Official Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://tourism.bihar.gov.in" target="_blank" rel="noopener" data-i18n="footer_bstdc">Bihar State Tourism Development Corp (BSTDC)</a></li>
+            <li><a href="https://asi.nic.in" target="_blank" rel="noopener" data-i18n="footer_asi">Archaeological Survey of India (ASI)</a></li>
+            <li><a href="https://state.bihar.gov.in" target="_blank" rel="noopener" data-i18n="footer_dept">Government of Bihar Portal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_disclaimer" style="margin-bottom: 0.5rem; font-size: 0.8rem;">
+          Disclaimer: All destination information is curated from official tourism guidelines, verified archaeological databases, and trusted sources. Entry fees and timings are subject to change by respective authorities.
+        </p>
+        <p data-i18n="footer_copyright">© 2026 Discover Local Bihar. Explore Beyond the Ordinary. One platform. 38 districts. Countless experiences.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JavaScript library for map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Application Data Modules -->
+  <script src="js/data/districts.js"></script>
+  <script src="js/data/destinations.js"></script>
+  <script src="js/data/culture-food.js"></script>
+  <script src="js/data/travel-guide.js"></script>
+  
+  <!-- Localization & Planner Modules -->
+  <script src="js/translations.js"></script>
+  <script src="js/planner.js"></script>
+  
+  <!-- Main Application Controller -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
+
