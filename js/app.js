@@ -751,6 +751,65 @@ function renderHomeFeatured() {
   container.innerHTML = html;
 }
 
+// Render Home Heritage Spotlight (World's First from Bihar & Legends)
+function renderHomeHeritageSpotlight() {
+  const firstsContainer = document.getElementById('home-firsts-cards');
+  const iconsContainer = document.getElementById('home-icons-cards');
+  const isHi = currentLanguage === 'hi';
+  const firstsData = window.BIHAR_WORLDS_FIRST || (typeof BIHAR_WORLDS_FIRST !== 'undefined' ? BIHAR_WORLDS_FIRST : null);
+  const iconsData = window.BIHAR_LEGENDS_ICONS || (typeof BIHAR_LEGENDS_ICONS !== 'undefined' ? BIHAR_LEGENDS_ICONS : null);
+
+  if (firstsContainer && firstsData) {
+    const highlights = firstsData.slice(0, 4);
+    let html = '';
+    highlights.forEach(item => {
+      html += `
+        <div class="culture-card world-first-card home-spotlight-card" onclick="switchTab('culture'); switchCultureTab('firsts');" style="cursor: pointer;">
+          <div class="world-first-header">
+            <span class="first-big-icon">${item.icon}</span>
+            <span class="badge badge-accent">${isHi ? item.badge_hi : item.badge}</span>
+          </div>
+          <div class="culture-card-body">
+            <h3>${isHi ? item.title_hi : item.title}</h3>
+            <div class="first-meta-row">
+              <span class="meta-pill">📍 ${isHi ? item.place_hi : item.place}</span>
+              <span class="meta-pill">⏳ ${isHi ? item.era_hi : item.era}</span>
+            </div>
+            <p class="culture-desc">${isHi ? item.description_hi : item.description}</p>
+          </div>
+        </div>
+      `;
+    });
+    firstsContainer.innerHTML = html;
+  }
+
+  if (iconsContainer && iconsData) {
+    const highlights = iconsData.slice(0, 6);
+    let html = '';
+    highlights.forEach(icon => {
+      html += `
+        <div class="culture-card legend-icon-card home-spotlight-card" onclick="switchTab('culture'); switchCultureTab('icons');" style="cursor: pointer;">
+          <div class="legend-header">
+            <div class="legend-avatar">${icon.icon}</div>
+            <div class="legend-title-group">
+              <h3>${isHi ? icon.name_hi : icon.name}</h3>
+              <p class="legend-subtitle">${isHi ? icon.title_hi : icon.title}</p>
+              <span class="legend-era">🏛️ ${isHi ? icon.era_hi : icon.era}</span>
+            </div>
+          </div>
+          <div class="culture-card-body">
+            <p class="culture-desc" style="margin-bottom: 0.5rem;">${isHi ? icon.achievements_hi : icon.achievements}</p>
+            <div class="legend-legacy-box" style="margin-top: auto;">
+              <strong>⭐ ${isHi ? 'अमर प्रेरणा:' : 'Legacy:'}</strong> ${icon.legacy}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    iconsContainer.innerHTML = html;
+  }
+}
+
 // Render Category Cards on Home Page
 function renderCategoryCards() {
   const container = document.getElementById('home-categories-grid');
@@ -1157,6 +1216,68 @@ function renderCultureSection() {
     });
     festivalsContainer.innerHTML = festHtml;
   }
+
+  const firstsContainer = document.getElementById('culture-firsts-grid');
+  const firstsData = window.BIHAR_WORLDS_FIRST || (typeof BIHAR_WORLDS_FIRST !== 'undefined' ? BIHAR_WORLDS_FIRST : null);
+  if (firstsContainer && firstsData) {
+    let firstsHtml = '';
+    firstsData.forEach(item => {
+      firstsHtml += `
+        <div class="culture-card world-first-card">
+          <div class="world-first-header">
+            <span class="first-big-icon">${item.icon}</span>
+            <span class="badge badge-accent">${isHi ? item.badge_hi : item.badge}</span>
+          </div>
+          <div class="culture-card-body">
+            <h3>${isHi ? item.title_hi : item.title}</h3>
+            <div class="first-meta-row">
+              <span class="meta-pill">📍 ${isHi ? item.place_hi : item.place}</span>
+              <span class="meta-pill">⏳ ${isHi ? item.era_hi : item.era}</span>
+            </div>
+            <p class="culture-desc">${isHi ? item.description_hi : item.description}</p>
+            ${item.quote ? `
+              <div class="first-quote-box">
+                <span class="quote-symbol">“</span>
+                <p>${item.quote}</p>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    });
+    firstsContainer.innerHTML = firstsHtml;
+  }
+
+  const iconsContainer = document.getElementById('culture-icons-grid');
+  const iconsData = window.BIHAR_LEGENDS_ICONS || (typeof BIHAR_LEGENDS_ICONS !== 'undefined' ? BIHAR_LEGENDS_ICONS : null);
+  if (iconsContainer && iconsData) {
+    let iconsHtml = '';
+    iconsData.forEach(icon => {
+      iconsHtml += `
+        <div class="culture-card legend-icon-card">
+          <div class="legend-header">
+            <div class="legend-avatar">${icon.icon}</div>
+            <div class="legend-title-group">
+              <h3>${isHi ? icon.name_hi : icon.name}</h3>
+              <p class="legend-subtitle">${isHi ? icon.title_hi : icon.title}</p>
+              <span class="legend-era">🏛️ ${isHi ? icon.era_hi : icon.era}</span>
+            </div>
+          </div>
+          <div class="culture-card-body">
+            <div class="legend-achievements">
+              <h4>${isHi ? 'प्रमुख योगदान एवं कृतित्व' : 'Key Achievements & Influence'}</h4>
+              <p>${isHi ? icon.achievements_hi : icon.achievements}</p>
+            </div>
+            <div class="legend-legacy-box">
+              <strong>⭐ ${isHi ? 'अमर प्रेरणा व विरासत:' : 'Enduring Legacy:'}</strong>
+              <span>${icon.legacy}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    iconsContainer.innerHTML = iconsHtml;
+  }
 }
 
 // Switch Culture Section Sub-tabs
@@ -1168,6 +1289,7 @@ function switchCultureTab(tabName) {
     c.classList.toggle('active', c.id === `culture-tab-${tabName}`);
   });
 }
+window.switchCultureTab = switchCultureTab;
 
 // Render Travel Guide & Safety Information
 function renderTravelGuide() {
@@ -2220,6 +2342,7 @@ function updateMapMarkers() {
 // Render All Views
 function renderAllViews() {
   renderHomeFeatured();
+  renderHomeHeritageSpotlight();
   renderCategoryCards();
   renderDestinationCards();
   renderDistrictsGrid();

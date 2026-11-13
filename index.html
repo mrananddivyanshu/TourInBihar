@@ -316,6 +316,45 @@
       </div>
     </section>
 
+    <!-- ==================== HOME HERITAGE SPOTLIGHT: WORLD'S FIRST & LEGENDS ==================== -->
+    <section class="section-padding home-heritage-spotlight-section">
+      <div class="container">
+        <!-- World's First Row -->
+        <div class="section-header">
+          <span class="heritage-pre-title">🏛️ CIVILIZATIONAL CRADLE</span>
+          <h2 data-i18n="home_heritage_title">World's First from Bihar</h2>
+          <p data-i18n="home_heritage_subtitle">Before the rise of Athens and Oxford, Bihar gave humanity democracy, the world's first residential university, and the discovery of zero</p>
+        </div>
+
+        <div class="home-firsts-grid" id="home-firsts-cards">
+          <!-- Populated dynamically from BIHAR_WORLDS_FIRST (top 4 highlights) -->
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0 3.5rem;">
+          <button class="btn btn-outline" onclick="switchTab('culture'); switchCultureTab('firsts');">
+            <span>🏛️</span> <span data-i18n="btn_explore_all_firsts">Explore All 8 World's First Innovations</span> →
+          </button>
+        </div>
+
+        <!-- Legends & Icons Row -->
+        <div class="section-header" style="margin-top: 1rem;">
+          <span class="heritage-pre-title">👑 IMMORTAL VISIONARIES</span>
+          <h2 data-i18n="home_legends_title">Legends & Icons of Bihar</h2>
+          <p data-i18n="home_legends_subtitle">The thinkers, emperors, scholars, poets, and heroes whose legacy illuminated world history</p>
+        </div>
+
+        <div class="home-icons-strip" id="home-icons-cards">
+          <!-- Populated dynamically from BIHAR_LEGENDS_ICONS (top 6 highlights) -->
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="btn btn-primary" onclick="switchTab('culture'); switchCultureTab('icons');">
+            <span>👑</span> <span data-i18n="btn_explore_all_legends">Discover All 10 Immortal Icons</span> →
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Explore 38 Districts Callout Banner -->
     <section class="section-padding">
       <div class="container">
@@ -456,6 +495,12 @@
         <button class="culture-subtab-btn" data-subtab="festivals" onclick="switchCultureTab('festivals')">
           🎉 <span data-i18n="tab_festivals">Festivals & Celebrations</span>
         </button>
+        <button class="culture-subtab-btn" data-subtab="firsts" onclick="switchCultureTab('firsts')">
+          🏛️ <span data-i18n="tab_firsts">World's First from Bihar</span>
+        </button>
+        <button class="culture-subtab-btn" data-subtab="icons" onclick="switchCultureTab('icons')">
+          👑 <span data-i18n="tab_icons">Legends & Icons of Bihar</span>
+        </button>
       </div>
 
       <!-- Food Sub-tab Content -->
@@ -475,6 +520,34 @@
       <!-- Festivals Sub-tab Content -->
       <div class="culture-subtab-content" id="culture-tab-festivals">
         <div class="culture-cards-grid" id="culture-festivals-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- World's First from Bihar Sub-tab Content -->
+      <div class="culture-subtab-content" id="culture-tab-firsts">
+        <div class="culture-intro-banner">
+          <div class="culture-intro-icon">🏛️</div>
+          <div class="culture-intro-text">
+            <h3 data-i18n="culture_firsts_title">World's First from Bihar • Humanity's Civilizational Heritage</h3>
+            <p data-i18n="culture_firsts_desc">From the world's first democratic republic to the world's first international university and the discovery of zero.</p>
+          </div>
+        </div>
+        <div class="culture-cards-grid firsts-cards-grid" id="culture-firsts-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Legends & Icons of Bihar Sub-tab Content -->
+      <div class="culture-subtab-content" id="culture-tab-icons">
+        <div class="culture-intro-banner">
+          <div class="culture-intro-icon">👑</div>
+          <div class="culture-intro-text">
+            <h3 data-i18n="culture_icons_title">Immortal Legends & Icons of Bihar</h3>
+            <p data-i18n="culture_icons_desc">The thinkers, emperors, scholars, poets, and heroes who shaped world history from the sacred soil of Bihar.</p>
+          </div>
+        </div>
+        <div class="culture-cards-grid icons-cards-grid" id="culture-icons-grid">
           <!-- Populated dynamically -->
         </div>
       </div>

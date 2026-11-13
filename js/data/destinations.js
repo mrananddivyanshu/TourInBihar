@@ -338,9 +338,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 3200,
-    image: "images/shershah.jpg",
+    image: "images/rohtasgarh.jpg",
     gallery: [
-      "images/shershah.jpg"
+      "images/rohtasgarh.jpg"
     ],
     overview: "Perched 1,500 feet atop the Kaimur plateau overlooking the Sone River, Rohtasgarh is one of the most impregnable and sprawling hill-fortresses in India, spanning over 28 square miles. It features royal palace chambers, hanging balconies, ancient temples, and cannon bastions.",
     overview_hi: "सोन नदी के ऊपर कैमूर पठार पर 1,500 फीट की ऊंचाई पर स्थित रोहतासगढ़ भारत के सबसे दुर्भेद्य और विशाल पहाड़ी किलों में से एक है, जो लगभग 28 वर्ग मील में फैला है। इसमें भव्य महल, लटकते झरोखे, मंदिर और प्राचीन तोपखाने हैं।",
@@ -786,9 +786,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.6,
     reviews_count: 2100,
-    image: "images/vikramshila.jpg",
+    image: "images/dolphin.jpg",
     gallery: [
-      "images/vikramshila.jpg"
+      "images/dolphin.jpg"
     ],
     overview: "Spanning 60 kilometers of the sacred Ganges River from Sultanganj to Kahalgaon in Bhagalpur, this is the only protected aquatic sanctuary for India's National Aquatic Animal—the endangered freshwater Gangetic Dolphin (Platanista gangetica, locally called 'Susu').",
     overview_hi: "भागलपुर में सुल्तानगंज से कहलगांव तक गंगा नदी के 60 किलोमीटर के हिस्से में फैला यह भारत के राष्ट्रीय जलीय जीव—दुर्लभ गंगा डॉल्फिन (सॉस) का देश में एकमात्र संरक्षित जलीय अभयारण्य है।",
@@ -967,9 +967,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 8100,
-    image: "images/rajgir.jpg",
+    image: "images/vishwa-shanti-stupa.jpg",
     gallery: [
-      "images/rajgir.jpg"
+      "images/vishwa-shanti-stupa.jpg"
     ],
     overview: "Gleaming pure white atop the 400-meter Ratnagiri hill, Vishwa Shanti Stupa is one of the 80 Peace Pagodas constructed worldwide by Japanese Buddhist monk Nichidatsu Fujii. Accessible via a historic single-chair aerial ropeway or trekking steps, it houses four golden statues representing Buddha's birth, enlightenment, teaching, and passing.",
     overview_hi: "400 मीटर ऊंची रत्नागिरी पहाड़ी के शिखर पर स्थित दूधिया सफेद विश्व शांति स्तूप जापानी बौद्ध भिक्षु निचिदात्सु फूजी द्वारा निर्मित दुनिया के 80 शांति स्तूपों में से एक है। यहाँ तक एरियल रोपवे या सीढ़ियों द्वारा पहुंचा जा सकता है। इसमें भगवान बुद्ध की चार स्वर्णिम प्रतिमाएं स्थापित हैं।",
@@ -1132,9 +1132,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 5200,
-    image: "images/rajgir.jpg",
+    image: "images/pawapuri.jpg",
     gallery: [
-      "images/rajgir.jpg"
+      "images/pawapuri.jpg"
     ],
     overview: "Built in pristine white marble in the center of a lotus-filled water tank spanning 16 acres, Jal Mandir marks the sacred spot where Lord Mahavira, the 24th Tirthankara of Jainism, was cremated after attaining Nirvana in 527 BCE.",
     overview_hi: "कमल के फूलों से आच्छादित 16 एकड़ के विशाल सरोवर के ठीक बीचों-बीच संगमरमर से बना जल मंदिर वह परम पवित्र स्थल है जहाँ 527 ईसा पूर्व में जैन धर्म के 24वें तीर्थंकर भगवान महावीर का निर्वाण और अंतिम संस्कार हुआ था।",
@@ -1297,9 +1297,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 3900,
-    image: "images/kakolat.jpg",
+    image: "images/tutla-bhawani.jpg",
     gallery: [
-      "images/kakolat.jpg"
+      "images/tutla-bhawani.jpg"
     ],
     overview: "Hidden inside a breathtaking gorge of the Kaimur hills, Tutla Bhawani features a sparkling waterfall dropping over 200 feet down a sheer red cliff. Visitors walk across an iconic suspension hanging bridge spanning the river gorge to reach the ancient Maa Tutla Bhawani shrine.",
     overview_hi: "कैमूर पहाड़ियों की मनोहारी संकरी घाटी में स्थित तुतला भवानी 200 फीट की ऊंचाई से लाल चट्टानों से गिरता एक जादुई जलप्रपात है। श्रद्धालु नदी घाटी के ऊपर बने सस्पेंशन हैंगिंग ब्रिज (झूला पुल) से होकर माँ तुतला भवानी के प्राचीन मंदिर तक पहुंचते हैं।",
@@ -1352,9 +1352,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.9,
     reviews_count: 3100,
-    image: "images/vikramshila.jpg",
+    image: "images/bihar-school-of-yoga.jpg",
     gallery: [
-      "images/vikramshila.jpg"
+      "images/bihar-school-of-yoga.jpg"
     ],
     overview: "Founded in 1963 by Swami Satyananda Saraswati atop a panoramic hillock overlooking the Ganges, Bihar School of Yoga is considered the world's premier center of classical yogic wisdom and research. It has trained millions of practitioners and researchers from over 100 countries.",
     overview_hi: "गंगा नदी के तट पर एक सुंदर पहाड़ी पर स्वामी सत्यानंद सरस्वती द्वारा 1963 में स्थापित बिहार योग विद्यालय विश्व में पारंपरिक योग शिक्षा और शोध का सर्वोच्च केंद्र माना जाता है। यहाँ 100 से अधिक देशों के योग साधक साधना करने आते हैं।",
@@ -1407,9 +1407,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 5300,
-    image: "images/kesaria.jpg",
+    image: "images/vaishali-pillar.jpg",
     gallery: [
-      "images/kesaria.jpg"
+      "images/vaishali-pillar.jpg"
     ],
     overview: "Kolhua in Vaishali is one of the rare places in India where Emperor Ashoka's monolithic polished sandstone pillar stands complete with its majestic single Asiatic lion capital facing north towards Kushinagar. Beside it lies the sacred brick Stupa and Ramkund (Monkey Pond).",
     overview_hi: "वैशाली के कोल्हुआ में स्थित सम्राट अशोक का यह एकाश्म पॉलिशदार बलुआ पत्थर का स्तंभ भारत के उन दुर्लभ स्तंभों में से एक है जिसका सिंह शीर्ष पूरी तरह सुरक्षित है और इसका मुख कुशीनगर की ओर है। इसके पास ही पवित्र ईंटों का स्तूप और रामकुंड स्थित हैं।",
@@ -1569,9 +1569,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 2890,
-    image: "images/shershah.jpg",
+    image: "images/rajnagar-palace.jpg",
     gallery: [
-      "images/shershah.jpg"
+      "images/rajnagar-palace.jpg"
     ],
     overview: "Built in the late 19th century by Maharaja Rameshwar Singh of Darbhanga Raj, Rajnagar features the majestic white marble Goddess Kali Temple, Durga Temple, massive elephant stables (Hathighar), and the ruins of Navlakha Palace on the Kamla river.",
     overview_hi: "दरभंगा राज के महाराजा रामेश्वर सिंह द्वारा 19वीं सदी के अंत में निर्मित राजनगर राज परिसर में श्वेत संगमरमर का अलौकिक माँ काली मंदिर, दुर्गा मंदिर, विशाल हाथीघर और कमला नदी के तट पर नौलखा महल के ऐतिहासिक खंडहर स्थित हैं।",

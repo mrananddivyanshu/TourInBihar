@@ -36,7 +36,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["छठ पूजा", "प्रकाश पर्व", "पटना फिल्म महोत्सव", "दुर्गा पूजा"],
     transport_info: "Jay Prakash Narayan International Airport (PAT), Patna Junction (major Indian railway hub), and extensive NH network.",
     transport_info_hi: "जय प्रकाश नारायण अंतर्राष्ट्रीय हवाई अड्डा (PAT), पटना जंक्शन, और राष्ट्रीय राजमार्ग नेटवर्क।",
-    image: "images/golghar.jpg"
+    image: "images/makhana.jpg"
   },
   {
     id: "nalanda",
@@ -102,7 +102,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["कार्तिक पूर्णिमा स्नान", "पंचकोशी परिक्रमा", "छठ पूजा", "राम नवमी"],
     transport_info: "Buxar Railway Station on Main trunk line connecting Patna and Varanasi.",
     transport_info_hi: "बक्सर रेलवे स्टेशन पटना-वाराणसी मुख्य रेल मार्ग पर स्थित है।",
-    image: "images/patnasahib.jpg"
+    image: "images/buxar.jpg"
   },
   {
     id: "rohtas",
@@ -124,7 +124,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["तुतला भवानी मेला", "छठ पूजा", "बुद्ध जयंती"],
     transport_info: "Sasaram Junction on Grand Chord railway; Connected via NH-19 (Old GT Road).",
     transport_info_hi: "सासाराम जंक्शन ग्रैंड कॉर्ड रेलवे पर; राष्ट्रीय राजमार्ग NH-19 पर स्थित।",
-    image: "images/shershah.jpg"
+    image: "images/rohtasgarh.jpg"
   },
   {
     id: "kaimur",
@@ -214,7 +214,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["देव छठ महापर्व मेला", "सूर्य महोत्सव", "शिवरात्रि"],
     transport_info: "Anugrah Narayan Road (AUBR) railway station; connected along NH-19 (GT Road).",
     transport_info_hi: "अनुग्रह नारायण रोड (AUBR) रेलवे स्टेशन; NH-19 पर स्थित।",
-    image: "images/mundeshwari.jpg"
+    image: "images/deo-sun-temple.jpg"
   },
   {
     id: "jehanabad",
@@ -282,7 +282,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["गरीबनाथ श्रावणी मेला", "लीची महोत्सव", "छठ पूजा", "दुर्गा पूजा"],
     transport_info: "Muzaffarpur Junction (major northern railway junction); 70 km from Patna via Gandhi Setu.",
     transport_info_hi: "मुजफ्फरपुर जंक्शन प्रमुख रेलवे स्टेशन; पटना से लगभग 70 किमी।",
-    image: "images/sitamarhi.jpg"
+    image: "images/shahi-litchi.jpg"
   },
   {
     id: "vaishali",
@@ -304,7 +304,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["वैशाली महोत्सव", "महावीर जयंती", "बुद्ध जयंती"],
     transport_info: "Hajipur Junction (East Central Railway HQ); 30 km from Patna via Mahatma Gandhi Setu.",
     transport_info_hi: "हाजीपुर जंक्शन (पूर्व मध्य रेल मुख्यालय); पटना से 30 किमी गांधी सेतु द्वारा।",
-    image: "images/kesaria.jpg"
+    image: "images/vaishali-pillar.jpg"
   },
   {
     id: "east-champaran",
@@ -416,7 +416,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["सोनपुर पशु मेला (कार्तिक पूर्णिमा)", "छठ पूजा", "आमी नवरात्र मेला"],
     transport_info: "Chhapra Junction (major rail terminal); 45 km from Patna via Digha Bridge.",
     transport_info_hi: "छपरा जंक्शन प्रमुख रेलवे जंक्शन; दीघा-सोनपुर पुल से पटना से 45 किमी।",
-    image: "images/patnasahib.jpg"
+    image: "images/sonepur-fair.jpg"
   },
   {
     id: "siwan",
@@ -484,7 +484,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["श्यामा माई पूजा", "छठ पूजा", "मिथिला महोत्सव", "सरस्वती पूजा"],
     transport_info: "Darbhanga Airport (DHY) with daily flights to Delhi, Mumbai, Bengaluru; Darbhanga Junction.",
     transport_info_hi: "दरभंगा हवाई अड्डा (DHY) एवं दरभंगा जंक्शन रेलवे स्टेशन।",
-    image: "images/madhubani.jpg"
+    image: "images/makhana.jpg"
   },
   {
     id: "madhubani",
@@ -756,7 +756,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["अंतर्राष्ट्रीय योग दिवस समारोह", "कष्टहरणी घाट पर छठ पूजा", "दुर्गा पूजा"],
     transport_info: "Jamalpur Junction (oldest Indian railway workshop) and Munger Station; connected via Ganga Rail Bridge.",
     transport_info_hi: "जमालपुर जंक्शन और मुंगेर स्टेशन; श्रीकृष्ण सेतु द्वारा गंगा के पार जुड़ा।",
-    image: "images/biharmuseum.jpg"
+    image: "images/bihar-school-of-yoga.jpg"
   },
   {
     id: "jamui",
