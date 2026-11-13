@@ -2426,7 +2426,8 @@ function initHeroInteractiveMap() {
 
       if (tooltip) {
         const isHi = state.currentLang === 'hi';
-        const distData = (typeof DISTRICTS_DATA !== 'undefined') ? DISTRICTS_DATA.find(d => d.id === distId) : null;
+        const distsList = (typeof BIHAR_DISTRICTS !== 'undefined') ? BIHAR_DISTRICTS : ((typeof DISTRICTS_DATA !== 'undefined') ? DISTRICTS_DATA : []);
+        const distData = distsList.find(d => d.id === distId);
         const displayName = distData ? (isHi ? (distData.name_hi || distData.name) : distData.name) : nameEn;
         const divName = division ? (division.toUpperCase() + (isHi ? ' प्रमण्डल' : ' Division')) : '';
         const ctaText = isHi ? 'ज़िला विवरण देखें →' : 'Explore District Details →';

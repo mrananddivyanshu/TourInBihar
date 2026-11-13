@@ -182,89 +182,73 @@
 
   <!-- ==================== VIEW 1: HOME ==================== -->
   <main id="view-home" class="view-tab-content active">
-    <!-- Hero Section: Full Dedicated Interactive Bihar Tourism Vector Map (No Background Image) -->
-    <section class="hero-section hero-map-fullscreen-section">
-      <div class="container hero-container">
-        <!-- Hero Header: Title, Subtitle, Smart Search & Actions -->
-        <div class="hero-intro-center">
-          <span class="hero-pill-badge" data-i18n="subtagline">One platform • 38 districts • Countless experiences</span>
-          <h1 class="hero-title" data-i18n="hero_title">Explore the Soul of Ancient India</h1>
-          <p class="hero-subtitle" data-i18n="hero_subtitle">
-            Interactive GIS Vector Map of Bihar • Click any district to explore its heritage or tap glowing pins to discover top tourist landmarks across all 38 districts.
-          </p>
+    <!-- Hero Section: Full Dedicated Interactive Bihar Tourism Vector Map (Full-Bleed Hero Map) -->
+    <section class="hero-section hero-map-fullscreen-section" id="hero">
+      <!-- Floating Glassmorphic Top Controls & Search Bar -->
+      <div class="hero-map-floating-overlay">
+        <div class="hero-map-overlay-row">
+          <div class="hero-map-brand">
+            <span class="hero-pill-badge" data-i18n="subtagline">38 DISTRICTS • 9 DIVISIONS</span>
+            <h1 class="hero-map-title" data-i18n="hero_title">Explore Ancient Bihar</h1>
+          </div>
 
           <!-- Main Smart Search Bar -->
           <div class="hero-search-wrapper">
-            <input type="text" id="hero-search-input" placeholder="Search destinations, districts, food (e.g. Nalanda, Litti, Waterfalls)..." data-i18n="search_placeholder" autocomplete="off" />
+            <input type="text" id="hero-search-input" placeholder="Search 38 districts, destinations, food (e.g. Nalanda, Litti, Waterfalls)..." data-i18n="search_placeholder" autocomplete="off" />
             <button class="hero-search-btn" id="hero-search-btn">
               <span>🔍</span> <span data-i18n="search_btn">Search</span>
             </button>
           </div>
 
-          <!-- Quick Search Suggestion Pills + Actions Row -->
-          <div class="hero-meta-toolbar">
-            <div class="quick-search-row">
-              <span class="quick-search-label" data-i18n="quick_search">Popular:</span>
-              <button class="quick-pill" onclick="setQuickSearch('Nalanda')">Nalanda</button>
-              <button class="quick-pill" onclick="setQuickSearch('Bodh Gaya')">Bodh Gaya</button>
-              <button class="quick-pill" onclick="setQuickSearch('Glass Bridge')">Rajgir Glass Bridge</button>
-              <button class="quick-pill" onclick="setQuickSearch('Waterfalls')">Waterfalls</button>
-              <button class="quick-pill" onclick="setQuickSearch('Litti')">Litti Chokha</button>
-              <button class="quick-pill" onclick="setQuickSearch('Madhubani')">Madhubani Art</button>
-            </div>
-
-            <div class="hero-action-buttons">
-              <button class="hero-action-btn primary" onclick="switchTab('destinations')">
-                <span>🧭</span> <span data-i18n="hero_browse_all">Browse Destinations</span>
-              </button>
-              <button class="hero-action-btn secondary" onclick="switchTab('districts')">
-                <span>🏛️</span> <span data-i18n="hero_view_districts">38 Districts</span>
-              </button>
-              <button class="hero-action-btn audio" id="hero-audio-guide-btn" onclick="toggleHeroAudio()" title="Listen to Bihar Tourism Voice Introduction">
-                <span id="hero-audio-icon">🔊</span> <span id="hero-audio-label" data-i18n="hero_listen_audio">Listen Audio Guide</span>
-              </button>
-            </div>
+          <!-- Quick Action Buttons -->
+          <div class="hero-floating-actions">
+            <button class="hero-action-btn audio" id="hero-audio-guide-btn" onclick="toggleHeroAudio()" title="Listen to Bihar Tourism Voice Introduction">
+              <span id="hero-audio-icon">🔊</span> <span id="hero-audio-label" data-i18n="hero_listen_audio">Audio Guide</span>
+            </button>
+            <button class="hero-action-btn secondary" onclick="resetHeroMapHighlight()" title="Reset Highlight">
+              <span>🔄</span> <span data-i18n="map_reset">Reset Map</span>
+            </button>
+            <button class="hero-action-btn primary" onclick="switchTab('destinations')">
+              <span>🧭</span> <span data-i18n="hero_browse_all">Browse All</span>
+            </button>
           </div>
         </div>
 
-        <!-- Full-Width Interactive Map Showcase Card -->
-        <div class="hero-full-map-card">
-          <div class="hero-map-card-header">
-            <div class="map-card-heading-group">
-              <span class="map-live-pulse-dot" title="Live Interactive Vector Map"></span>
-              <div>
-                <h3 class="hero-map-heading" data-i18n="hero_map_card_title">Interactive Bihar Tourism Map</h3>
-                <span class="hero-map-caption" data-i18n="hero_map_card_caption">All 38 Districts &bull; River Ganga &bull; Top Hotspots (Click district or pin to explore)</span>
-              </div>
-            </div>
-            <div class="map-card-ctrls">
-              <button class="map-ctrl-btn" onclick="resetHeroMapHighlight()" title="Reset Selection" data-i18n-title="map_reset">🔄 Reset Highlight</button>
-            </div>
-          </div>
+        <!-- Quick Suggestion Pills Row -->
+        <div class="hero-floating-pills-row">
+          <span class="quick-search-label" data-i18n="quick_search">Popular:</span>
+          <button class="quick-pill" onclick="setQuickSearch('Nalanda')">Nalanda</button>
+          <button class="quick-pill" onclick="setQuickSearch('Bodh Gaya')">Bodh Gaya</button>
+          <button class="quick-pill" onclick="setQuickSearch('Glass Bridge')">Rajgir Glass Bridge</button>
+          <button class="quick-pill" onclick="setQuickSearch('Waterfalls')">Waterfalls</button>
+          <button class="quick-pill" onclick="setQuickSearch('Valmiki')">Valmiki Safari</button>
+          <button class="quick-pill" onclick="setQuickSearch('Litti')">Litti Chokha</button>
+          <button class="quick-pill" onclick="setQuickSearch('Madhubani')">Madhubani Art</button>
+          <button class="quick-pill" onclick="switchTab('districts')">🏛️ All 38 Districts</button>
+        </div>
+      </div>
 
-          <!-- Interactive SVG Canvas Wrap -->
-          <div class="hero-map-canvas-wrap" id="hero-map-canvas-wrap">
-            <div id="hero-map-svg-container" class="hero-map-svg-container"></div>
-            <!-- Dynamic Hover/Click Floating Tooltip Card -->
-            <div id="hero-map-tooltip" class="hero-map-floating-tooltip" style="display: none;"></div>
-          </div>
+      <!-- Full-Bleed Interactive Map Canvas Wrap -->
+      <div class="hero-map-canvas-wrap" id="hero-map-canvas-wrap">
+        <div id="hero-map-svg-container" class="hero-map-svg-container"></div>
+        <!-- Dynamic Hover/Click Floating Tooltip Card -->
+        <div id="hero-map-tooltip" class="hero-map-floating-tooltip" style="display: none;"></div>
+      </div>
 
-          <!-- Map Hotspots Quick Selector Bar -->
-          <div class="hero-map-footer-bar">
-            <span class="hero-map-jump-label" data-i18n="map_jump_label">Quick Highlight:</span>
-            <div class="hero-map-pills-row">
-              <button class="map-jump-pill" onclick="focusMapHotspot('bodh-gaya')">☸️ Bodh Gaya</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('nalanda')">🏛️ Nalanda</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('rajgir')">🚡 Rajgir</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('patna')">🏛️ Patna</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('vaishali')">🦁 Vaishali</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('valmiki')">🐅 Valmiki</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('sasaram')">👑 Sasaram</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('kakolat')">🌊 Kakolat</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('bhagalpur')">🐬 Vikramshila</button>
-              <button class="map-jump-pill" onclick="focusMapHotspot('madhubani')">🎨 Madhubani</button>
-            </div>
-          </div>
+      <!-- Map Hotspots Quick Selector Floating Footer Bar -->
+      <div class="hero-map-floating-footer">
+        <span class="hero-map-jump-label" data-i18n="map_jump_label">Quick Highlight:</span>
+        <div class="hero-map-pills-row">
+          <button class="map-jump-pill" onclick="focusMapHotspot('bodh-gaya')">☸️ Bodh Gaya</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('nalanda')">🏛️ Nalanda</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('rajgir')">🚡 Rajgir</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('patna')">🏛️ Patna</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('vaishali')">🦁 Vaishali</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('valmiki')">🐅 Valmiki</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('sasaram')">👑 Sasaram</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('kakolat')">🌊 Kakolat</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('bhagalpur')">🐬 Vikramshila</button>
+          <button class="map-jump-pill" onclick="focusMapHotspot('madhubani')">🎨 Madhubani</button>
         </div>
       </div>
     </section>

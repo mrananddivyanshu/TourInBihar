@@ -645,6 +645,162 @@
       </g>
     </g>
 
+  <!-- 38 District Name Labels (Clear Bilingual: English + Hindi) -->
+  <g id="bihar-district-labels-group" class="map-district-labels-layer" pointer-events="none">
+    <g class="map-district-name-badge" transform="translate(450, 430)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">WEST CHAMPARAN</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">प. चम्पारण</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(714, 581)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">EAST CHAMPARAN</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">पू. चम्पारण</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1029, 732)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="4.5" paint-order="stroke fill" letter-spacing="1">SHEOHAR</text>
+      <text class="label-hi" text-anchor="middle" y="18" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="3.6" paint-order="stroke fill">शिवहर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1181, 590)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">SITAMARHI</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">सीतामढ़ी</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1520, 650)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">MADHUBANI</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">मधुबनी</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1875, 828)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">SUPAUL</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">सुपौल</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(2190, 843)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">ARARIA</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">अररिया</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(2419, 767)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">KISHANGANJ</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">किशनगंज</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(460, 747)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">GOPALGANJ</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">गोपालगंज</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(576, 923)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">SIWAN</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">सीवान</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(789, 1060)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">SARAN</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">सारण</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(992, 914)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">MUZAFFARPUR</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">मुजफ्फरपुर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1090, 1070)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">VAISHALI</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">वैशाली</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1339, 1104)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">SAMASTIPUR</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">समस्तीपुर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1404, 933)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">DARBHANGA</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">दरभंगा</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1776, 1116)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">SAHARSA</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">सहरसा</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1833, 996)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">MADHEPURA</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">मधेपुरा</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(2223, 1089)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">PURNIA</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">पूर्णिया</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(2351, 1241)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">KATIHAR</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">कटिहार</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(433, 1333)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">BUXAR</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">बक्सर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(631, 1401)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">BHOJPUR</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">भोजपुर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1000, 1270)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">PATNA</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">पटना</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1210, 1380)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">NALANDA</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">नालंदा</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1480, 1230)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">BEGUSARAI</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">बेगूसराय</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1508, 1475)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="4.5" paint-order="stroke fill" letter-spacing="1">LAKHISARAI</text>
+      <text class="label-hi" text-anchor="middle" y="18" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="3.6" paint-order="stroke fill">लखीसराय</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1326, 1553)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="4.5" paint-order="stroke fill" letter-spacing="1">SHEIKHPURA</text>
+      <text class="label-hi" text-anchor="middle" y="18" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="3.6" paint-order="stroke fill">शेखपुरा</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1740, 1480)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">MUNGER</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">मुंगेर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1744, 1259)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">KHAGARIA</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">खगड़िया</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(2080, 1360)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">BHAGALPUR</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">भागलपुर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1966, 1663)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">BANKA</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">बांका</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(220, 1430)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">KAIMUR</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">कैमूर</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(440, 1530)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">ROHTAS</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">रोहतास</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(706, 1522)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="4.5" paint-order="stroke fill" letter-spacing="1">ARWAL</text>
+      <text class="label-hi" text-anchor="middle" y="18" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="3.6" paint-order="stroke fill">अरवल</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(866, 1420)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="4.5" paint-order="stroke fill" letter-spacing="1">JEHANABAD</text>
+      <text class="label-hi" text-anchor="middle" y="18" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="3.6" paint-order="stroke fill">जहानाबाद</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(504, 1780)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">AURANGABAD</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">औरंगाबाद</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(950, 1680)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">GAYA</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">गया</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1200, 1670)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="5" paint-order="stroke fill" letter-spacing="1">NAWADA</text>
+      <text class="label-hi" text-anchor="middle" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4" paint-order="stroke fill">नवादा</text>
+    </g>
+    <g class="map-district-name-badge" transform="translate(1659, 1697)">
+      <text class="label-en" text-anchor="middle" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" stroke="#070D1B" stroke-width="6" paint-order="stroke fill" letter-spacing="1">JAMUI</text>
+      <text class="label-hi" text-anchor="middle" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700" fill="#FEF08A" stroke="#070D1B" stroke-width="4.8" paint-order="stroke fill">जमुई</text>
+    </g>
+  </g>
+
   <!-- Top Tourist Hotspot Glowing Pins -->
   <g id="bihar-tourist-pins-group">
     <g class="map-tourist-pin" 
