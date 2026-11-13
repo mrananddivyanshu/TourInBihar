@@ -8,12 +8,12 @@ function handleHeroImgError(img) {
   if (!img.dataset) img.dataset = {};
   if (!img.dataset.retryCount) {
     img.dataset.retryCount = "1";
-    img.src = "images/mahabodhi.jpg";
+    img.src = "images/mahabodhi.webp";
     return;
   }
   if (img.dataset.retryCount === "1") {
     img.dataset.retryCount = "2";
-    img.src = "images/nalanda.jpg";
+    img.src = "images/nalanda.webp";
     return;
   }
   img.onerror = null;
@@ -36,31 +36,31 @@ function handleImgError(img) {
   
   const alt = ((img.alt || '') + ' ' + (img.title || '')).toLowerCase();
   if (alt.includes('mahabodhi') || alt.includes('gaya') || alt.includes('बोधगया')) {
-    img.src = 'images/mahabodhi.jpg';
+    img.src = 'images/mahabodhi.webp';
   } else if (alt.includes('patna museum') || alt.includes('जादू घर')) {
-    img.src = 'images/patnamuseum.jpg';
+    img.src = 'images/patnamuseum.webp';
   } else if (alt.includes('museum') || alt.includes('संग्रहालय') || alt.includes('bihar museum')) {
-    img.src = 'images/biharmuseum.jpg';
+    img.src = 'images/biharmuseum.webp';
   } else if (alt.includes('nalanda') || alt.includes('नालंदा')) {
-    img.src = 'images/nalanda.jpg';
+    img.src = 'images/nalanda.webp';
   } else if (alt.includes('rajgir') || alt.includes('राजगीर')) {
-    img.src = 'images/rajgir.jpg';
+    img.src = 'images/rajgir.webp';
   } else if (alt.includes('patna') || alt.includes('पटना')) {
-    img.src = 'images/golghar.jpg';
+    img.src = 'images/golghar.webp';
   } else if (alt.includes('sher shah') || alt.includes('शेरशाह') || alt.includes('rohtas')) {
-    img.src = 'images/shershah.jpg';
+    img.src = 'images/shershah.webp';
   } else if (alt.includes('valmiki') || alt.includes('वाल्मीकि')) {
-    img.src = 'images/valmiki.jpg';
+    img.src = 'images/valmiki.webp';
   } else if (alt.includes('mundeshwari') || alt.includes('मुंडेश्वरी')) {
-    img.src = 'images/mundeshwari.jpg';
+    img.src = 'images/mundeshwari.webp';
   } else if (alt.includes('kakolat') || alt.includes('ककोलत')) {
-    img.src = 'images/kakolat.jpg';
+    img.src = 'images/kakolat.webp';
   } else if (alt.includes('kesaria') || alt.includes('केसरिया')) {
-    img.src = 'images/kesaria.jpg';
+    img.src = 'images/kesaria.webp';
   } else if (alt.includes('madhubani') || alt.includes('mithila') || alt.includes('मधुबनी')) {
-    img.src = 'images/madhubani.jpg';
+    img.src = 'images/madhubani.webp';
   } else {
-    img.src = 'images/nalanda.jpg';
+    img.src = 'images/nalanda.webp';
   }
 }
 
@@ -158,6 +158,11 @@ function initApp() {
     if (typeof initTripMatcher === 'function') initTripMatcher();
     if (typeof initDistanceCalculator === 'function') initDistanceCalculator();
   } catch (e) { console.warn('Tools init warning:', e); }
+
+  // 12. Initialize Hero Interactive Bihar Vector Map
+  try {
+    initHeroInteractiveMap();
+  } catch (e) { console.warn('Hero map init warning:', e); }
 
   // Listen for Browser Hash Changes (Deep-Linking)
   window.addEventListener('hashchange', handleHashRouting);
@@ -1591,66 +1596,66 @@ function openDestinationDetailModal(destId) {
 function getAttractionImage(attName, districtImage) {
   const s = (attName || '').toLowerCase();
   if (s.includes('bihar museum') || s.includes('बिहार संग्रहालय')) {
-    return 'images/biharmuseum.jpg';
+    return 'images/biharmuseum.webp';
   }
   if (s.includes('patna museum') || s.includes('पटना संग्रहालय') || s.includes('जादू घर') || s.includes('jadu ghar')) {
-    return 'images/patnamuseum.jpg';
+    return 'images/patnamuseum.webp';
   }
   if (s.includes('museum') || s.includes('संग्रहालय')) {
-    return 'images/biharmuseum.jpg';
+    return 'images/biharmuseum.webp';
   }
   if (s.includes('mahabodhi') || s.includes('बोधगया') || s.includes('bodh gaya')) {
-    return 'images/mahabodhi.jpg';
+    return 'images/mahabodhi.webp';
   }
   if (s.includes('nalanda') || s.includes('नालंदा')) {
-    return 'images/nalanda.jpg';
+    return 'images/nalanda.webp';
   }
   if (s.includes('rajgir') || s.includes('राजगीर') || s.includes('glass bridge')) {
-    return 'images/rajgir.jpg';
+    return 'images/rajgir.webp';
   }
   if (s.includes('golghar') || s.includes('गोलघर')) {
-    return 'images/golghar.jpg';
+    return 'images/golghar.webp';
   }
   if (s.includes('patna sahib') || s.includes('गुरुद्वारा') || s.includes('takht')) {
-    return 'images/patnasahib.jpg';
+    return 'images/patnasahib.webp';
   }
   if (s.includes('sher shah') || s.includes('शेरशाह') || s.includes('sasaram') || s.includes('सासाराम')) {
-    return 'images/shershah.jpg';
+    return 'images/shershah.webp';
   }
   if (s.includes('valmiki') || s.includes('वाल्मीकि')) {
-    return 'images/valmiki.jpg';
+    return 'images/valmiki.webp';
   }
   if (s.includes('kesaria') || s.includes('केसरिया') || s.includes('vaishali') || s.includes('वैशाली')) {
-    return 'images/kesaria.jpg';
+    return 'images/kesaria.webp';
   }
   if (s.includes('vikramshila') || s.includes('विक्रमशिला')) {
-    return 'images/vikramshila.jpg';
+    return 'images/vikramshila.webp';
   }
   if (s.includes('kakolat') || s.includes('ककोलत') || s.includes('waterfall') || s.includes('झरना') || s.includes('प्रपात')) {
-    return 'images/kakolat.jpg';
+    return 'images/kakolat.webp';
   }
   if (s.includes('mandar') || s.includes('मंदार')) {
-    return 'images/mandar.jpg';
+    return 'images/mandar.webp';
   }
   if (s.includes('sitamarhi') || s.includes('सीतामढ़ी') || s.includes('punaura') || s.includes('पुनौरा')) {
-    return 'images/sitamarhi.jpg';
+    return 'images/sitamarhi.webp';
   }
   if (s.includes('barabar') || s.includes('बराबर') || s.includes('cave') || s.includes('गुफा')) {
-    return 'images/barabar.jpg';
+    return 'images/barabar.webp';
   }
   if (s.includes('kanwar') || s.includes('कांवर') || s.includes('lake') || s.includes('झील') || s.includes('सरोवर')) {
-    return 'images/kanwar.jpg';
+    return 'images/kanwar.webp';
   }
   if (s.includes('temple') || s.includes('mandir') || s.includes('मंदिर') || s.includes('धाम') || s.includes('भवानी') || s.includes('स्थान') || s.includes('नाथ') || s.includes('देवी')) {
-    return 'images/mundeshwari.jpg';
+    return 'images/mundeshwari.webp';
   }
   if (s.includes('fort') || s.includes('किला') || s.includes('महल') || s.includes('palace') || s.includes('tomb') || s.includes('मकबरा') || s.includes('ruin') || s.includes('खंडहर')) {
-    return 'images/shershah.jpg';
+    return 'images/shershah.webp';
   }
   if (s.includes('art') || s.includes('कला') || s.includes('painting') || s.includes('चित्रकला') || s.includes('सिल्क') || s.includes('silk') || s.includes('मंजूषा')) {
-    return 'images/madhubani.jpg';
+    return 'images/madhubani.webp';
   }
-  return districtImage || 'images/nalanda.jpg';
+  return districtImage || 'images/nalanda.webp';
 }
 
 // Add custom attraction to Trip Planner
@@ -2387,3 +2392,235 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 400);
   }, 2800);
 }
+
+// ==========================================================
+// HERO INTERACTIVE BIHAR TOURISM VECTOR MAP CONTROLLER
+// ==========================================================
+function initHeroInteractiveMap() {
+  const container = document.getElementById('hero-map-svg-container');
+  if (!container) return;
+
+  if (window.BIHAR_MAP_SVG) {
+    container.innerHTML = window.BIHAR_MAP_SVG;
+  } else {
+    container.innerHTML = '<img src="images/bihar-map.svg" alt="Bihar Map" style="width:100%; height:auto;" />';
+    return;
+  }
+
+  const tooltip = document.getElementById('hero-map-tooltip');
+  const canvasWrap = document.getElementById('hero-map-canvas-wrap');
+  const svg = container.querySelector('svg');
+  if (!svg) return;
+
+  // 1. Setup District Hover & Click Handlers
+  const districtPaths = container.querySelectorAll('.map-district-path');
+  districtPaths.forEach(path => {
+    const distId = path.getAttribute('data-district-id');
+    const nameEn = path.getAttribute('data-name-en') || distId;
+    const division = path.getAttribute('data-division') || '';
+    const topDest = path.getAttribute('data-top') || '';
+
+    path.addEventListener('mouseenter', (e) => {
+      districtPaths.forEach(p => p.classList.remove('active-district'));
+      path.classList.add('active-district');
+
+      if (tooltip) {
+        const isHi = state.currentLang === 'hi';
+        const distData = (typeof DISTRICTS_DATA !== 'undefined') ? DISTRICTS_DATA.find(d => d.id === distId) : null;
+        const displayName = distData ? (isHi ? (distData.name_hi || distData.name) : distData.name) : nameEn;
+        const divName = division ? (division.toUpperCase() + (isHi ? ' प्रमण्डल' : ' Division')) : '';
+        const ctaText = isHi ? 'ज़िला विवरण देखें →' : 'Explore District Details →';
+
+        tooltip.innerHTML = `
+          <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color, #E87924); font-weight: 800;">
+            ${divName}
+          </div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; margin: 2px 0 4px 0;">
+            ${displayName}
+          </div>
+          <div style="font-size: 0.78rem; color: #94A3B8; margin-bottom: 6px;">
+            🌟 <strong>${isHi ? 'प्रमुख स्थल' : 'Top Spot'}:</strong> ${topDest}
+          </div>
+          <div style="font-size: 0.72rem; color: #38BDF8; font-weight: 700;">
+            ${ctaText}
+          </div>
+        `;
+        tooltip.style.display = 'block';
+        positionTooltip(e);
+      }
+    });
+
+    path.addEventListener('mousemove', (e) => {
+      positionTooltip(e);
+    });
+
+    path.addEventListener('mouseleave', () => {
+      path.classList.remove('active-district');
+      if (tooltip) tooltip.style.display = 'none';
+    });
+
+    path.addEventListener('click', () => {
+      if (tooltip) tooltip.style.display = 'none';
+      switchTab('districts');
+      if (typeof openDistrictDetailModal === 'function') {
+        openDistrictDetailModal(distId);
+      }
+    });
+  });
+
+  // 2. Setup Tourist Pin Hover & Click Handlers
+  const pins = container.querySelectorAll('.map-tourist-pin');
+  pins.forEach(pin => {
+    const destId = pin.getAttribute('data-dest-id');
+    const title = pin.getAttribute('data-pin-title') || '';
+    const badge = pin.getAttribute('data-pin-badge') || 'Top Landmark';
+
+    pin.addEventListener('mouseenter', (e) => {
+      if (tooltip) {
+        const isHi = state.currentLang === 'hi';
+        tooltip.innerHTML = `
+          <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #38BDF8; font-weight: 800;">
+            ✨ ${badge}
+          </div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; margin: 2px 0 4px 0;">
+            ${title}
+          </div>
+          <div style="font-size: 0.72rem; color: var(--accent-color, #E87924); font-weight: 700;">
+            ${isHi ? 'विवरण देखने के लिए क्लिक करें →' : 'Click to View Full Destination Guide →'}
+          </div>
+        `;
+        tooltip.style.display = 'block';
+        positionTooltip(e);
+      }
+    });
+
+    pin.addEventListener('mousemove', (e) => {
+      positionTooltip(e);
+    });
+
+    pin.addEventListener('mouseleave', () => {
+      if (tooltip) tooltip.style.display = 'none';
+    });
+
+    pin.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (tooltip) tooltip.style.display = 'none';
+      if (typeof openDestinationDetailModal === 'function') {
+        openDestinationDetailModal(destId);
+      }
+    });
+  });
+
+  function positionTooltip(e) {
+    if (!tooltip || !canvasWrap) return;
+    const rect = canvasWrap.getBoundingClientRect();
+    const x = e.clientX - rect.left + 14;
+    const y = e.clientY - rect.top + 14;
+    
+    const ttWidth = tooltip.offsetWidth || 230;
+    const ttHeight = tooltip.offsetHeight || 95;
+    const maxX = rect.width - ttWidth - 10;
+    const maxY = rect.height - ttHeight - 10;
+
+    tooltip.style.left = `${Math.max(10, Math.min(x, maxX))}px`;
+    tooltip.style.top = `${Math.max(10, Math.min(y, maxY))}px`;
+  }
+}
+
+// Global Quick Highlight for Map Hotspots
+window.focusMapHotspot = function(spotId) {
+  const container = document.getElementById('hero-map-svg-container');
+  if (!container) return;
+
+  const hotspotMap = {
+    'bodh-gaya': { distId: 'gaya', destId: 'mahabodhi-temple' },
+    'nalanda': { distId: 'nalanda', destId: 'nalanda-ruins' },
+    'rajgir': { distId: 'nalanda', destId: 'rajgir-glass-bridge' },
+    'patna': { distId: 'patna', destId: 'bihar-museum' },
+    'vaishali': { distId: 'vaishali', destId: 'vaishali-ashokan-pillar' },
+    'valmiki': { distId: 'west-champaran', destId: 'valmiki-tiger-reserve' },
+    'sasaram': { distId: 'rohtas', destId: 'sher-shah-tomb' },
+    'kakolat': { distId: 'nawada', destId: 'kakolat-waterfall' },
+    'bhagalpur': { distId: 'bhagalpur', destId: 'gangetic-dolphin-sanctuary' },
+    'madhubani': { distId: 'madhubani', destId: 'madhubani-art-villages' }
+  };
+
+  const spot = hotspotMap[spotId];
+  if (!spot) return;
+
+  container.querySelectorAll('.map-district-path').forEach(p => p.classList.remove('active-district'));
+  const targetPath = container.querySelector(`#map-dist-${spot.distId}`);
+  if (targetPath) {
+    targetPath.classList.add('active-district');
+  }
+
+  const targetPin = container.querySelector(`.map-tourist-pin[data-dest-id="${spot.destId}"]`);
+  if (targetPin) {
+    const wave = targetPin.querySelector('.pin-pulse-wave');
+    if (wave) {
+      wave.setAttribute('r', '75');
+      setTimeout(() => wave.setAttribute('r', '46'), 1800);
+    }
+  }
+};
+
+window.resetHeroMapHighlight = function() {
+  const container = document.getElementById('hero-map-svg-container');
+  if (!container) return;
+  container.querySelectorAll('.map-district-path').forEach(p => p.classList.remove('active-district'));
+  const tooltip = document.getElementById('hero-map-tooltip');
+  if (tooltip) tooltip.style.display = 'none';
+};
+
+// Global Voice Audio Guide for Hero Introduction
+let heroAudioUtterance = null;
+let isHeroAudioPlaying = false;
+
+window.toggleHeroAudio = function() {
+  if (!('speechSynthesis' in window)) {
+    alert('Voice narration is not supported in this browser.');
+    return;
+  }
+
+  const icon = document.getElementById('hero-audio-icon');
+  const label = document.getElementById('hero-audio-label');
+
+  if (isHeroAudioPlaying) {
+    window.speechSynthesis.cancel();
+    isHeroAudioPlaying = false;
+    if (icon) icon.textContent = '🔊';
+    if (label) label.textContent = state.currentLang === 'hi' ? 'ऑडियो गाइड सुनें' : 'Listen Audio Guide';
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const isHi = state.currentLang === 'hi';
+  const textHi = 'बिहार की पावन भूमि पर आपका स्वागत है। यहाँ बोधगया में भगवान बुद्ध को संबोधि प्राप्त हुई, नालंदा में दुनिया का पहला अंतरराष्ट्रीय विश्वविद्यालय स्थापित हुआ, और वैशाली में विश्व के प्रथम लोकतांत्रिक गणराज्य की स्थापना हुई। आज बिहार के सभी अड़तीस ज़िलों में वाल्मीकि टाइगर रिज़र्व के घने जंगलों से लेकर ककोलत के शीतल जलप्रपात और समृद्ध सांस्कृतिक धरोहर आपका इंतज़ार कर रही है। आइए, बिहार का अन्वेषण करें।';
+  const textEn = 'Welcome to Bihar, the cradle of ancient Indian civilization. From Lord Buddha\'s supreme enlightenment at Bodh Gaya to the world\'s first residential university at Nalanda and the world\'s first republic at Vaishali. Across all 38 districts, discover emerald tiger reserves, thunderous waterfalls, living handicrafts, and warm hospitality. Explore beyond the ordinary.';
+
+  const textToSpeak = isHi ? textHi : textEn;
+  heroAudioUtterance = new SpeechSynthesisUtterance(textToSpeak);
+  heroAudioUtterance.lang = isHi ? 'hi-IN' : 'en-IN';
+  heroAudioUtterance.rate = 0.95;
+
+  heroAudioUtterance.onstart = function() {
+    isHeroAudioPlaying = true;
+    if (icon) icon.textContent = '⏹️';
+    if (label) label.textContent = isHi ? 'रुकें (Stop)' : 'Stop Audio';
+  };
+
+  heroAudioUtterance.onend = function() {
+    isHeroAudioPlaying = false;
+    if (icon) icon.textContent = '🔊';
+    if (label) label.textContent = isHi ? 'ऑडियो गाइड सुनें' : 'Listen Audio Guide';
+  };
+
+  heroAudioUtterance.onerror = function() {
+    isHeroAudioPlaying = false;
+    if (icon) icon.textContent = '🔊';
+    if (label) label.textContent = isHi ? 'ऑडियो गाइड सुनें' : 'Listen Audio Guide';
+  };
+
+  window.speechSynthesis.speak(heroAudioUtterance);
+};

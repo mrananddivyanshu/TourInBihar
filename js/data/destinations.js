@@ -28,10 +28,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 8420,
-    image: "images/nalanda.jpg",
+    image: "images/nalanda.webp",
     gallery: [
-      "images/nalanda.jpg",
-      "images/nalanda.jpg"
+      "images/nalanda.webp",
+      "images/nalanda.webp"
     ],
     overview: "A UNESCO World Heritage site, Nalanda Mahavihara was the world's first great residential university, flourishing from the 5th to the 12th century CE. It attracted over 10,000 students and 2,000 teachers from across Asia including China, Korea, Japan, Tibet, and Persia.",
     overview_hi: "यूनेस्को विश्व धरोहर स्थल, नालंदा महाविहार विश्व का पहला महान आवासीय विश्वविद्यालय था, जो 5वीं से 12वीं शताब्दी ईस्वी तक ज्ञान का वैश्विक केंद्र रहा। यहाँ चीन, कोरिया, जापान, तिब्बत और फारस सहित पूरे एशिया से 10,000 से अधिक छात्र अध्ययन करते थे।",
@@ -86,10 +86,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.9,
     reviews_count: 14200,
-    image: "images/mahabodhi.jpg",
+    image: "images/mahabodhi.webp",
     gallery: [
-      "images/mahabodhi.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Mahabodhi_temple_front_view.jpg/800px-Mahabodhi_temple_front_view.jpg"
+      "images/mahabodhi.webp",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Mahabodhi_temple_front_view.jpg/800px-Mahabodhi_temple_front_view.webp"
     ],
     overview: "A UNESCO World Heritage site of supreme spiritual significance, this is the exact holy ground where Prince Siddhartha Gautama attained Enlightenment (Bodhi) under the sacred Bodhi Tree around 531 BCE, becoming the Supreme Buddha.",
     overview_hi: "परम पावन यूनेस्को विश्व धरोहर स्थल, यह वह पवित्र भूमि है जहाँ लगभग 531 ईसा पूर्व में राजकुमार सिद्धार्थ गौतम ने पवित्र बोधि वृक्ष के नीचे तपस्या कर बुद्धत्व (ज्ञान) प्राप्त किया था।",
@@ -144,10 +144,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 5120,
-    image: "images/rajgir.jpg",
+    image: "images/rajgir.webp",
     gallery: [
-      "images/rajgir.jpg",
-      "images/rajgir.jpg"
+      "images/rajgir.webp",
+      "images/rajgir.webp"
     ],
     overview: "Suspended 250 feet above a picturesque canyon in the lush green Giri hills of Rajgir, this 85-foot-long crystal-clear glass bridge is Bihar's iconic modern eco-adventure attraction. The complex also features zip-lining, archery, wall climbing, and an open Zoo Safari.",
     overview_hi: "राजगीर की हरी-भरी गिरी पहाड़ियों के बीच 250 फीट की ऊंचाई पर बना 85 फीट लंबा यह पारदर्शी ग्लास स्काईवॉक बिहार का प्रमुख रोमांचक आकर्षण है। यहाँ जिप-लाइन, तीरंदाजी, रॉक क्लाइंबिंग और आधुनिक जू सफारी भी स्थित है।",
@@ -203,10 +203,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.9,
     reviews_count: 12500,
-    image: "images/biharmuseum.jpg",
+    image: "images/biharmuseum.webp",
     gallery: [
-      "images/biharmuseum.jpg",
-      "images/patnamuseum.jpg"
+      "images/biharmuseum.webp",
+      "images/patnamuseum.webp"
     ],
     overview: "Spanning 13.5 acres on Bailey Road with an investment of ₹530+ crores, Bihar Museum is recognized as Asia's #1 world-class experiential museum and South Asia's largest cultural institution. Designed by Pritzker Prize-winning Japanese architect Fumihiko Maki and Opolis Architects, it won the prestigious international Leading Culture Destinations Award ('Oscars for Museums'). It houses the iconic 2,300-year-old Didarganj Yakshi, ancient Kurkihar bronzes, and 3,000+ years of civilizational treasures across state-of-the-art interactive galleries.",
     overview_hi: "बेली रोड पर 13.5 एकड़ में 530 करोड़ रुपये से अधिक की लागत से निर्मित बिहार संग्रहालय को एशिया का नंबर-1 विश्वस्तरीय अनुभवात्मक संग्रहालय और दक्षिण एशिया का सबसे बड़ा सांस्कृतिक केंद्र माना जाता है। प्रित्ज़कर पुरस्कार विजेता जापानी वास्तुकार फुमिहिको माकी द्वारा डिज़ाइन किए गए इस संग्रहालय ने अंतरराष्ट्रीय 'लीडिंग कल्चर डेस्टिनेशंस अवार्ड' (संग्रहालयों का ऑस्कर) जीता है। यहाँ 2,300 वर्ष पुरानी विश्वप्रसिद्ध दीदारगंज यक्षी और 3,000 वर्षों की ऐतिहासिक विरासत प्रदर्शित है।",
@@ -271,10 +271,10 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 8900,
-    image: "images/patnamuseum.jpg",
+    image: "images/patnamuseum.webp",
     gallery: [
-      "images/patnamuseum.jpg",
-      "images/biharmuseum.jpg"
+      "images/patnamuseum.webp",
+      "images/biharmuseum.webp"
     ],
     overview: "Established in 1917 during the British Raj, Patna Museum (popularly known as Jadu Ghar) is one of the oldest, richest, and most prestigious museums in Asia. Built in majestic Indo-Saracenic (Mughal-Rajput) architecture on Buddha Marg, it famously safeguards the sacred 5th-century BCE casket containing the holy bone relics of Lord Gautama Buddha (unearthed from Vaishali), a 200-million-year-old fossilized tree trunk (53 feet long), and Rahul Sankrityayan's priceless collection of ancient Tibetan Thangka paintings.",
     overview_hi: "1917 में स्थापित पटना संग्रहालय (लोकप्रिय नाम 'जादू घर') एशिया के सबसे पुराने, समृद्ध और प्रतिष्ठित संग्रहालयों में गिना जाता है। बुद्ध मार्ग पर भव्य इंडो-सारसेनिक (मुगल-राजपूत) स्थापत्य में निर्मित इस संग्रहालय में भगवान गौतम बुद्ध के पावन अस्थि अवशेषों की पवित्र मंजूषा (वैशाली स्तूप से प्राप्त), 20 करोड़ वर्ष पुराना 53 फीट लंबा जीवाश्मीकृत वृक्ष और महापंडित राहुल सांकृत्यायन द्वारा तिब्बत से लाई गई अमूल्य थंका पेंटिंग्स सुरक्षित हैं।",
@@ -338,9 +338,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 3200,
-    image: "images/rohtasgarh.jpg",
+    image: "images/rohtasgarh.webp",
     gallery: [
-      "images/rohtasgarh.jpg"
+      "images/rohtasgarh.webp"
     ],
     overview: "Perched 1,500 feet atop the Kaimur plateau overlooking the Sone River, Rohtasgarh is one of the most impregnable and sprawling hill-fortresses in India, spanning over 28 square miles. It features royal palace chambers, hanging balconies, ancient temples, and cannon bastions.",
     overview_hi: "सोन नदी के ऊपर कैमूर पठार पर 1,500 फीट की ऊंचाई पर स्थित रोहतासगढ़ भारत के सबसे दुर्भेद्य और विशाल पहाड़ी किलों में से एक है, जो लगभग 28 वर्ग मील में फैला है। इसमें भव्य महल, लटकते झरोखे, मंदिर और प्राचीन तोपखाने हैं।",
@@ -395,9 +395,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 6700,
-    image: "images/shershah.jpg",
+    image: "images/shershah.webp",
     gallery: [
-      "images/shershah.jpg"
+      "images/shershah.webp"
     ],
     overview: "Regarded as the 'Taj Mahal of Bihar' and an Indo-Islamic architectural marvel, this magnificent red sandstone mausoleum stands 122 feet high in the center of a scenic square artificial lake. Built between 1540 and 1545 CE, its dome is actually larger than that of the Taj Mahal.",
     overview_hi: "'बिहार का ताजमहल' कहा जाने वाला यह भव्य लाल बलुआ पत्थर का मकबरा एक विशाल कृत्रिम झील के बीच 122 फीट ऊंचा खड़ा है। 1540 से 1545 के बीच निर्मित इस मकबरे का गुंबद आकार में ताजमहल के गुंबद से भी बड़ा है।",
@@ -450,9 +450,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 4200,
-    image: "images/valmiki.jpg",
+    image: "images/valmiki.webp",
     gallery: [
-      "images/valmiki.jpg"
+      "images/valmiki.webp"
     ],
     overview: "Nestled in the foothills of the Himalayas along the India-Nepal border, Valmiki is Bihar's only Tiger Reserve and premier national park, covering 898 sq km. Home to royal Bengal tigers, leopards, Indian one-horned rhinos, flying foxes, and 250+ exotic bird species.",
     overview_hi: "भारत-नेपाल सीमा पर हिमालय की तराई में स्थित वाल्मीकि बिहार का एकमात्र राष्ट्रीय उद्यान और टाइगर रिजर्व है, जो 898 वर्ग किमी में फैला है। यहाँ रॉयल बंगाल टाइगर, तेंदुए, एक सींग वाले गैंडे और 250 से अधिक दुर्लभ पक्षी पाए जाते हैं।",
@@ -507,9 +507,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.9,
     reviews_count: 11500,
-    image: "images/patnasahib.jpg",
+    image: "images/patnasahib.webp",
     gallery: [
-      "images/patnasahib.jpg"
+      "images/patnasahib.webp"
     ],
     overview: "One of the five sacred Takhts (Thrones of Authority) of Sikhism, Takht Sri Harmandir Ji Patna Sahib is the revered birthplace of the Tenth Sikh Guru, Guru Gobind Singh Ji, born here in 1666 CE. Standing near the bank of River Ganga, it welcomes pilgrims with continuous langar.",
     overview_hi: "सिख धर्म के पांच पावन तख्तों में से एक, तख्त श्री हरमंदिर जी पटना साहिब सिखों के दसवें गुरु, गुरु गोबिंद सिंह जी की पवित्र जन्मस्थली (1666 ई.) है। गंगा तट के निकट स्थित यह पावन गुरुद्वारा 24 घंटे लंगर और आध्यात्मिक शांति प्रदान करता है।",
@@ -564,9 +564,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 4800,
-    image: "images/mundeshwari.jpg",
+    image: "images/mundeshwari.webp",
     gallery: [
-      "images/mundeshwari.jpg"
+      "images/mundeshwari.webp"
     ],
     overview: "Perched atop the isolated Pavra hill (608 ft) in Kaimur, Mundeshwari is certified by the Archaeological Survey of India as the oldest surviving functional Hindu temple in India. Continuous worship has been conducted here since at least 108 CE / 635 CE.",
     overview_hi: "कैमूर की 608 फीट ऊंची पवरा पहाड़ी पर स्थित माँ मुंडेश्वरी मंदिर भारतीय पुरातत्व सर्वेक्षण (एएसआई) द्वारा भारत का सबसे प्राचीन निरंतर सक्रिय मंदिर प्रमाणित है, जहाँ लगभग 108 ई./635 ई. से बिना रुके निरंतर पूजा-अर्चना होती आ रही है।",
@@ -619,9 +619,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.6,
     reviews_count: 3800,
-    image: "images/kakolat.jpg",
+    image: "images/kakolat.webp",
     gallery: [
-      "images/kakolat.jpg"
+      "images/kakolat.webp"
     ],
     overview: "Cascading from a height of about 160 feet amidst dense forested hills on the border of Bihar and Jharkhand, Kakolat is Bihar's most iconic natural waterfall. The cold crystal-clear mineral spring waters pool into a natural reservoir revered for its refreshing and therapeutic qualities.",
     overview_hi: "बिहार और झारखंड की सीमा पर घने जंगलों से आच्छादित पहाड़ियों के बीच 160 फीट की ऊंचाई से गिरता ककोलत बिहार का सबसे लोकप्रिय प्राकृतिक जलप्रपात है। इसका निर्मल और शीतल जल एक प्राकृतिक कुंड में एकत्र होता है जो अत्यंत स्फूर्तिदायक है।",
@@ -676,9 +676,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 2900,
-    image: "images/kesaria.jpg",
+    image: "images/kesaria.webp",
     gallery: [
-      "images/kesaria.jpg"
+      "images/kesaria.webp"
     ],
     overview: "Rising majestically to a height of 104 feet with a circumference of nearly 1,400 feet, Kesaria is celebrated as the tallest Buddhist stupa in the world, standing one foot taller than the famous Borobudur temple in Indonesia. It features multiple circular terraces with Buddha shrines in niches.",
     overview_hi: "104 फीट की भव्य ऊंचाई और लगभग 1,400 फीट की परिधि के साथ केसरिया स्तूप दुनिया का सबसे ऊंचा बौद्ध स्तूप माना जाता है, जो इंडोनेशिया के बोरोबुदुर मंदिर से भी 1 फीट ऊंचा है। इसमें सीढ़ीदार चबूतरों पर भगवान बुद्ध की प्रतिमाएं स्थापित हैं।",
@@ -731,9 +731,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.6,
     reviews_count: 2400,
-    image: "images/vikramshila.jpg",
+    image: "images/vikramshila.webp",
     gallery: [
-      "images/vikramshila.jpg"
+      "images/vikramshila.webp"
     ],
     overview: "Along with Nalanda, Vikramshila was one of the two most important seats of Buddhist learning in India during the Pala Empire. Established at Antichak near Kahalgaon, its centerpiece is a gigantic cruciform central stupa surrounded by 208 monastic cells and landscaped lawns.",
     overview_hi: "नालंदा के साथ विक्रमशिला पाल साम्राज्य के दौरान भारत में बौद्ध शिक्षा का सबसे प्रमुख विश्वविद्यालय था। कहलगांव के निकट अंतीचक में स्थित इसका मुख्य केंद्र एक विशाल क्रूसीफॉर्म महास्तूप है जिसके चारों ओर 208 मठ कक्ष बने हुए हैं।",
@@ -786,9 +786,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.6,
     reviews_count: 2100,
-    image: "images/dolphin.jpg",
+    image: "images/dolphin.webp",
     gallery: [
-      "images/dolphin.jpg"
+      "images/dolphin.webp"
     ],
     overview: "Spanning 60 kilometers of the sacred Ganges River from Sultanganj to Kahalgaon in Bhagalpur, this is the only protected aquatic sanctuary for India's National Aquatic Animal—the endangered freshwater Gangetic Dolphin (Platanista gangetica, locally called 'Susu').",
     overview_hi: "भागलपुर में सुल्तानगंज से कहलगांव तक गंगा नदी के 60 किलोमीटर के हिस्से में फैला यह भारत के राष्ट्रीय जलीय जीव—दुर्लभ गंगा डॉल्फिन (सॉस) का देश में एकमात्र संरक्षित जलीय अभयारण्य है।",
@@ -844,9 +844,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.9,
     reviews_count: 3100,
-    image: "images/madhubani.jpg",
+    image: "images/madhubani.webp",
     gallery: [
-      "images/madhubani.jpg"
+      "images/madhubani.webp"
     ],
     overview: "Jitwarpur and Ranti are the living cradles of the world-celebrated GI-tagged Madhubani (Mithila) Painting. Walking through these villages is an open-air artistic pilgrimage—almost every household has women masters painting vivid murals of deities, nature, and rituals on mud walls and handmade paper.",
     overview_hi: "जीतवारपुर और रांटी विश्व प्रसिद्ध जीआई-टैग प्राप्त 'मधुबनी (मिथिला) चित्रकला' के जीवंत गांव हैं। इन गांवों में घूमना एक खुली कला दीर्घा में घूमने जैसा है, जहाँ लगभग हर घर में पद्मश्री और राष्ट्रीय पुरस्कार विजेता महिला कलाकार अपनी पारंपरिक कला का सृजन करती हैं।",
@@ -912,9 +912,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.4,
     reviews_count: 7500,
-    image: "images/golghar.jpg",
+    image: "images/golghar.webp",
     gallery: [
-      "images/golghar.jpg"
+      "images/golghar.webp"
     ],
     overview: "Built in 1786 by Captain John Garstin following the catastrophic Bengal famine of 1770, Golghar is an iconic stupa-shaped pillarless granary standing 29 meters high near Gandhi Maidan. Twin spiral staircases of 145 steps wind around the outside, offering panoramic views of Patna city and the Ganga.",
     overview_hi: "1770 के भीषण अकाल के बाद 1786 में कैप्टन जॉन गार्स्टिन द्वारा निर्मित गोलघर 29 मीटर ऊंचा बिना किसी खंभे का विशाल अन्नागार है। इसके चारों ओर 145 घुमावदार सीढ़ियां बनी हैं, जहाँ से पटना शहर और गंगा नदी का मनोरम विहंगम दृश्य दिखाई देता है।",
@@ -967,9 +967,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 8100,
-    image: "images/vishwa-shanti-stupa.jpg",
+    image: "images/vishwa-shanti-stupa.webp",
     gallery: [
-      "images/vishwa-shanti-stupa.jpg"
+      "images/vishwa-shanti-stupa.webp"
     ],
     overview: "Gleaming pure white atop the 400-meter Ratnagiri hill, Vishwa Shanti Stupa is one of the 80 Peace Pagodas constructed worldwide by Japanese Buddhist monk Nichidatsu Fujii. Accessible via a historic single-chair aerial ropeway or trekking steps, it houses four golden statues representing Buddha's birth, enlightenment, teaching, and passing.",
     overview_hi: "400 मीटर ऊंची रत्नागिरी पहाड़ी के शिखर पर स्थित दूधिया सफेद विश्व शांति स्तूप जापानी बौद्ध भिक्षु निचिदात्सु फूजी द्वारा निर्मित दुनिया के 80 शांति स्तूपों में से एक है। यहाँ तक एरियल रोपवे या सीढ़ियों द्वारा पहुंचा जा सकता है। इसमें भगवान बुद्ध की चार स्वर्णिम प्रतिमाएं स्थापित हैं।",
@@ -1022,9 +1022,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.5,
     reviews_count: 1800,
-    image: "images/kanwar.jpg",
+    image: "images/kanwar.webp",
     gallery: [
-      "images/kanwar.jpg"
+      "images/kanwar.webp"
     ],
     overview: "Covering 68 sq km, Kabartal (Kanwar Lake) is Asia's largest freshwater oxbow lake and Bihar's first internationally certified Ramsar Wetland Site. In winter, it becomes a mesmerizing haven for over 106 species of migratory birds flying from Siberia, Central Asia, and the Arctic.",
     overview_hi: "68 वर्ग किमी में फैली काबरताल (कांवर झील) एशिया की सबसे बड़ी मीठे पानी की गोखुर झील और बिहार का पहला अंतर्राष्ट्रीय रामसर आर्द्रभूमि स्थल है। सर्दियों में यहाँ साइबेरिया, मध्य एशिया और आर्कटिक से 106 से अधिक प्रजातियों के लाखों प्रवासी पक्षी आते हैं।",
@@ -1077,9 +1077,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 2600,
-    image: "images/barabar.jpg",
+    image: "images/barabar.webp",
     gallery: [
-      "images/barabar.jpg"
+      "images/barabar.webp"
     ],
     overview: "Carved into colossal monolithic granite boulders during the 3rd century BCE reign of Emperor Ashoka, the Barabar Caves are the oldest surviving rock-cut caves in India. The interiors feature astounding mirror-like granite polish and extraordinary acoustic resonance.",
     overview_hi: "ईसा पूर्व तीसरी शताब्दी में सम्राट अशोक के शासनकाल में विशाल ग्रेनाइट चट्टानों को काटकर बनाई गई बराबर की गुफाएं भारत की सबसे प्राचीन शैलकृत गुफाएं हैं। इनके भीतर की दीवारें दर्पण जैसी चिकनी पॉलिश और अद्भुत ध्वनि प्रतिध्वनि (इको) के लिए प्रसिद्ध हैं।",
@@ -1132,9 +1132,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 5200,
-    image: "images/pawapuri.jpg",
+    image: "images/pawapuri.webp",
     gallery: [
-      "images/pawapuri.jpg"
+      "images/pawapuri.webp"
     ],
     overview: "Built in pristine white marble in the center of a lotus-filled water tank spanning 16 acres, Jal Mandir marks the sacred spot where Lord Mahavira, the 24th Tirthankara of Jainism, was cremated after attaining Nirvana in 527 BCE.",
     overview_hi: "कमल के फूलों से आच्छादित 16 एकड़ के विशाल सरोवर के ठीक बीचों-बीच संगमरमर से बना जल मंदिर वह परम पवित्र स्थल है जहाँ 527 ईसा पूर्व में जैन धर्म के 24वें तीर्थंकर भगवान महावीर का निर्वाण और अंतिम संस्कार हुआ था।",
@@ -1187,9 +1187,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 3600,
-    image: "images/sitamarhi.jpg",
+    image: "images/sitamarhi.webp",
     gallery: [
-      "images/sitamarhi.jpg"
+      "images/sitamarhi.webp"
     ],
     overview: "Located 5 km west of Sitamarhi town, Punaura Dham is revered in the Ramayana tradition as the sacred birthplace of Goddess Sita. The holy complex features the Sita Kund pond, Janaki temple, and ancient groves where King Janaka ploughed the field.",
     overview_hi: "सीतामढ़ी से 5 किमी पश्चिम में स्थित पुनौरा धाम रामायण काल से माता जानकी (सीता जी) की पावन प्राकट्य स्थली के रूप में पूजनीय है। यहाँ पवित्र सीता कुंड, जानकी मंदिर और वह भूमि है जहाँ राजा जनक ने हल चलाया था।",
@@ -1242,9 +1242,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.6,
     reviews_count: 2800,
-    image: "images/mandar.jpg",
+    image: "images/mandar.webp",
     gallery: [
-      "images/mandar.jpg"
+      "images/mandar.webp"
     ],
     overview: "Rising 700 feet as a solitary granite monolith in Banka, Mandar Hill is celebrated in Hindu puranas as the churning rod used by Gods and Demons during the cosmic churning of the ocean (Samudra Manthan). Equipped with a modern scenic ropeway, it hosts Jain shrines and Papaharini lake.",
     overview_hi: "बांका में 700 फीट की ऊंचाई पर स्थित मंदार पर्वत हिंदू पुराणों में समुद्र मंथन की मथनी के रूप में विख्यात है। यहाँ अब आधुनिक रोपवे की सुविधा उपलब्ध है। पर्वत की तलहटी में पापहरिणी सरोवर और शिखर पर जैन मंदिर स्थित हैं।",
@@ -1297,9 +1297,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 3900,
-    image: "images/tutla-bhawani.jpg",
+    image: "images/tutla-bhawani.webp",
     gallery: [
-      "images/tutla-bhawani.jpg"
+      "images/tutla-bhawani.webp"
     ],
     overview: "Hidden inside a breathtaking gorge of the Kaimur hills, Tutla Bhawani features a sparkling waterfall dropping over 200 feet down a sheer red cliff. Visitors walk across an iconic suspension hanging bridge spanning the river gorge to reach the ancient Maa Tutla Bhawani shrine.",
     overview_hi: "कैमूर पहाड़ियों की मनोहारी संकरी घाटी में स्थित तुतला भवानी 200 फीट की ऊंचाई से लाल चट्टानों से गिरता एक जादुई जलप्रपात है। श्रद्धालु नदी घाटी के ऊपर बने सस्पेंशन हैंगिंग ब्रिज (झूला पुल) से होकर माँ तुतला भवानी के प्राचीन मंदिर तक पहुंचते हैं।",
@@ -1352,9 +1352,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.9,
     reviews_count: 3100,
-    image: "images/bihar-school-of-yoga.jpg",
+    image: "images/bihar-school-of-yoga.webp",
     gallery: [
-      "images/bihar-school-of-yoga.jpg"
+      "images/bihar-school-of-yoga.webp"
     ],
     overview: "Founded in 1963 by Swami Satyananda Saraswati atop a panoramic hillock overlooking the Ganges, Bihar School of Yoga is considered the world's premier center of classical yogic wisdom and research. It has trained millions of practitioners and researchers from over 100 countries.",
     overview_hi: "गंगा नदी के तट पर एक सुंदर पहाड़ी पर स्वामी सत्यानंद सरस्वती द्वारा 1963 में स्थापित बिहार योग विद्यालय विश्व में पारंपरिक योग शिक्षा और शोध का सर्वोच्च केंद्र माना जाता है। यहाँ 100 से अधिक देशों के योग साधक साधना करने आते हैं।",
@@ -1407,9 +1407,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 5300,
-    image: "images/vaishali-pillar.jpg",
+    image: "images/vaishali-pillar.webp",
     gallery: [
-      "images/vaishali-pillar.jpg"
+      "images/vaishali-pillar.webp"
     ],
     overview: "Kolhua in Vaishali is one of the rare places in India where Emperor Ashoka's monolithic polished sandstone pillar stands complete with its majestic single Asiatic lion capital facing north towards Kushinagar. Beside it lies the sacred brick Stupa and Ramkund (Monkey Pond).",
     overview_hi: "वैशाली के कोल्हुआ में स्थित सम्राट अशोक का यह एकाश्म पॉलिशदार बलुआ पत्थर का स्तंभ भारत के उन दुर्लभ स्तंभों में से एक है जिसका सिंह शीर्ष पूरी तरह सुरक्षित है और इसका मुख कुशीनगर की ओर है। इसके पास ही पवित्र ईंटों का स्तूप और रामकुंड स्थित हैं।",
@@ -1463,9 +1463,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 2450,
-    image: "images/madhubani.jpg",
+    image: "images/madhubani.webp",
     gallery: [
-      "images/madhubani.jpg"
+      "images/madhubani.webp"
     ],
     overview: "Saurath Sabha Gachhi is a legendary 22-acre grove of sacred Peepal trees where, for over 700 years, Maithil Brahmins gather annually. Genealogists (Panjikars) consult centuries-old palm-leaf genealogical records (Panji) to verify lineages before finalizing marriages without dowry.",
     overview_hi: "सौराठ सभा गाछी 22 एकड़ में फैला प्राचीन पीपल वृक्षों का ऐतिहासिक बाग है जहाँ 700 वर्षों से अधिक समय से मैथिल समुदाय के लोग वार्षिक सभा में एकत्रित होते हैं। यहाँ पंजीकार प्राचीन ताड़पत्र वंशावलियों का मिलान कर बिना दहेज के शादियां तय करते हैं।",
@@ -1516,9 +1516,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.8,
     reviews_count: 3200,
-    image: "images/mundeshwari.jpg",
+    image: "images/mundeshwari.webp",
     gallery: [
-      "images/mundeshwari.jpg"
+      "images/mundeshwari.webp"
     ],
     overview: "Located on the serene banks of the sacred Thumne river in Benipatti, Uchaita Bhagwati is celebrated as the holy site where Goddess Durga blessed Mahakavi Kalidasa with unparalleled poetic genius and Sanskrit wisdom.",
     overview_hi: "बेनीपट्टी में पवित्र थुम्हने नदी के किनारे स्थित उचैठ भगवती स्थान वह पावन सिद्धपीठ है जहाँ भगवती दुर्गा ने महाकवि कालिदास की अगाध भक्ति से प्रसन्न होकर उन्हें साक्षात ज्ञान और कवित्व का वरदान दिया था।",
@@ -1569,9 +1569,9 @@ const BIHAR_DESTINATIONS = [
     featured: true,
     rating: 4.7,
     reviews_count: 2890,
-    image: "images/rajnagar-palace.jpg",
+    image: "images/rajnagar-palace.webp",
     gallery: [
-      "images/rajnagar-palace.jpg"
+      "images/rajnagar-palace.webp"
     ],
     overview: "Built in the late 19th century by Maharaja Rameshwar Singh of Darbhanga Raj, Rajnagar features the majestic white marble Goddess Kali Temple, Durga Temple, massive elephant stables (Hathighar), and the ruins of Navlakha Palace on the Kamla river.",
     overview_hi: "दरभंगा राज के महाराजा रामेश्वर सिंह द्वारा 19वीं सदी के अंत में निर्मित राजनगर राज परिसर में श्वेत संगमरमर का अलौकिक माँ काली मंदिर, दुर्गा मंदिर, विशाल हाथीघर और कमला नदी के तट पर नौलखा महल के ऐतिहासिक खंडहर स्थित हैं।",
@@ -1622,9 +1622,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.7,
     reviews_count: 2150,
-    image: "images/mahabodhi.jpg",
+    image: "images/mahabodhi.webp",
     gallery: [
-      "images/mahabodhi.jpg"
+      "images/mahabodhi.webp"
     ],
     overview: "Located 9 km from Madhubani in Rahika block, Kapileshwar Sthan is an ancient pilgrimage temple revered for its miraculous Shiva Lingam, believed to have been consecrated by Sage Kapila, the propounder of the Sankhya philosophy.",
     overview_hi: "मधुबनी से 9 किमी दूर रहिका में स्थित कपलेश्वर स्थान एक अति प्राचीन शिव तीर्थ है। मान्यता है कि इस स्वयंभू शिवलिंग की स्थापना सांख्य दर्शन के प्रणेता महर्षि कपिल ने की थी। यहाँ विशाल पवित्र सरोवर और शांत प्रांगण स्थित है।",
@@ -1675,9 +1675,9 @@ const BIHAR_DESTINATIONS = [
     featured: false,
     rating: 4.8,
     reviews_count: 1980,
-    image: "images/nalanda.jpg",
+    image: "images/nalanda.webp",
     gallery: [
-      "images/nalanda.jpg"
+      "images/nalanda.webp"
     ],
     overview: "Bhavanipur is an immortal cultural shrine in Mithila where Lord Shiva, enchanted by the divine poetry and devotion of Mahakavi Vidyapati, incarnated on earth as a humble domestic servant named 'Ugna' to serve the poet.",
     overview_hi: "भवानीपुर मिथिला का वह अमर पावन धाम है जहाँ मैथिल कोकिल महाकवि विद्यापति की अनन्य भक्ति और मधुर पदावलियों से रीझकर स्वयं देवाधिदेव महादेव 'उगना' नामक घरेलू सेवक बनकर उनके घर रहे थे।",

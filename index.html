@@ -49,11 +49,11 @@
       if (!img.dataset) img.dataset = {};
       if (!img.dataset.retry) {
         img.dataset.retry = "1";
-        img.src = "images/mahabodhi.jpg";
+        img.src = "images/mahabodhi.webp";
         return;
       }
       img.onerror = null;
-      img.src = "images/nalanda.jpg";
+      img.src = "images/nalanda.webp";
     }
 
     function handleImgError(img) {
@@ -71,29 +71,29 @@
       };
       var alt = ((img.alt || '') + ' ' + (img.title || '')).toLowerCase();
       if (alt.indexOf('bihar museum') !== -1 || alt.indexOf('बिहार संग्रहालय') !== -1) {
-        img.src = 'images/biharmuseum.jpg';
+        img.src = 'images/biharmuseum.webp';
       } else if (alt.indexOf('patna museum') !== -1 || alt.indexOf('पटना संग्रहालय') !== -1 || alt.indexOf('जादू') !== -1) {
-        img.src = 'images/patnamuseum.jpg';
+        img.src = 'images/patnamuseum.webp';
       } else if (alt.indexOf('mahabodhi') !== -1 || alt.indexOf('gaya') !== -1 || alt.indexOf('बोधगया') !== -1) {
-        img.src = 'images/mahabodhi.jpg';
+        img.src = 'images/mahabodhi.webp';
       } else if (alt.indexOf('nalanda') !== -1 || alt.indexOf('नालंदा') !== -1) {
-        img.src = 'images/nalanda.jpg';
+        img.src = 'images/nalanda.webp';
       } else if (alt.indexOf('rajgir') !== -1 || alt.indexOf('राजगीर') !== -1) {
-        img.src = 'images/rajgir.jpg';
+        img.src = 'images/rajgir.webp';
       } else if (alt.indexOf('golghar') !== -1 || alt.indexOf('गोलघर') !== -1) {
-        img.src = 'images/golghar.jpg';
+        img.src = 'images/golghar.webp';
       } else if (alt.indexOf('patna') !== -1 || alt.indexOf('पटना') !== -1) {
-        img.src = 'images/patnasahib.jpg';
+        img.src = 'images/patnasahib.webp';
       } else if (alt.indexOf('rohtas') !== -1 || alt.indexOf('शेरशाह') !== -1) {
-        img.src = 'images/shershah.jpg';
+        img.src = 'images/shershah.webp';
       } else if (alt.indexOf('valmiki') !== -1 || alt.indexOf('वाल्मीकि') !== -1) {
-        img.src = 'images/valmiki.jpg';
+        img.src = 'images/valmiki.webp';
       } else if (alt.indexOf('kakolat') !== -1 || alt.indexOf('ककोलत') !== -1) {
-        img.src = 'images/kakolat.jpg';
+        img.src = 'images/kakolat.webp';
       } else if (alt.indexOf('madhubani') !== -1 || alt.indexOf('मधुबनी') !== -1) {
-        img.src = 'images/madhubani.jpg';
+        img.src = 'images/madhubani.webp';
       } else {
-        img.src = 'images/nalanda.jpg';
+        img.src = 'images/nalanda.webp';
       }
     }
   </script>
@@ -182,47 +182,89 @@
 
   <!-- ==================== VIEW 1: HOME ==================== -->
   <main id="view-home" class="view-tab-content active">
-    <!-- Hero Banner with Iconic Bodh Gaya Mahabodhi Temple -->
-    <section class="hero-section">
-      <div class="hero-bg-media">
-        <img 
-          src="images/mahabodhi.jpg" 
-          alt="Mahabodhi Temple Bodh Gaya Bihar" 
-          class="hero-bg-img" 
-          onerror="handleHeroImgError(this)" 
-        />
-        <div class="hero-bg-overlay"></div>
-      </div>
-      <div class="container hero-content">
-        <span class="hero-pill-badge" data-i18n="subtagline">One platform. 38 districts. Countless experiences.</span>
-        <h2 class="hero-title" data-i18n="hero_title">Explore the Soul of Ancient India</h2>
-        <p class="hero-subtitle" data-i18n="hero_subtitle">
-          From the world's first university in Nalanda and Buddha's enlightenment in Bodh Gaya, to emerald tiger reserves and thunderous waterfalls across all 38 districts.
-        </p>
+    <!-- Hero Section: Full Dedicated Interactive Bihar Tourism Vector Map (No Background Image) -->
+    <section class="hero-section hero-map-fullscreen-section">
+      <div class="container hero-container">
+        <!-- Hero Header: Title, Subtitle, Smart Search & Actions -->
+        <div class="hero-intro-center">
+          <span class="hero-pill-badge" data-i18n="subtagline">One platform • 38 districts • Countless experiences</span>
+          <h1 class="hero-title" data-i18n="hero_title">Explore the Soul of Ancient India</h1>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">
+            Interactive GIS Vector Map of Bihar • Click any district to explore its heritage or tap glowing pins to discover top tourist landmarks across all 38 districts.
+          </p>
 
-        <!-- Main Smart Search Bar -->
-        <div class="hero-search-wrapper">
-          <input type="text" id="hero-search-input" placeholder="Search destinations, districts, food (e.g. Nalanda, Litti, Waterfalls)..." data-i18n="search_placeholder" autocomplete="off" />
-          <button class="hero-search-btn" id="hero-search-btn">
-            <span>🔍</span> <span data-i18n="search_btn">Search</span>
-          </button>
+          <!-- Main Smart Search Bar -->
+          <div class="hero-search-wrapper">
+            <input type="text" id="hero-search-input" placeholder="Search destinations, districts, food (e.g. Nalanda, Litti, Waterfalls)..." data-i18n="search_placeholder" autocomplete="off" />
+            <button class="hero-search-btn" id="hero-search-btn">
+              <span>🔍</span> <span data-i18n="search_btn">Search</span>
+            </button>
+          </div>
+
+          <!-- Quick Search Suggestion Pills + Actions Row -->
+          <div class="hero-meta-toolbar">
+            <div class="quick-search-row">
+              <span class="quick-search-label" data-i18n="quick_search">Popular:</span>
+              <button class="quick-pill" onclick="setQuickSearch('Nalanda')">Nalanda</button>
+              <button class="quick-pill" onclick="setQuickSearch('Bodh Gaya')">Bodh Gaya</button>
+              <button class="quick-pill" onclick="setQuickSearch('Glass Bridge')">Rajgir Glass Bridge</button>
+              <button class="quick-pill" onclick="setQuickSearch('Waterfalls')">Waterfalls</button>
+              <button class="quick-pill" onclick="setQuickSearch('Litti')">Litti Chokha</button>
+              <button class="quick-pill" onclick="setQuickSearch('Madhubani')">Madhubani Art</button>
+            </div>
+
+            <div class="hero-action-buttons">
+              <button class="hero-action-btn primary" onclick="switchTab('destinations')">
+                <span>🧭</span> <span data-i18n="hero_browse_all">Browse Destinations</span>
+              </button>
+              <button class="hero-action-btn secondary" onclick="switchTab('districts')">
+                <span>🏛️</span> <span data-i18n="hero_view_districts">38 Districts</span>
+              </button>
+              <button class="hero-action-btn audio" id="hero-audio-guide-btn" onclick="toggleHeroAudio()" title="Listen to Bihar Tourism Voice Introduction">
+                <span id="hero-audio-icon">🔊</span> <span id="hero-audio-label" data-i18n="hero_listen_audio">Listen Audio Guide</span>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Quick Search Suggestion Pills -->
-        <div class="quick-search-row">
-          <span class="quick-search-label" data-i18n="quick_search">Popular searches:</span>
-          <button class="quick-pill" onclick="setQuickSearch('Nalanda')">Nalanda Ruins</button>
-          <button class="quick-pill" onclick="setQuickSearch('Bodh Gaya')">Bodh Gaya</button>
-          <button class="quick-pill" onclick="setQuickSearch('Glass Bridge')">Rajgir Glass Bridge</button>
-          <button class="quick-pill" onclick="setQuickSearch('Waterfalls')">Waterfalls</button>
-          <button class="quick-pill" onclick="setQuickSearch('Litti')">Litti Chokha</button>
-          <button class="quick-pill" onclick="setQuickSearch('Madhubani')">Madhubani Art</button>
-        </div>
+        <!-- Full-Width Interactive Map Showcase Card -->
+        <div class="hero-full-map-card">
+          <div class="hero-map-card-header">
+            <div class="map-card-heading-group">
+              <span class="map-live-pulse-dot" title="Live Interactive Vector Map"></span>
+              <div>
+                <h3 class="hero-map-heading" data-i18n="hero_map_card_title">Interactive Bihar Tourism Map</h3>
+                <span class="hero-map-caption" data-i18n="hero_map_card_caption">All 38 Districts &bull; River Ganga &bull; Top Hotspots (Click district or pin to explore)</span>
+              </div>
+            </div>
+            <div class="map-card-ctrls">
+              <button class="map-ctrl-btn" onclick="resetHeroMapHighlight()" title="Reset Selection" data-i18n-title="map_reset">🔄 Reset Highlight</button>
+            </div>
+          </div>
 
-        <!-- Featured Landmark Tag -->
-        <div class="hero-location-tag">
-          <span>🏛️</span>
-          <span data-i18n="hero_featured_landmark">Iconic Heritage: Mahabodhi Temple Complex, Bodh Gaya (UNESCO World Heritage Site)</span>
+          <!-- Interactive SVG Canvas Wrap -->
+          <div class="hero-map-canvas-wrap" id="hero-map-canvas-wrap">
+            <div id="hero-map-svg-container" class="hero-map-svg-container"></div>
+            <!-- Dynamic Hover/Click Floating Tooltip Card -->
+            <div id="hero-map-tooltip" class="hero-map-floating-tooltip" style="display: none;"></div>
+          </div>
+
+          <!-- Map Hotspots Quick Selector Bar -->
+          <div class="hero-map-footer-bar">
+            <span class="hero-map-jump-label" data-i18n="map_jump_label">Quick Highlight:</span>
+            <div class="hero-map-pills-row">
+              <button class="map-jump-pill" onclick="focusMapHotspot('bodh-gaya')">☸️ Bodh Gaya</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('nalanda')">🏛️ Nalanda</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('rajgir')">🚡 Rajgir</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('patna')">🏛️ Patna</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('vaishali')">🦁 Vaishali</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('valmiki')">🐅 Valmiki</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('sasaram')">👑 Sasaram</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('kakolat')">🌊 Kakolat</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('bhagalpur')">🐬 Vikramshila</button>
+              <button class="map-jump-pill" onclick="focusMapHotspot('madhubani')">🎨 Madhubani</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -800,6 +842,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Application Data Modules -->
+  <script src="js/data/bihar_map_svg.js"></script>
   <script src="js/data/districts.js"></script>
   <script src="js/data/district-languages.js"></script>
   <script src="js/data/destinations.js"></script>

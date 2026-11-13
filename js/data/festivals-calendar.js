@@ -18,7 +18,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "कार्तिक शुक्ल षष्ठी (अक्टूबर-नवंबर) एवं चैत्र शुक्ल षष्ठी",
     authority: "State Government of Bihar, District Administrations & Municipal Corporations",
     authority_hi: "बिहार सरकार, समस्त जिला प्रशासन एवं नगर निगम",
-    image: "images/chhath-puja.jpg",
+    image: "images/chhath-puja.webp",
     description: "The supreme solar festival of Bihar where millions stand waist-deep in water to offer Arghya to the setting and rising Sun God. Observed with 36 hours of rigorous waterless fasting (Nirjala) and unmatched spiritual purity.",
     description_hi: "भगवान भास्कर और छठी मइया को समर्पित बिहार का सबसे बड़ा महापर्व। लाखों श्रद्धालु 36 घंटे का निर्जला व्रत रख कमर तक पानी में खड़े होकर अस्ताचलगामी और उदीयमान सूर्य को अर्घ्य देते हैं।",
     highlights: ["Nahay Khay", "Kharna", "Sandhya Arghya", "Usha Arghya", "Sacred Thekua Mahaprasad"]
@@ -39,7 +39,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "कार्तिक पूर्णिमा से आरंभ (एक माह का मेला)",
     authority: "Bihar State Tourism Development Corporation (BSTDC) & Saran District Administration",
     authority_hi: "बिहार राज्य पर्यटन विकास निगम (BSTDC) एवं सारण जिला प्रशासन",
-    image: "images/sonepur-fair.jpg",
+    image: "images/sonepur-fair.webp",
     description: "One of Asia's largest and most historic fairs dating back to the Mauryan Empire. Features traditional cattle and horse exhibitions, folk theater, handicrafts, modern amusement rides, and water sports at the holy Sangam.",
     description_hi: "सम्राट चंद्रगुप्त मौर्य कालीन एशिया का सबसे बड़ा और ऐतिहासिक पशु व सांस्कृतिक मेला। यहाँ लोकनाट्य, हस्तशिल्प बाजार, पारंपरिक घुड़दौड़ और हरिहरनाथ महादेव का पवित्र दर्शन होता है।",
     highlights: ["Hariharnath Snan", "Handicrafts Pavilion", "Folk Music Stages", "Equestrian Shows"]
@@ -60,7 +60,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "वार्षिक शीतकालीन महोत्सव (3 से 7 दिवसीय)",
     authority: "Department of Tourism, Govt of Bihar & Nalanda District Admin",
     authority_hi: "पर्यटन विभाग, बिहार सरकार एवं नालंदा जिला प्रशासन",
-    image: "images/rajgir-mahotsav.jpg",
+    image: "images/rajgir-mahotsav.webp",
     description: "Celebrates classical Indian performing arts amidst the ancient hills of Rajgir. Renowned vocalists, instrumentalists, and dance troupes perform classical Kathak, Odissi, and Bharatnatyam, accompanied by traditional sports and food stalls.",
     description_hi: "राजगीर की सुरम्य पहाड़ियों की तलहटी में आयोजित होने वाला भव्य राज्य उत्सव। देश के शीर्ष शास्त्रीय गायक, वादक और नर्तक प्रस्तुतियां देते हैं। साथ ही पारंपरिक दंगल और ग्रामश्री मेला आयोजित होता है।",
     highlights: ["Classical Dance & Music", "Traditional Wrestling (Dangal)", "Gramshree Craft Fair", "Tonga Race"]
@@ -81,7 +81,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "अनंत चतुर्दशी से सर्वपितृ अमावस्या (16 दिवसीय)",
     authority: "Gaya District Administration, Gaya Shraddha Panda Committee & BSTDC",
     authority_hi: "गया जिला प्रशासन, श्री विष्णुपद प्रबंधकारिणी समिति एवं पर्यटन विभाग",
-    image: "images/pitrapaksha-mela.jpg",
+    image: "images/pitrapaksha-mela.webp",
     description: "A sacred pilgrimage described in the Mahabharata where millions travel from India and overseas to perform Pind Daan and Tarpan on the banks of Falgu River for the liberation (Moksha) of their departed ancestors.",
     description_hi: "महाभारत और पुराणों में वर्णित परम पावन तीर्थ जहाँ देश-विदेश से लाखों श्रद्धालु अपने पितरों के मोक्ष के लिए फल्गु नदी, विष्णुपद और अक्षयवट की छांव में पिंडदान और श्राद्ध कर्म करते हैं।",
     highlights: ["54 Pind Daan Altars", "Akshayavat Parikrama", "Falgu Aarti", "Tilkut Festival"]
@@ -102,7 +102,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "प्रतिवर्ष 14 जनवरी से आरंभ (3 से 5 दिवसीय)",
     authority: "Banka District Administration & Tourism Dept",
     authority_hi: "बांका जिला प्रशासन एवं पर्यटन विभाग",
-    image: "images/mandar.jpg",
+    image: "images/mandar.webp",
     description: "Held at the base of the sacred Mandar Hill (linked to Samudra Manthan). Commences with holy bath in Papaharini Sarovar on Makar Sankranti, featuring tribal music, Santhal folk dances, and local sweet fairs.",
     description_hi: "समुद्र मंथन की पौराणिक मथनी मंदार पर्वत की तलहटी में मकर संक्रांति पर पापहरिणी सरोवर में पावन स्नान के साथ आरंभ होता है। यहाँ संथाली लोकनृत्य और पारंपरिक तिलकुट मेला लगता है।",
     highlights: ["Papaharini Snan", "Mandar Ropeway Ride", "Santhal Folk Dance", "Traditional Khurma & Peda"]
@@ -123,7 +123,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "चैत्र पूर्णिमा के पावन अवसर पर प्रतिवर्ष",
     authority: "Vaishali District Administration & Department of Youth & Culture",
     authority_hi: "वैशाली जिला प्रशासन एवं कला संस्कृति विभाग",
-    image: "images/vaishali-pillar.jpg",
+    image: "images/vaishali-pillar.webp",
     description: "Celebrates the birthplace of world democracy (Lichhavi Republic) and Lord Mahavira's birth anniversary. Features classical dance dramas recreating the ancient glory of Amrapali and the Lichhavi Assembly.",
     description_hi: "विश्व के प्रथम गणतंत्र वैशाली और भगवान महावीर के जन्म कल्याणक के उपलक्ष्य में आयोजित होने वाला सांस्कृतिक उत्सव, जिसमें आम्रपाली और लिच्छवी गणतंत्र की गाथाओं का मंचन होता है।",
     highlights: ["Amrapali Dance Drama", "Mahavira Birthplace Kundalpur Puja", "Democracy Seminar"]
@@ -144,7 +144,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "आधिकारिक तिथियों की प्रतीक्षा (पर्यटन विभाग द्वारा घोषित की जाती हैं)",
     authority: "Bhagalpur District Administration & BSTDC",
     authority_hi: "भागलपुर जिला प्रशासन एवं पर्यटन विभाग",
-    image: "images/vikramshila.jpg",
+    image: "images/vikramshila.webp",
     description: "Commemorates the ancient seat of Pala Buddhist learning founded by Emperor Dharmapala. Highlights Buddhist philosophy discourses, Angika folk dances, and Manjusha art displays.",
     description_hi: "सम्राट धर्मपाल द्वारा स्थापित प्राचीन बौद्ध विश्वविद्यालय की गरिमा को समर्पित महोत्सव। इसमें बौद्ध दार्शनिक विचार गोष्ठियाँ, अंगिका लोकनृत्य और मंजूषा कला की प्रदर्शनियां लगती हैं।",
     highlights: ["Pala Heritage Seminar", "Angika Folk Songs", "Manjusha Art Pavilions", "Silk Weaving Live Demo"]
@@ -165,7 +165,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "श्रावण मास (पूरे एक माह का आयोजन)",
     authority: "Bhagalpur District Administration & Govt of Bihar",
     authority_hi: "भागलपुर जिला प्रशासन एवं बिहार सरकार",
-    image: "images/shravani-mela.jpg",
+    image: "images/shravani-mela.webp",
     description: "One of the longest walking spiritual pilgrimages in the world. Millions of saffron-clad Kanwariyas collect holy water from Uttarvahini Ganga at Sultanganj and trek 105 km barefoot to offer it at Baba Baidyanath Dham.",
     description_hi: "विश्व की सबसे लंबी पैदल आध्यात्मिक कांवड़ यात्रा। लाखों गेरुआ वस्त्रधारी कांवड़िए सुल्तानगंज की उत्तरवाहिनी गंगा से पवित्र जल भरकर 105 किमी नंगे पांव पदयात्रा कर बाबा बैद्यनाथ पर जलाभिषेक करते हैं।",
     highlights: ["Uttarvahini Ganga Snan", "Ajgaibinath Rock Carvings", "105 KM Kanwar Route Camps"]
@@ -186,7 +186,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "आधिकारिक तिथियों की प्रतीक्षा (वन विभाग द्वारा अधिसूचित)",
     authority: "Department of Environment, Forest & Climate Change, Bihar",
     authority_hi: "पर्यावरण, वन एवं जलवायु परिवर्तन विभाग, बिहार",
-    image: "images/kanwar.jpg",
+    image: "images/kanwar.webp",
     description: "Bihar's official state bird festival organized to promote eco-tourism and bird conservation around designated Ramsar wetland sites attracting rare migratory birds from Siberia and Eurasia.",
     description_hi: "बिहार का आधिकारिक राज्य पक्षी महोत्सव, जो पर्यावरण संरक्षण और प्रवासी पक्षियों के संवर्धन हेतु नागी-नकटी और काबरताल जैसी अंतरराष्ट्रीय रामसर साइटों पर आयोजित होता है।",
     highlights: ["Guided Birdwatching Walks", "Photography Competitions", "Nature Interpretation Sessions"]
@@ -207,7 +207,7 @@ const BIHAR_FESTIVALS_CALENDAR = [
     official_dates_hi: "वार्षिक तीन दिवसीय भव्य प्रकाश पर्व",
     authority: "Takht Sri Patna Sahib Prabandhak Committee & Govt of Bihar",
     authority_hi: "तख्त श्री पटना साहिब प्रबंधक कमेटी एवं बिहार सरकार",
-    image: "images/patnasahib.jpg",
+    image: "images/patnasahib.webp",
     description: "Birth anniversary celebrations of the Tenth Sikh Guru, Guru Gobind Singh Ji. Pilgrims from all over the world gather for grand Nagar Kirtan, 24x7 Langar, Gurbani recitals, and divine illumination of Patna Sahib.",
     description_hi: "दशमेश पिता गुरु गोबिंद सिंह जी की पावन जयंती। विश्व भर से संगत पटना साहिब पहुंचती है। भव्य नगर कीर्तन, अखंड लंगर, शबद कीर्तन और अलौकिक रोशनी से पूरा शहर जगमगा उठता है।",
     highlights: ["Grand Nagar Kirtan", "Continuous Guru Ka Langar", "Tenth Guru Relics Exhibition"]
