@@ -36,7 +36,7 @@ const BIHAR_DISTRICTS = [
     festivals_hi: ["छठ पूजा", "प्रकाश पर्व", "पटना फिल्म महोत्सव", "दुर्गा पूजा"],
     transport_info: "Jay Prakash Narayan International Airport (PAT), Patna Junction (major Indian railway hub), and extensive NH network.",
     transport_info_hi: "जय प्रकाश नारायण अंतर्राष्ट्रीय हवाई अड्डा (PAT), पटना जंक्शन, और राष्ट्रीय राजमार्ग नेटवर्क।",
-    image: "images/makhana.jpg"
+    image: "images/biharmuseum.jpg"
   },
   {
     id: "nalanda",
