@@ -30,6 +30,16 @@ const TRANSLATIONS = {
     stat_history: "Years of Living History",
     stat_free: "Free & Verified Guide",
 
+    // New Smart Features (PRD v3.2)
+    weather_title: "Live Tourism Weather & Seasonality",
+    weather_subtitle: "Real-time temperature and climate conditions across Bihar's main tourism hubs",
+    matcher_title: "Find Your Ideal Bihar Vibe",
+    matcher_subtitle: "30-Second Matcher: Answer 3 quick questions to discover your personalized travel itinerary",
+    route_calc_title: "Distance & Travel Route Calculator",
+    route_calc_subtitle: "Calculate road distance, driving hours, highway route, and train links from any major hub",
+    route_origin_label: "Starting Hub / Transit Point:",
+    route_dest_label: "Select Tourist Destination:",
+
     // Explore Categories
     categories_title: "Explore by Tourism Category",
     categories_subtitle: "Find your perfect journey through Bihar's rich historical, religious, and natural landscape",
@@ -242,6 +252,16 @@ const TRANSLATIONS = {
     stat_destinations: "प्रमाणित पर्यटन स्थल",
     stat_history: "वर्षों का सजीव इतिहास",
     stat_free: "निःशुल्क व सत्यापित गाइड",
+
+    // New Smart Features (PRD v3.2)
+    weather_title: "लाइव पर्यटन मौसम व सर्वोत्तम भ्रमण समय",
+    weather_subtitle: "बिहार के प्रमुख पर्यटन केंद्रों का वर्तमान तापमान, जलवायु और अनुकूल भ्रमण समय",
+    matcher_title: "अपनी मनपसंद बिहार यात्रा खोजें (30-Sec Vibe Matcher)",
+    matcher_subtitle: "3 आसान सवालों के जवाब दें और अपनी रुचि व बजट के अनुसार पर्सनलाइज्ड टूर प्लान पाएं",
+    route_calc_title: "दूरी, समय एवं यात्रा मार्ग कैलकुलेटर",
+    route_calc_subtitle: "प्रमुख एयरपोर्ट/स्टेशनों से पर्यटन स्थलों की सटीक सड़क दूरी, ड्राइविंग समय व ट्रेन कनेक्टिविटी",
+    route_origin_label: "प्रारंभिक हब / यात्रा बिंदु चुनें:",
+    route_dest_label: "पर्यटन स्थल चुनें:",
 
     // Explore Categories
     categories_title: "श्रेणी के अनुसार अन्वेषण करें",

@@ -251,6 +251,27 @@
       </div>
     </section>
 
+    <!-- Live Tourism Weather & Best Season Bar (Feature 4) -->
+    <section class="weather-strip-section">
+      <div class="container">
+        <div class="weather-header-row">
+          <div class="weather-title-wrap">
+            <span style="font-size: 1.4rem;">🌤️</span>
+            <div>
+              <h3 data-i18n="weather_title">Live Tourism Weather & Seasonality</h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="weather_subtitle">Real-time temperature and climate conditions across Bihar's main tourism hubs</span>
+            </div>
+          </div>
+          <div class="weather-hubs-scroll" id="weather-hub-pills">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+        <div id="weather-card-display">
+          <!-- Rendered dynamically with live metrics -->
+        </div>
+      </div>
+    </section>
+
     <!-- Categories Section -->
     <section class="section-padding">
       <div class="container">
@@ -260,6 +281,19 @@
         </div>
         <div class="categories-grid" id="home-categories-grid">
           <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- "Find Your Vibe" 30-Second Trip Matcher (Feature 3) -->
+    <section class="trip-matcher-section">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <h2 data-i18n="matcher_title">Find Your Ideal Bihar Vibe</h2>
+          <p data-i18n="matcher_subtitle">30-Second Matcher: Answer 3 quick questions to discover your personalized travel itinerary</p>
+        </div>
+        <div id="trip-matcher-container">
+          <!-- Rendered dynamically by tools.js -->
         </div>
       </div>
     </section>
@@ -545,6 +579,37 @@
           <!-- Rendered dynamically -->
         </div>
       </div>
+
+      <!-- Smart Distance & Route Calculator (Feature 2) -->
+      <div class="route-calculator-section" id="route-calculator-tool">
+        <div class="route-calc-header">
+          <span style="font-size: 2rem;">🛣️</span>
+          <h3 data-i18n="route_calc_title">Distance & Travel Route Calculator</h3>
+          <p data-i18n="route_calc_subtitle">Calculate road distance, driving hours, highway route, and train links from any major hub</p>
+        </div>
+
+        <div class="route-inputs-row">
+          <div class="route-input-group">
+            <label for="route-origin-select" data-i18n="route_origin_label">Starting Hub / Transit Point:</label>
+            <select id="route-origin-select" class="form-select">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+
+          <div class="route-swap-icon">➔</div>
+
+          <div class="route-input-group">
+            <label for="route-dest-select" data-i18n="route_dest_label">Select Tourist Destination:</label>
+            <select id="route-dest-select" class="form-select">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+        </div>
+
+        <div id="route-result-container">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
     </div>
   </main>
 
@@ -673,6 +738,7 @@
   <!-- Localization & Planner Modules -->
   <script src="js/translations.js"></script>
   <script src="js/planner.js"></script>
+  <script src="js/tools.js"></script>
   
   <!-- Main Application Controller -->
   <script src="js/app.js"></script>

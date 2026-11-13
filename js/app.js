@@ -152,6 +152,13 @@ function initApp() {
     }
   } catch (e) { console.warn('Hash routing warning:', e); }
 
+  // 11. Initialize Interactive Smart Tools (Weather, Vibe Matcher, Route Calculator)
+  try {
+    if (typeof initWeatherWidget === 'function') initWeatherWidget();
+    if (typeof initTripMatcher === 'function') initTripMatcher();
+    if (typeof initDistanceCalculator === 'function') initDistanceCalculator();
+  } catch (e) { console.warn('Tools init warning:', e); }
+
   // Listen for Browser Hash Changes (Deep-Linking)
   window.addEventListener('hashchange', handleHashRouting);
 }
@@ -2225,6 +2232,15 @@ function renderAllViews() {
   }
   if (typeof renderPlannerUI === 'function') {
     renderPlannerUI();
+  }
+  if (typeof initWeatherWidget === 'function') {
+    initWeatherWidget();
+  }
+  if (typeof initTripMatcher === 'function') {
+    initTripMatcher();
+  }
+  if (typeof initDistanceCalculator === 'function') {
+    initDistanceCalculator();
   }
 }
 
